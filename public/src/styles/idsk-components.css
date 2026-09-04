@@ -334,6 +334,7 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: static;
 }
 
 .idsk-nav__list {
@@ -342,10 +343,12 @@ textarea:focus-visible,
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
+  position: static;
+  width: 100%;
 }
 
 .idsk-nav__item {
-  position: relative;
+  position: static;
 }
 
 .idsk-nav__link {
@@ -365,38 +368,38 @@ textarea:focus-visible,
 .idsk-nav__link:hover,
 .idsk-nav__item:hover > .idsk-nav__link {
   background-color: rgba(255, 255, 255, 0.12);
-  border-bottom-color: var(--idsk-color-focus-bg);
+  border-bottom-color: #B22222; /* Tehlovo červený akcent podľa originálu a erbu */
 }
 
 .idsk-nav__link.is-active {
   background-color: rgba(255, 255, 255, 0.16);
-  border-bottom-color: var(--idsk-color-focus-bg);
+  border-bottom-color: #B22222;
 }
 
 .idsk-nav__arrow {
   width: 12px;
   height: 12px;
   fill: currentColor;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .idsk-nav__item:hover .idsk-nav__arrow {
   transform: rotate(180deg);
 }
 
-/* Rozbaľovacie podmenu (Dropdown) */
+/* Plnošírkové vodorovné podmenu (Mega-Menu Ribbon 1:1 s originálom) */
 .idsk-nav__dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 240px;
-  background-color: #FFFFFF;
-  border: 1px solid var(--idsk-color-border);
-  border-top: 3px solid var(--idsk-color-primary);
-  box-shadow: var(--idsk-shadow-lg);
-  border-radius: 0 0 var(--idsk-radius-md) var(--idsk-radius-md);
+  right: 0;
+  width: 100%;
+  background-color: #F8FAFC;
+  border-top: 2px solid #B22222;
+  border-bottom: 1px solid var(--idsk-color-border);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
   list-style: none;
-  padding: 8px 0;
+  padding: 16px 0 20px;
   display: none;
   z-index: 1001;
 }
@@ -406,20 +409,63 @@ textarea:focus-visible,
   display: block;
 }
 
+.idsk-nav__dropdown-container {
+  max-width: var(--idsk-max-width);
+  margin: 0 auto;
+  padding: 0 var(--idsk-container-padding);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 24px;
+}
+
+@media (max-width: 992px) {
+  .idsk-nav__dropdown-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .idsk-nav__dropdown-link {
-  display: block;
-  padding: 10px 20px;
-  color: var(--idsk-color-text);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 10px;
+  color: #2D3748;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
-  transition: var(--idsk-transition);
+  border-radius: var(--idsk-radius-sm);
+  transition: all 0.15s ease;
+  line-height: 1.4;
+}
+
+.idsk-nav__dropdown-link::before {
+  content: "›";
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #718096;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .idsk-nav__dropdown-link:hover {
-  background-color: var(--idsk-color-primary-light);
-  color: var(--idsk-color-primary);
-  padding-left: 24px;
+  background-color: #EDF2F7;
+  color: #003366;
+  text-decoration: underline;
+  padding-left: 14px;
+}
+
+.idsk-nav__dropdown-link:hover::before {
+  color: #B22222;
+}
+
+.idsk-nav__dropdown-link.is-active {
+  font-weight: 700;
+  color: #003366;
+  background-color: #EBF8FF;
+}
+
+.idsk-nav__dropdown-link.is-active::before {
+  color: #B22222;
 }
 
 /* Mobilné hamburger tlačidlo */

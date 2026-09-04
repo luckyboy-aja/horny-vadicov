@@ -57,11 +57,12 @@
   <header class="idsk-header" role="banner">
     <div class="idsk-container">
       <div class="idsk-header__inner">
-        <a href="../../" class="idsk-header__logo" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
+        <a href="../../" class="idsk-header__logo-group" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
           <img src="../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
-          <div class="idsk-header__text">
-            <span class="idsk-header__title">Obec Horný Vadičov</span>
-            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto | Žilinský kraj</span>
+          <div class="idsk-header__title-container">
+            <span class="idsk-header__pretitle">Obecný úrad</span>
+            <span class="idsk-header__title">Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto · Žilinský kraj</span>
           </div>
         </a>
 
@@ -81,19 +82,121 @@
     </div>
   </header>
 
-  <!-- 4. Hlavná navigácia -->
+  <!-- 4. Hlavná prístupná navigácia (IDSK 3.0 Mega-Menu Ribbon 1:1) -->
   <div class="idsk-nav-wrapper">
     <div class="idsk-container">
       <nav class="idsk-nav" aria-label="Hlavná navigácia">
+        <button type="button" class="idsk-nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          <span>MENU</span>
+        </button>
         <ul class="idsk-nav__list" id="navList">
-          <li class="idsk-nav__item"><a href="../../obec-2/o-obci/" class="idsk-nav__link"><span>Obec</span></a></li>
-          <li class="idsk-nav__item"><a href="../../samosprava/starostka-obce/" class="idsk-nav__link"><span>Samospráva</span></a></li>
-          <li class="idsk-nav__item"><a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__link"><span>Zverejňovanie</span></a></li>
-          <li class="idsk-nav__item"><a href="../../projekty/" class="idsk-nav__link"><span>Projekty</span></a></li>
-          <li class="idsk-nav__item"><a href="../../uzemny-plan/" class="idsk-nav__link"><span>Územný plán</span></a></li>
-          <li class="idsk-nav__item"><a href="../../volby-a-referendum/" class="idsk-nav__link"><span>Voľby</span></a></li>
-          <li class="idsk-nav__item"><a href="../../obec-2/organizacie-v-obci/" class="idsk-nav__link"><span>Organizácie</span></a></li>
-          <li class="idsk-nav__item"><a href="../../kontakt/uradne-hodiny/" class="idsk-nav__link"><span>Kontakt</span></a></li>
+          <li class="idsk-nav__item">
+            <a href="../../obec-2/o-obci/" class="idsk-nav__link">
+              <span>Obec</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../obec-2/o-obci/" class="idsk-nav__dropdown-link">O obci</a>
+                <a href="../../obec-2/historia/" class="idsk-nav__dropdown-link">História</a>
+                <a href="../../obec-2/symboly-obce/" class="idsk-nav__dropdown-link">Symboly obce</a>
+                <a href="../../obec-2/aktuality/" class="idsk-nav__dropdown-link">Aktuality</a>
+                <a href="../../obec-2/tlaciva/" class="idsk-nav__dropdown-link">Tlačivá</a>
+                <a href="../../obec-2/kalendar-podujati/" class="idsk-nav__dropdown-link">Kalendár podujatí</a>
+                <a href="../../obec-2/fotogaleria/" class="idsk-nav__dropdown-link">Fotogaléria</a>
+                <a href="../../obec-2/organizacie-v-obci/" class="idsk-nav__dropdown-link">Organizácie v obci</a>
+                <a href="../../obec-2/cintorin/dokumenty/" class="idsk-nav__dropdown-link">Cintorín</a>
+                <a href="../../obec-2/civilna-ochrana/" class="idsk-nav__dropdown-link">Civilná ochrana</a>
+                <a href="../../obec-2/poziarna-ochrana/" class="idsk-nav__dropdown-link">Požiarna ochrana</a>
+                <a href="../../obec-2/odpadove-hospodarstvo-1/" class="idsk-nav__dropdown-link">Odpadové hospodárstvo</a>
+                <a href="../../obec-2/sport/" class="idsk-nav__dropdown-link">Šport</a>
+                <a href="../../obec-2/kniznica/" class="idsk-nav__dropdown-link">Knižnica</a>
+                <a href="../../obec-2/bytove-domy-a651-b652/" class="idsk-nav__dropdown-link">Bytové domy A651, B652</a>
+              </div>
+            </div>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../samosprava/starostka-obce/" class="idsk-nav__link is-active">
+              <span>Samospráva</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../samosprava/starostka-obce/" class="idsk-nav__dropdown-link">Starostka obce</a>
+                <a href="../../samosprava/obecne-zastupitelstvo/poslanci-oz/" class="idsk-nav__dropdown-link">Obecné zastupiteľstvo</a>
+                <a href="../../samosprava/komisie-oz/ekonomicka-komisia/" class="idsk-nav__dropdown-link">Komisie OZ</a>
+                <a href="../../samosprava/hlavny-kontrolor-obce/" class="idsk-nav__dropdown-link">Hlavný kontrolór obce</a>
+                <a href="../../samosprava/vzn/" class="idsk-nav__dropdown-link">VZN</a>
+                <a href="../../samosprava/smernice/" class="idsk-nav__dropdown-link is-active">Smernice</a>
+                <a href="../../samosprava/gdpr-infozakon/" class="idsk-nav__dropdown-link">GDPR – Infozákon</a>
+                <a href="../../samosprava/dokumenty-obce/" class="idsk-nav__dropdown-link">Dokumenty obce</a>
+              </div>
+            </div>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__link">
+              <span>Zverejňovanie</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__dropdown-link">Úradná tabuľa</a>
+                <a href="../../zverejnovanie/zmluvy-faktury-objednavky/" class="idsk-nav__dropdown-link">Zmluvy, Faktúry, Objednávky</a>
+                <a href="../../zverejnovanie/verejne-obstaravanie/profil/" class="idsk-nav__dropdown-link">Verejné obstarávanie</a>
+                <a href="../../zverejnovanie/hospodarenie/rozpocet/" class="idsk-nav__dropdown-link">Hospodárenie</a>
+                <a href="../../zverejnovanie/dobropisy/" class="idsk-nav__dropdown-link">Dobropisy</a>
+                <a href="../../zverejnovanie/ostatne-dokumenty/" class="idsk-nav__dropdown-link">Ostatné dokumenty</a>
+                <a href="../../zverejnovanie/projekty/" class="idsk-nav__dropdown-link">Projekty</a>
+              </div>
+            </div>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../volby-a-referendum/" class="idsk-nav__link">
+              <span>Voľby a Referendum</span>
+            </a>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../uzemny-plan/" class="idsk-nav__link">
+              <span>Územný plán</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../uzemny-plan/1-prieskumy-a-rozbory/" class="idsk-nav__dropdown-link">1. Prieskumy a rozbory</a>
+              </div>
+            </div>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../kontakt/uradne-hodiny/" class="idsk-nav__link">
+              <span>Kontakt</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../kontakt/uradne-hodiny/" class="idsk-nav__dropdown-link">Úradné hodiny</a>
+                <a href="../../kontakt/zamestnanci-ocu/" class="idsk-nav__dropdown-link">Zamestnanci OcÚ</a>
+                <a href="../../kontakt/odkazy/" class="idsk-nav__dropdown-link">Odkazy</a>
+              </div>
+            </div>
+          </li>
+          <li class="idsk-nav__item">
+            <a href="../../projekty/" class="idsk-nav__link">
+              <span>Projekty</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <div class="idsk-nav__dropdown">
+              <div class="idsk-nav__dropdown-container">
+                <a href="../../projekty/znizenie-energetickej-narocnosti-materskej-skolky-horny-vadicov/" class="idsk-nav__dropdown-link">Zníženie energetickej náročnosti Materskej škôlky Horný Vadičov</a>
+                <a href="../../projekty/stavebne-upravy-materskej-skoly-v-hornom-vadicove-c-515/" class="idsk-nav__dropdown-link">Stavebné úpravy materskej školy v Hornom Vadičove č. 515</a>
+                <a href="../../projekty/narodny-projekt-podpora-opatrovatelskej-sluzby/" class="idsk-nav__dropdown-link">Národný projekt Podpora opatrovateľskej služby</a>
+                <a href="../../projekty/rekonstrukcia-sportoveho-ihriska-pri-zs-v-obci-horny-vadicov/" class="idsk-nav__dropdown-link">Rekonštrukcia športového ihriska pri ZŠ v obci Horný Vadičov</a>
+                <a href="../../projekty/rozhybme-seniorov-v-obci-horny-vadicov-olympiada-starsich/" class="idsk-nav__dropdown-link">Rozhýbme seniorov v obci Horný Vadičov - Olympiáda starších</a>
+                <a href="../../projekty/znizenie-energetickej-narocnosti-kulturno-informacneho-centra-s-kniznicou-horny-vadicov-c-798/" class="idsk-nav__dropdown-link">Zníženie energetickej náročnosti Kultúrno-informačného centra s knižnicou Horný Vadičov č. 798</a>
+                <a href="../../projekty/znizenie-energetickej-narocnosti-objektu-obecneho-uradu-horny-vadicov/" class="idsk-nav__dropdown-link">Zníženie energetickej náročnosti objektu Obecného úradu Horný Vadičov</a>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>

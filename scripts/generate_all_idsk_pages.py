@@ -1,3 +1,4 @@
+from nav_builder import render_navigation_markup
 import os
 import sys
 import json
@@ -101,6 +102,7 @@ def render_idsk_page(page, root_rel):
 """
 
     layout_class = "idsk-subpage-layout" if submenu else "idsk-subpage-layout--single"
+    nav_html = render_navigation_markup(root_rel, page.get('path', ''))
 
     html_template = f"""<!DOCTYPE html>
 <html lang="sk">
@@ -161,11 +163,12 @@ def render_idsk_page(page, root_rel):
   <header class="idsk-header" role="banner">
     <div class="idsk-container">
       <div class="idsk-header__inner">
-        <a href="{root_rel}" class="idsk-header__logo" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
+        <a href="{root_rel}" class="idsk-header__logo-group" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
           <img src="{root_rel}images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
-          <div class="idsk-header__text">
-            <span class="idsk-header__title">Obec Horný Vadičov</span>
-            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto | Žilinský kraj</span>
+          <div class="idsk-header__title-container">
+            <span class="idsk-header__pretitle">Obecný úrad</span>
+            <span class="idsk-header__title">Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto · Žilinský kraj</span>
           </div>
         </a>
 
@@ -185,20 +188,15 @@ def render_idsk_page(page, root_rel):
     </div>
   </header>
 
-  <!-- 4. Hlavná navigácia -->
+  <!-- 4. Hlavná prístupná navigácia (IDSK 3.0 Mega-Menu Ribbon 1:1) -->
   <div class="idsk-nav-wrapper">
     <div class="idsk-container">
       <nav class="idsk-nav" aria-label="Hlavná navigácia">
-        <ul class="idsk-nav__list" id="navList">
-          <li class="idsk-nav__item"><a href="{root_rel}obec-2/o-obci/" class="idsk-nav__link"><span>Obec</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}samosprava/starostka-obce/" class="idsk-nav__link"><span>Samospráva</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}zverejnovanie/uradna-tabula-1/" class="idsk-nav__link"><span>Zverejňovanie</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}projekty/" class="idsk-nav__link"><span>Projekty</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}uzemny-plan/" class="idsk-nav__link"><span>Územný plán</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}volby-a-referendum/" class="idsk-nav__link"><span>Voľby</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}obec-2/organizacie-v-obci/" class="idsk-nav__link"><span>Organizácie</span></a></li>
-          <li class="idsk-nav__item"><a href="{root_rel}kontakt/uradne-hodiny/" class="idsk-nav__link"><span>Kontakt</span></a></li>
-        </ul>
+        <button type="button" class="idsk-nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          <span>MENU</span>
+        </button>
+{nav_html}
       </nav>
     </div>
   </div>
