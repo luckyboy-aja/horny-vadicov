@@ -21,10 +21,54 @@ if os.path.exists('scripts/url_rewrite_map.json'):
     with open('scripts/url_rewrite_map.json', 'r', encoding='utf-8') as f:
         rewrite_map = json.load(f)
 
+# Načítame mapu pre /modules/file_storage/download.php linky
+module_map = {}
+if os.path.exists('scripts/module_download_map.json'):
+    with open('scripts/module_download_map.json', 'r', encoding='utf-8') as f:
+        module_map = json.load(f)
+    print(f"Načítaných {len(module_map)} module download mappings")
+
 def clean_html_content(content, root_rel):
     """Upraví cesty v autentickom HTML tak, aby odkazovali na lokálne súbory a podstránky."""
     if not content:
         return ""
+    
+    # 0. Fix /modules/file_storage/download.php links using pre-downloaded file mapping
+    def sub_module(m):
+        q = m.group(1)  # opening quote
+        href_raw = m.group(2)  # href value
+        href_decoded = href_raw.replace('&amp;', '&')
+        local_path = module_map.get(href_decoded) or module_map.get(href_raw)
+        if local_path:
+            return f'href={q}{root_rel}{local_path.lstrip("/")}{q}'
+        return f'href={q}https://www.hornyvadicov.sk{href_decoded}{q}'
+    
+    content = re.sub(
+        r'href=(["\'])(\/modules\/file_storage\/download\.php\?[^"\']*)\1',
+        sub_module,
+        content
+    )
+    
+    # 0b. Fix /e_download.php?file=PATH links - replace with direct file paths
+    def sub_edownload(m):
+        q = m.group(1)  # opening quote
+        href_raw = m.group(2)  # href value
+        href_decoded = href_raw.replace('&amp;', '&')
+        file_match = re.search(r'file=([^&"\']*)(?:&|$)', href_decoded)
+        if file_match:
+            from urllib.parse import unquote
+            file_path = unquote(file_match.group(1))
+            clean_path = file_path.lstrip('/')
+            import os.path
+            if os.path.exists(f'public/{clean_path}'):
+                return f'href={q}{root_rel}{clean_path}{q}'
+        return f'href={q}https://www.hornyvadicov.sk{href_decoded}{q}'
+    
+    content = re.sub(
+        r'href=(["\'])(\/e_download\.php\?[^"\']*)\1',
+        sub_edownload,
+        content
+    )
     
     # 1. Prepis odkazov na dokumenty a obrázky podľa rewrite_map
     for orig, local in rewrite_map.items():
