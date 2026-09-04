@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <title>Presmerovanie | Obec Horný Vadičov</title>
+  <script>
+    (function() {
+      var repoName = '/horny-vadicov';
+      var l = window.location;
+      var path = l.pathname.startsWith(repoName) ? l.pathname.slice(repoName.length) : l.pathname;
+      var target = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        repoName + '/#' + path + (l.search ? '&' + l.search.slice(1) : '') + l.hash;
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>Presmerovávam na požadovanú podstránku...</p>
+</body>
+</html>

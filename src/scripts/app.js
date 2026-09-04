@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNoticeboardSearch();
   initNewsModal();
   initLiveSearch();
+  initRouter();
 });
 
 // 1. Identifikačný pruh štátnej správy a samosprávy
@@ -252,6 +253,84 @@ function initTabs() {
         }
       });
     });
+  });
+}
+
+// 9. Smerovač podstránok (IDSK Router)
+function initRouter() {
+  const mainContent = document.getElementById('main-content');
+  const subpageView = document.getElementById('subpage-view');
+  const btnBackToHome = document.getElementById('btnBackToHome');
+  const logoLink = document.querySelector('.idsk-header__logo');
+
+  function handleRoute() {
+    const hash = window.location.hash;
+    if (hash.startsWith('#/zverejnovanie/verejne-obstaravanie') || hash.startsWith('#/zverejnovanie')) {
+      if (mainContent) mainContent.style.display = 'none';
+      if (subpageView) subpageView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      if (mainContent) mainContent.style.display = 'block';
+      if (subpageView) subpageView.style.display = 'none';
+      if (hash && hash !== '#' && !hash.startsWith('#/')) {
+        const targetElem = document.querySelector(hash);
+        if (targetElem) {
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', handleRoute);
+  handleRoute();
+
+  if (btnBackToHome) {
+    btnBackToHome.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.hash = '';
+      if (mainContent) mainContent.style.display = 'block';
+      if (subpageView) subpageView.style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if (logoLink) {
+    logoLink.addEventListener('click', () => {
+      window.location.hash = '';
+      if (mainContent) mainContent.style.display = 'block';
+      if (subpageView) subpageView.style.display = 'none';
+    });
+  }
+
+  // Prepínanie záložiek na podstránke Profil / Zákazky / Archív
+  const subTabProfil = document.getElementById('subTabProfil');
+  const subTabZakazky = document.getElementById('subTabZakazky');
+  const subTabArchiv = document.getElementById('subTabArchiv');
+  const subPanelProfil = document.getElementById('subPanelProfil');
+  const subPanelZakazky = document.getElementById('subPanelZakazky');
+  const subPanelArchiv = document.getElementById('subPanelArchiv');
+
+  const subTabs = [
+    { btn: subTabProfil, panel: subPanelProfil },
+    { btn: subTabZakazky, panel: subPanelZakazky },
+    { btn: subTabArchiv, panel: subPanelArchiv }
+  ];
+
+  subTabs.forEach(({ btn, panel }) => {
+    if (btn && panel) {
+      btn.addEventListener('click', () => {
+        subTabs.forEach(item => {
+          if (item.btn && item.panel) {
+            item.btn.classList.remove('is-active');
+            item.btn.setAttribute('aria-selected', 'false');
+            item.panel.style.display = 'none';
+          }
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        panel.style.display = 'block';
+      });
+    }
   });
 }
 

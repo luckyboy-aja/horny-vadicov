@@ -1363,3 +1363,164 @@ textarea:focus-visible,
     grid-template-columns: 1fr;
   }
 }
+
+/* --- IDSK 3.0 Podstránky a Breadcrumbs --- */
+.idsk-breadcrumbs {
+  padding: 16px 0;
+  font-size: 0.875rem;
+  color: var(--idsk-color-text-secondary);
+}
+
+.idsk-breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.idsk-breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.idsk-breadcrumbs__item:not(:last-child)::after {
+  content: "›";
+  color: #A0AEC0;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.idsk-breadcrumbs__link {
+  color: var(--idsk-color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.idsk-breadcrumbs__link:hover {
+  color: var(--idsk-color-primary-dark);
+}
+
+.idsk-breadcrumbs__item[aria-current="page"] {
+  font-weight: 600;
+  color: var(--idsk-color-text);
+}
+
+/* Layout podstránky (Dvojstĺpcový podľa IDSK) */
+.idsk-subpage-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 992px) {
+  .idsk-subpage-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.idsk-subpage-sidebar {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  overflow: hidden;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-subpage-sidebar__header {
+  background-color: #003366;
+  color: #FFFFFF;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.idsk-subpage-sidebar__nav {
+  list-style: none;
+  padding: 8px 0;
+}
+
+.idsk-subpage-sidebar__link {
+  display: block;
+  padding: 10px 20px;
+  color: var(--idsk-color-text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  border-left: 4px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.idsk-subpage-sidebar__link:hover {
+  background-color: #F0F4F8;
+  color: var(--idsk-color-primary);
+}
+
+.idsk-subpage-sidebar__link.is-active {
+  background-color: #E6F0F8;
+  color: var(--idsk-color-primary-dark);
+  font-weight: 700;
+  border-left-color: var(--idsk-color-primary);
+}
+
+.idsk-subpage-content {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  padding: 36px;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-subpage-content__header {
+  border-bottom: 2px solid #E2E8F0;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.idsk-subpage-content__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #003366;
+  margin-bottom: 12px;
+}
+
+.idsk-subpage-content__subtitle {
+  color: var(--idsk-color-text-secondary);
+  font-size: 1rem;
+}
+
+/* Identifikačný box obstarávateľa */
+.idsk-procurement-card {
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E0;
+  border-left: 6px solid var(--idsk-color-primary);
+  border-radius: var(--idsk-radius-sm);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.idsk-procurement-card__grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  row-gap: 12px;
+  column-gap: 20px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .idsk-procurement-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.idsk-procurement-card__label {
+  font-weight: 700;
+  color: #4A5568;
+}
+
+.idsk-procurement-card__value {
+  color: var(--idsk-color-text);
+}
