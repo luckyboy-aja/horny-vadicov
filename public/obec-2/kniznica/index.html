@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knižnica | Obec Horný Vadičov (IDSK 3.0)</title>
+  <meta name="description" content="Knižnica - Oficiálne webové sídlo obce Horný Vadičov v štandarde IDSK 3.0">
+  <link rel="icon" type="image/png" href="../../images/crest.png">
+  <link rel="stylesheet" href="../../src/styles/idsk-tokens.css">
+  <link rel="stylesheet" href="../../src/styles/idsk-components.css">
+  <link rel="stylesheet" href="../../src/styles/main.css">
+</head>
+<body>
+  <!-- 1. Bezbariérový odkaz na hlavný obsah (WCAG 2.1 AA) -->
+  <a href="#main-content" class="idsk-skip-link">Preskočiť na hlavný obsah</a>
+
+  <!-- 2. Štátny a samosprávny identifikačný prúžok (IDSK 3.0) -->
+  <div class="idsk-gov-bar" role="region" aria-label="Identifikátor verejnej správy">
+    <div class="idsk-container">
+      <div class="idsk-gov-bar__inner">
+        <div class="idsk-gov-bar__brand">
+          <span class="idsk-gov-bar__flag" aria-hidden="true">
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--white"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--blue"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--red"></span>
+          </span>
+          <span class="idsk-gov-bar__text">Oficiálna stránka samosprávy Slovenskej republiky</span>
+          <button type="button" class="idsk-gov-bar__info-btn" id="govBarToggle" aria-expanded="false" aria-controls="govBarInfo">
+            Ako spoznáte oficiálnu stránku?
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 10l5 5 5-5z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="idsk-gov-bar__tools">
+          <div class="idsk-gov-bar__a11y-group" role="group" aria-label="Nástroje prístupnosti">
+            <button type="button" class="idsk-a11y-btn" id="btnContrast" title="Prepnúť režim vysokého kontrastu">Kontrast</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontIncrease" title="Zväčšiť písmo">A+</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontReset" title="Pôvodná veľkosť písma">A</button>
+          </div>
+          <div class="idsk-gov-bar__lang">
+            <span style="font-weight: 700; color: var(--idsk-color-primary);">SK</span>
+            <span style="color: #A0AEC0;"> | </span>
+            <a href="../../en/" style="color: var(--idsk-color-text-secondary); text-decoration: none;" title="English version">EN</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="idsk-gov-bar__collapsible-info" id="govBarInfo">
+        <p><strong>Oficiálna doména samosprávy SR:</strong> Táto stránka je oficiálnym webovým sídlom obce Horný Vadičov v zmysle Zákona č. 369/1990 Zb. o obecnom zriadení. Používa bezpečné šifrované spojenie (HTTPS) a spĺňa štandardy jednotného dizajn manuálu elektronických služieb (IDSK 3.0).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Hlavná hlavička obce -->
+  <header class="idsk-header" role="banner">
+    <div class="idsk-container">
+      <div class="idsk-header__inner">
+        <a href="../../" class="idsk-header__logo" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
+          <img src="../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
+          <div class="idsk-header__text">
+            <span class="idsk-header__title">Obec Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto | Žilinský kraj</span>
+          </div>
+        </a>
+
+        <div class="idsk-header__actions">
+          <div class="idsk-header__contacts">
+            <a href="tel:+421414229221" class="idsk-contact-chip" title="Zavolajte na obecný úrad">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>041 / 422 92 21</span>
+            </a>
+            <a href="mailto:urad@hornyvadicov.sk" class="idsk-contact-chip" title="Napíšte nám e-mail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>urad@hornyvadicov.sk</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Hlavná navigácia -->
+  <div class="idsk-nav-wrapper">
+    <div class="idsk-container">
+      <nav class="idsk-nav" aria-label="Hlavná navigácia">
+        <ul class="idsk-nav__list" id="navList">
+          <li class="idsk-nav__item"><a href="../../obec-2/o-obci/" class="idsk-nav__link"><span>Obec</span></a></li>
+          <li class="idsk-nav__item"><a href="../../samosprava/starostka-obce/" class="idsk-nav__link"><span>Samospráva</span></a></li>
+          <li class="idsk-nav__item"><a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__link"><span>Zverejňovanie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../projekty/" class="idsk-nav__link"><span>Projekty</span></a></li>
+          <li class="idsk-nav__item"><a href="../../uzemny-plan/" class="idsk-nav__link"><span>Územný plán</span></a></li>
+          <li class="idsk-nav__item"><a href="../../volby-a-referendum/" class="idsk-nav__link"><span>Voľby</span></a></li>
+          <li class="idsk-nav__item"><a href="../../obec-2/organizacie-v-obci/" class="idsk-nav__link"><span>Organizácie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../kontakt/uradne-hodiny/" class="idsk-nav__link"><span>Kontakt</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hlavný obsah podstránky -->
+  <main id="main-content">
+    <div class="idsk-container">
+      <nav class="idsk-breadcrumbs" aria-label="Navigačná lišta (breadcrumbs)">
+        <ol class="idsk-breadcrumbs__list">
+<li class="idsk-breadcrumbs__item"><a href="../../" class="idsk-breadcrumbs__link">Úvodná stránka</a></li>
+        <li class="idsk-breadcrumbs__item" aria-current="page">Obec</li>
+        <li class="idsk-breadcrumbs__item" aria-current="page">Knižnica</li>
+        </ol>
+      </nav>
+
+      <div class="idsk-subpage-layout">
+
+        <aside class="idsk-subpage-sidebar">
+          <h2 class="idsk-subpage-sidebar__header">Menu sekcie</h2>
+          <ul class="idsk-subpage-sidebar__nav">
+            <li><a href="../../obec-2/o-obci/" class="idsk-subpage-sidebar__link">O obci</a></li>
+            <li><a href="../../obec-2/historia/" class="idsk-subpage-sidebar__link">História</a></li>
+            <li><a href="../../obec-2/symboly-obce/" class="idsk-subpage-sidebar__link">Symboly obce</a></li>
+            <li><a href="../../obec-2/aktuality/" class="idsk-subpage-sidebar__link">Aktuality</a></li>
+            <li><a href="../../obec-2/tlaciva/" class="idsk-subpage-sidebar__link">Tlačivá</a></li>
+            <li><a href="../../obec-2/tlaciva/ziadost-o-poskytnutie-dotacie-z-rozpoctu-obce-prilohy/" class="idsk-subpage-sidebar__link">Žiadosť o poskytnutie dotácie z rozpočtu obce + prílohy</a></li>
+            <li><a href="../../obec-2/kalendar-podujati/" class="idsk-subpage-sidebar__link">Kalendár podujatí</a></li>
+            <li><a href="../../obec-2/fotogaleria/" class="idsk-subpage-sidebar__link">Fotogaléria</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/" class="idsk-subpage-sidebar__link">Organizácie v obci</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/materska-skola/" class="idsk-subpage-sidebar__link">Materská škola</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/zakladna-skola/" class="idsk-subpage-sidebar__link">Základná škola</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/dobrovolny-hasicsky-zbor/" class="idsk-subpage-sidebar__link">Dobrovoľný hasičský zbor</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/dobrovolny-hasicsky-zbor/aktuality-dhz-horny-vadicov-1/" class="idsk-subpage-sidebar__link">Aktuality DHZ Horný Vadičov</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/jednota-dochodcov-slovenska/" class="idsk-subpage-sidebar__link">Jednota dôchodcov Slovenska</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/folklorna-skupina-vajcovci/" class="idsk-subpage-sidebar__link">Folklórna skupina Vajčovci</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/lesne-spolocenstvo-pozemkove-spolocenstvo/dokumenty/" class="idsk-subpage-sidebar__link">Lesné spoločenstvo, pozemkové spoločenstvo</a></li>
+            <li><a href="../../obec-2/organizacie-v-obci/cirkev/" class="idsk-subpage-sidebar__link">Cirkev</a></li>
+            <li><a href="../../obec-2/cintorin/dokumenty/" class="idsk-subpage-sidebar__link">Cintorín</a></li>
+            <li><a href="../../obec-2/civilna-ochrana/" class="idsk-subpage-sidebar__link">Civilná ochrana</a></li>
+            <li><a href="../../obec-2/poziarna-ochrana/" class="idsk-subpage-sidebar__link">Požiarna ochrana</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/" class="idsk-subpage-sidebar__link">Odpadové hospodárstvo</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/uroven-vytriedenia-komunalnych-odpadov/" class="idsk-subpage-sidebar__link">Úroveň vytriedenia komunálnych odpadov</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/rocne-vykazy-za-komunalne-odpady/" class="idsk-subpage-sidebar__link">Ročné výkazy za komunálne odpady</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/zvoz-odpadov/" class="idsk-subpage-sidebar__link">Zvoz odpadov</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/ako-triedit-odpad/" class="idsk-subpage-sidebar__link">Ako triediť odpad</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/odpady-na-cintorine/" class="idsk-subpage-sidebar__link">Odpady na Cintoríne</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/uzitocne-odkazy/" class="idsk-subpage-sidebar__link">Užitočné odkazy</a></li>
+            <li><a href="../../obec-2/odpadove-hospodarstvo-1/sezonny-zber-odpadov/" class="idsk-subpage-sidebar__link">Sezónny zber odpadov</a></li>
+            <li><a href="../../obec-2/sport/" class="idsk-subpage-sidebar__link">Šport</a></li>
+            <li><a href="../../obec-2/sport/futbal-1/" class="idsk-subpage-sidebar__link">Futbal</a></li>
+            <li><a href="../../obec-2/sport/hokejbal-1/" class="idsk-subpage-sidebar__link">Hokejbal</a></li>
+            <li><a href="../../obec-2/kniznica/" class="idsk-subpage-sidebar__link is-active">Knižnica</a></li>
+            <li><a href="../../obec-2/kniznica/projekty/" class="idsk-subpage-sidebar__link">Projekty</a></li>
+            <li><a href="../../obec-2/kniznica/podujatia/" class="idsk-subpage-sidebar__link">Podujatia</a></li>
+            <li><a href="../../obec-2/kniznica/aktuality/" class="idsk-subpage-sidebar__link">Aktuality</a></li>
+            <li><a href="../../obec-2/bytove-domy-a651-b652/" class="idsk-subpage-sidebar__link">Bytové domy A651, B652</a></li>
+            <li><a href="../../obec-2/bytove-domy-a651-b652/poradovnik-cakatelov-na-byt/" class="idsk-subpage-sidebar__link">Poradovník čakateľov na byt</a></li>
+            <li><a href="../../obec-2/bytove-domy-a651-b652/informacie-pre-najomcov/" class="idsk-subpage-sidebar__link">Informácie pre nájomcov</a></li>
+          </ul>
+        </aside>
+
+        <article class="idsk-subpage-content">
+          <div class="idsk-subpage-content__header">
+            <h1 class="idsk-subpage-content__title">Knižnica</h1>
+          </div>
+
+          <div class="idsk-subpage-body editor_content">
+<div class="gcm-main-container gcm-container">
+        <div class="gcm-row">
+            <div class="gcm-content">
+                <div class="gcm-info">
+                    <nav aria-label="breadcrumb" class="gcm-navigation"><ol class="breadcrumb"><li class="breadcrumb-item">
+                    <a class="breadcrumb-link" href="../../" title="Úvodná stránka"><i class="far fa-home"></i><span>Úvodná stránka</span></a>
+                    </li><li class="breadcrumb-item">Obec</li><li class="breadcrumb-item active last" aria-current="page">Knižnica</li></ol></nav>
+                </div>
+                <div class="gcm-main">
+                    
+                    
+                        <div class="editor_content readable">
+    <h4 style="text-align: center;"><em>Knižnica Horný Vadičov sa nachádza v budove Kultúrno - informačného centra s knižnicou č.798 pri cintoríne za obchodom Koruna.</em></h4><h5><strong>Otvorená pre verejnosť je každú STREDU od 9:00 do 17:00 hod.</strong></h5><p>Sadzobník polatkov:</p><p>Členské poplatky za kalendárny rok:</p><p>Dospelí                                     1,00 eur</p><p>Deti a mládež                          0,50 eur</p><p>Strata knihy                             cena knihy</p><p>Kontakt: 0910 793 324</p><p>Facebook Knižnica Horný Vadičov: </p><p><a href="http://www.facebook.com/profile.php?id=61574210510150">http://www.facebook.com/profile.php?id=61574210510150</a> </p><p><a class="file" href="../../data/editor/106sk_3.pdf" target="_blank" title="Súbor na stiahnutie: Príkazný list starostky obce (1).pdf, Typ: PDF dokument, Velkosť: 343.37 kB">Príkazný list starostky obce 2024</a><i> </i></p><p><a class="file" href="../../data/editor/106sk_1.pdf" target="_blank" title="Súbor na stiahnutie: Ocenenie - knihovnícky počin 2022.pdf, Typ: Adobe Portable Document Format, Velkosť: 292.48 kB">Ocenenie - knihovnícky počin 2022</a></p><p><a class="file" href="../../data/editor/106sk_2.pdf" target="_blank" title="Súbor na stiahnutie: Ocenenie - knihovnícky počin 2022 za kvalitnú akvizičnú prácu.pdf, Typ: Adobe Portable Document Format, Velkosť: 285.25 kB">Ocenenie - knihovnícky počin 2022 za kvalitnú akvizičnú prácu</a></p><p> </p><div class="cleaner"></div>
+</div>
+
+                                
+                </div>
+            </div>
+            <div class="gcm-vertical-column">
+                <h3 class="access gcm-submenu-heading"><span>Obec</span></h3>
+                
+
+<nav id="submenu" class="container-fluid p-0 menu-parent-2">
+        <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem65">
+        <a class="px-3 py-2 d-block" href="../../obec-2/o-obci/" target="_self" title="O obci">O obci</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem39">
+        <a class="px-3 py-2 d-block" href="../../obec-2/historia/" target="_self" title="História">História</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem71">
+        <a class="px-3 py-2 d-block" href="../../obec-2/symboly-obce/" target="_self" title="Symboly obce">Symboly obce</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem66">
+        <a class="px-3 py-2 d-block" href="../../obec-2/aktuality/" target="_self" title="Aktuality">Aktuality</a>
+
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                            
+        
+    <li class="item item-5 subitems" id="subItem140">
+        <a class="px-3 py-2 d-block" href="../../obec-2/tlaciva/" target="_self" title="Tlačivá">Tlačivá</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap140" aria-label="Tlačivá" title="Tlačivá - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap140">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem166">
+        <a class="px-3 py-2 d-block" href="../../obec-2/tlaciva/ziadost-o-poskytnutie-dotacie-z-rozpoctu-obce-prilohy/" target="_self" title="Žiadosť o poskytnutie dotácie z rozpočtu obce + prílohy">Žiadosť o poskytnutie dotácie z rozpočtu obce + prílohy</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem88">
+        <a class="px-3 py-2 d-block" href="../../obec-2/kalendar-podujati/" target="_self" title="Kalendár podujatí">Kalendár podujatí</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-7 " id="subItem67">
+        <a class="px-3 py-2 d-block" href="../../obec-2/fotogaleria/" target="_self" title="Fotogaléria">Fotogaléria</a>
+
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                                                                                                                                                                        
+        
+    <li class="item item-8 subitems" id="subItem45">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/" target="_self" title="Organizácie v obci">Organizácie v obci</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap45" aria-label="Organizácie v obci" title="Organizácie v obci - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap45">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem74">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/materska-skola/" target="_self" title="Materská škola">Materská škola</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem174">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/zakladna-skola/" target="_self" title="Základná škola">Základná škola</a>
+
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                            
+        
+    <li class="item item-3 subitems" id="subItem84">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/dobrovolny-hasicsky-zbor/" target="_self" title="Dobrovoľný hasičský zbor">Dobrovoľný hasičský zbor</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap84" aria-label="Dobrovoľný hasičský zbor" title="Dobrovoľný hasičský zbor - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap84">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem135">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/dobrovolny-hasicsky-zbor/aktuality-dhz-horny-vadicov-1/" target="_self" title="Aktuality DHZ Horný Vadičov">Aktuality DHZ Horný Vadičov</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem175">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/jednota-dochodcov-slovenska/" target="_self" title="Jednota dôchodcov Slovenska">Jednota dôchodcov Slovenska</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem176">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/folklorna-skupina-vajcovci/" target="_self" title="Folklórna skupina Vajčovci">Folklórna skupina Vajčovci</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem86">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/lesne-spolocenstvo-pozemkove-spolocenstvo/dokumenty/" target="_self" title="Lesné spoločenstvo, pozemkové spoločenstvo">Lesné spoločenstvo, pozemkové spoločenstvo</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-7 " id="subItem85">
+        <a class="px-3 py-2 d-block" href="../../obec-2/organizacie-v-obci/cirkev/" target="_self" title="Cirkev">Cirkev</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-9 " id="subItem75">
+        <a class="px-3 py-2 d-block" href="../../obec-2/cintorin/dokumenty/" target="_self" title="Cintorín">Cintorín</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-10 " id="subItem46">
+        <a class="px-3 py-2 d-block" href="../../obec-2/civilna-ochrana/" target="_self" title="Civilná ochrana">Civilná ochrana</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-11 " id="subItem113">
+        <a class="px-3 py-2 d-block" href="../../obec-2/poziarna-ochrana/" target="_self" title="Požiarna ochrana">Požiarna ochrana</a>
+
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                                                                                                                                                    
+        
+    <li class="item item-12 subitems" id="subItem158">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/" target="_self" title="Odpadové hospodárstvo">Odpadové hospodárstvo</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap158" aria-label="Odpadové hospodárstvo" title="Odpadové hospodárstvo - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap158">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem159">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/uroven-vytriedenia-komunalnych-odpadov/" target="_self" title="Úroveň vytriedenia komunálnych odpadov">Úroveň vytriedenia komunálnych odpadov</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem160">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/rocne-vykazy-za-komunalne-odpady/" target="_self" title="Ročné výkazy za komunálne odpady">Ročné výkazy za komunálne odpady</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem161">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/zvoz-odpadov/" target="_self" title="Zvoz odpadov">Zvoz odpadov</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem162">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/ako-triedit-odpad/" target="_self" title="Ako triediť odpad">Ako triediť odpad</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem163">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/odpady-na-cintorine/" target="_self" title="Odpady na Cintoríne">Odpady na Cintoríne</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem164">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/uzitocne-odkazy/" target="_self" title="Užitočné odkazy">Užitočné odkazy</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-7 " id="subItem165">
+        <a class="px-3 py-2 d-block" href="../../obec-2/odpadove-hospodarstvo-1/sezonny-zber-odpadov/" target="_self" title="Sezónny zber odpadov">Sezónny zber odpadov</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                                                
+        
+    <li class="item item-13 subitems" id="subItem83">
+        <a class="px-3 py-2 d-block" href="../../obec-2/sport/" target="_self" title="Šport">Šport</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap83" aria-label="Šport" title="Šport - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap83">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem131">
+        <a class="px-3 py-2 d-block" href="../../obec-2/sport/futbal-1/" target="_self" title="Futbal">Futbal</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem132">
+        <a class="px-3 py-2 d-block" href="../../obec-2/sport/hokejbal-1/" target="_self" title="Hokejbal">Hokejbal</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+                        
+    
+                
+    
+    
+                                                                    
+        
+    <li class="item item-14 active subitems open" id="subItem106">
+        <a class="px-3 py-2 d-block" href="../../obec-2/kniznica/" target="_self" title="Knižnica" aria-current="page">Knižnica</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="true" aria-controls="subMenuWrap106" aria-label="Knižnica" title="Knižnica - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper open" id="subMenuWrap106">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem108">
+        <a class="px-3 py-2 d-block" href="../../obec-2/kniznica/projekty/" target="_self" title="Projekt s podporou FPU ">Projekty</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem109">
+        <a class="px-3 py-2 d-block" href="../../obec-2/kniznica/podujatia/" target="_self" title="Podujatia">Podujatia</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem146">
+        <a class="px-3 py-2 d-block" href="../../obec-2/kniznica/aktuality/" target="_self" title="Aktuality">Aktuality</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                                                
+        
+    <li class="item item-15 subitems" id="subItem143">
+        <a class="px-3 py-2 d-block" href="../../obec-2/bytove-domy-a651-b652/" target="_self" title="Bytové domy A651, B652">Bytové domy A651, B652</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap143" aria-label="Bytové domy A651, B652" title="Bytové domy A651, B652 - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap143">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem144">
+        <a class="px-3 py-2 d-block" href="../../obec-2/bytove-domy-a651-b652/poradovnik-cakatelov-na-byt/" target="_self" title="Poradovník čakateľov na byt">Poradovník čakateľov na byt</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem145">
+        <a class="px-3 py-2 d-block" href="../../obec-2/bytove-domy-a651-b652/informacie-pre-najomcov/" target="_self" title="Informácie pre nájomcov">Informácie pre nájomcov</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+            </ul>
+
+</nav>
+
+                <div class="leftbox first">
+
+
+<h2 class="access"><span>Kalendár</span></h2>
+<div class="module_mini calendar">
+    <div id="tg6a9ad22f42622412562273">
+        <div class="cal-heading">
+            <button class="gcm-calendar-button gcm-calendar__prev" onclick="calendarFunc.getOther(8, 2026,
+                    'tg6a9ad22f42622412562273', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Predchádzajúci mesiac" title="Predchádzajúci mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--prev" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M201.7 297.4C190.1 310.3 188.9 329.8 201.7 342.6L329.7 470.6C338.8 479.8 352.6 482.5 364.6 477.5L368.9 475.3C378.4 469.6 384.4 459.2 384.4 447.9L384.4 191.9L384.1 187.1C382.7 177.7 377.1 169.4 369 164.5L364.7 162.3C352.7 157.4 339 160.1 329.8 169.2L201.8 297.2zM336.3 230.6L336.3 409.4L246.9 320L336.3 230.6z"></path></svg></button>
+            <span><span class="month">September</span><span class="year">2026</span></span>
+            <button class="gcm-calendar-button gcm-calendar__next" onclick="calendarFunc.getOther(10, 2026,
+                    'tg6a9ad22f42622412562273', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Ďalší mesiac" title="Ďalší mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--next" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M438.9 297.4C450.5 310.3 451.7 329.8 438.9 342.6L310.9 470.6C301.8 479.8 288 482.5 276 477.5L271.7 475.3C262.2 469.6 256.2 459.2 256.2 447.9L256.2 191.9L256.5 187.1C257.9 177.7 263.5 169.4 271.6 164.5L275.9 162.3C287.9 157.4 301.6 160.1 310.8 169.2L438.8 297.2zM304.3 230.6L304.3 409.4L393.7 320L304.3 230.6z"></path></svg></button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="mon" data-translation-text="__day_monday__">Po</th>
+                    <th class="tue" data-translation-text="__day_tuesday__">Ut</th>
+                    <th class="wed" data-translation-text="__day_wednesday__">St</th>
+                    <th class="thu" data-translation-text="__day_thursday__">Št</th>
+                    <th class="fri" data-translation-text="__day_friday__">Pia</th>
+                    <th class="sat" data-translation-text="__day_saturday__">So</th>
+                    <th class="sun" data-translation-text="__day_sunday__">Ne</th>
+                </tr>
+            </thead>
+            <tbody>
+                                                <tr>
+                                <td class="mon">
+                                                                        31
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        1
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        2
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        3
+                                                            </td>
+                                                                            <td class="fri month today" aria-current="date">
+                                                                        <strong>4</strong>
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        5
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        6
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        7
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        8
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        9
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        10
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        11
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        12
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        13
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        14
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        15
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        16
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        17
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        18
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        19
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        20
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        21
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        22
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        23
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        24
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        25
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        26
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        27
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        28
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        29
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        30
+                                                            </td>
+                                                                            <td class="thu">
+                                                                        1
+                                                            </td>
+                                                                            <td class="fri">
+                                                                        2
+                                                            </td>
+                                                                            <td class="sat">
+                                                                        3
+                                                            </td>
+                                                                            <td class="sun">
+                                                                        4
+                                                            </td>
+                                                    </tr>
+                                        </tbody>
+        </table>
+    </div>
+</div>
+</div><div class="leftbox"><h2 class="access"><span>Počasie</span></h2>
+<div class="module_mini pocasi_mini">
+    <div class="date_today">
+        dnes, piatok 4. 9. 2026
+    </div>
+    <div class="weather_today">
+                    <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                <title>slabý dážď</title>
+                <use xlink:href="#oblacnosdestem"></use>
+            </svg>
+                <span class="temp_max" data-no-translate>24 °C</span>
+        <span class="temp_min" data-no-translate>12 °C</span>
+    </div>
+    <div class="cleaner"></div>
+            <div class="small">
+            <span class="day">sobota</span>
+            <span class="date" data-no-translate>5. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>19/9 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">nedeľa</span>
+            <span class="date" data-no-translate>6. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>16/7 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">pondelok</span>
+            <span class="date" data-no-translate>7. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>zamračené</title>
+                    <use xlink:href="#zatazeno"></use>
+                </svg>
+                        <span class="temp" data-no-translate>21/6 °C</span>
+        </div>
+        <div class="cleaner"></div>
+    </div>
+</div><div class="leftbox">    <h2 class="access"><span>Projekty</span></h2>
+<div class="editor_mini">
+    <p><a class="file" href="../../data/editor/mini12sk_1.pdf" target="_blank" title="Súbor na stiahnutie: Logo.pdf, Typ: PDF dokument, Veľkosť: 127.6 kB">Fond na podporu športu</a><i> </i></p><p><i><img alt="" class="img_rounded" src="../../data/editor/mini12sk_2.jpg" style="width:771px;height:544px;border:0px solid;margin: 5px 5px;" title=""></i></p><p><i><img alt="" class="img_rounded" src="../../data/editor/mini12sk_1.png" style="width:500px;height:175px;border:0px solid;margin: 5px 5px;" title=""></i></p>
+</div>
+</div><div class="leftbox">    <h2 class="access"><span>Pôvodná stránka obce</span></h2>
+<div class="editor_mini">
+    <p style="text-align: center;"><a href="https://staryweb.hornyvadicov.sk/" target="_blank">staryweb.hornyvadicov.sk</a></p>
+</div>
+</div><div class="leftbox last"><h2 class="access"><span>Mobilná aplikácia</span></h2><div class="gcm-banners module_mini">
+    <div class="banners-mobile-app__column banners-mobile-app__light">
+        <div class="banners-mobile-app__column__logo">
+            <a href="../../mobilna-aplikacia/" title="Aplikácia V obraze - logo">                <img src="../../data/cache_images/evt_unknown.jpg" alt="Aplikácia V obraze - logo" class="mobile-app-logo__text">
+            </a>        </div>
+        <div class="banners-mobile-app_text">
+            Sledujte informácie z nášho webu
+                            v <a href="../../mobilna-aplikacia/">mobilnej aplikácii - V OBRAZE.</a>
+                    </div>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+          </div>
+
+          <div style="margin-top: 32px; border-top: 1px solid #E2E8F0; padding-top: 20px;">
+            <a href="../../" class="idsk-btn idsk-btn--secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(180deg);"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              <span>Návrat na úvodnú stránku</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- 5. IDSK Pätička -->
+  <footer class="idsk-footer" role="contentinfo">
+    <div class="idsk-footer__tricolor" aria-hidden="true">
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--white"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--blue"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--red"></span>
+    </div>
+
+    <div class="idsk-container">
+      <div class="idsk-footer__grid">
+        <div class="idsk-footer__col">
+          <div class="idsk-footer__brand">
+            <img src="../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-footer__crest">
+            <div>
+              <h3 class="idsk-footer__title">Obec Horný Vadičov</h3>
+              <p class="idsk-footer__text">Samosprávny orgán obce v okrese Kysucké Nové Mesto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Kontakt a sídlo</h4>
+          <address class="idsk-footer__address">
+            <p>Obecný úrad Horný Vadičov</p>
+            <p>Horný Vadičov 160</p>
+            <p>023 45 Horný Vadičov</p>
+            <p>Tel: <a href="tel:+421414229221">041 / 422 92 21</a></p>
+            <p>E-mail: <a href="mailto:urad@hornyvadicov.sk">urad@hornyvadicov.sk</a></p>
+          </address>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Dôležité odkazy</h4>
+          <ul class="idsk-footer__links">
+            <li><a href="../../zverejnovanie/uradna-tabula-1/">Elektronická úradná tabuľa</a></li>
+            <li><a href="../../samosprava/gdpr-infozakon/">Ochrana osobných údajov (GDPR)</a></li>
+            <li><a href="../../zverejnovanie/zmluvy-faktury-objednavky/">Zmluvy, faktúry a objednávky</a></li>
+            <li><a href="../../zverejnovanie/verejne-obstaravanie/profil/">Verejné obstarávanie</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="idsk-footer__bottom">
+        <p class="idsk-footer__copyright">&copy; 2026 Obec Horný Vadičov. Všetky práva vyhradené. Vytvorené v štandarde IDSK 3.0.</p>
+        <p class="idsk-footer__provider">Technický prevádzkovateľ: <strong><a href="https://www.prosoft.sk" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">PROSOFT</a></strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../src/scripts/app.js"></script>
+</body>
+</html>

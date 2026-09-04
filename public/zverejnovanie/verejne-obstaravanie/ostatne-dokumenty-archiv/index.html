@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ostatné dokumenty - archiv | Obec Horný Vadičov (IDSK 3.0)</title>
+  <meta name="description" content="Ostatné dokumenty - archiv - Oficiálne webové sídlo obce Horný Vadičov v štandarde IDSK 3.0">
+  <link rel="icon" type="image/png" href="../../../images/crest.png">
+  <link rel="stylesheet" href="../../../src/styles/idsk-tokens.css">
+  <link rel="stylesheet" href="../../../src/styles/idsk-components.css">
+  <link rel="stylesheet" href="../../../src/styles/main.css">
+</head>
+<body>
+  <!-- 1. Bezbariérový odkaz na hlavný obsah (WCAG 2.1 AA) -->
+  <a href="#main-content" class="idsk-skip-link">Preskočiť na hlavný obsah</a>
+
+  <!-- 2. Štátny a samosprávny identifikačný prúžok (IDSK 3.0) -->
+  <div class="idsk-gov-bar" role="region" aria-label="Identifikátor verejnej správy">
+    <div class="idsk-container">
+      <div class="idsk-gov-bar__inner">
+        <div class="idsk-gov-bar__brand">
+          <span class="idsk-gov-bar__flag" aria-hidden="true">
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--white"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--blue"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--red"></span>
+          </span>
+          <span class="idsk-gov-bar__text">Oficiálna stránka samosprávy Slovenskej republiky</span>
+          <button type="button" class="idsk-gov-bar__info-btn" id="govBarToggle" aria-expanded="false" aria-controls="govBarInfo">
+            Ako spoznáte oficiálnu stránku?
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 10l5 5 5-5z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="idsk-gov-bar__tools">
+          <div class="idsk-gov-bar__a11y-group" role="group" aria-label="Nástroje prístupnosti">
+            <button type="button" class="idsk-a11y-btn" id="btnContrast" title="Prepnúť režim vysokého kontrastu">Kontrast</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontIncrease" title="Zväčšiť písmo">A+</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontReset" title="Pôvodná veľkosť písma">A</button>
+          </div>
+          <div class="idsk-gov-bar__lang">
+            <span style="font-weight: 700; color: var(--idsk-color-primary);">SK</span>
+            <span style="color: #A0AEC0;"> | </span>
+            <a href="../../../en/" style="color: var(--idsk-color-text-secondary); text-decoration: none;" title="English version">EN</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="idsk-gov-bar__collapsible-info" id="govBarInfo">
+        <p><strong>Oficiálna doména samosprávy SR:</strong> Táto stránka je oficiálnym webovým sídlom obce Horný Vadičov v zmysle Zákona č. 369/1990 Zb. o obecnom zriadení. Používa bezpečné šifrované spojenie (HTTPS) a spĺňa štandardy jednotného dizajn manuálu elektronických služieb (IDSK 3.0).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Hlavná hlavička obce -->
+  <header class="idsk-header" role="banner">
+    <div class="idsk-container">
+      <div class="idsk-header__inner">
+        <a href="../../../" class="idsk-header__logo" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
+          <img src="../../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
+          <div class="idsk-header__text">
+            <span class="idsk-header__title">Obec Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto | Žilinský kraj</span>
+          </div>
+        </a>
+
+        <div class="idsk-header__actions">
+          <div class="idsk-header__contacts">
+            <a href="tel:+421414229221" class="idsk-contact-chip" title="Zavolajte na obecný úrad">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>041 / 422 92 21</span>
+            </a>
+            <a href="mailto:urad@hornyvadicov.sk" class="idsk-contact-chip" title="Napíšte nám e-mail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>urad@hornyvadicov.sk</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Hlavná navigácia -->
+  <div class="idsk-nav-wrapper">
+    <div class="idsk-container">
+      <nav class="idsk-nav" aria-label="Hlavná navigácia">
+        <ul class="idsk-nav__list" id="navList">
+          <li class="idsk-nav__item"><a href="../../../obec-2/o-obci/" class="idsk-nav__link"><span>Obec</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../samosprava/starostka-obce/" class="idsk-nav__link"><span>Samospráva</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__link"><span>Zverejňovanie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../projekty/" class="idsk-nav__link"><span>Projekty</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../uzemny-plan/" class="idsk-nav__link"><span>Územný plán</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../volby-a-referendum/" class="idsk-nav__link"><span>Voľby</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../obec-2/organizacie-v-obci/" class="idsk-nav__link"><span>Organizácie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../../kontakt/uradne-hodiny/" class="idsk-nav__link"><span>Kontakt</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hlavný obsah podstránky -->
+  <main id="main-content">
+    <div class="idsk-container">
+      <nav class="idsk-breadcrumbs" aria-label="Navigačná lišta (breadcrumbs)">
+        <ol class="idsk-breadcrumbs__list">
+<li class="idsk-breadcrumbs__item"><a href="../../../" class="idsk-breadcrumbs__link">Úvodná stránka</a></li>
+        <li class="idsk-breadcrumbs__item"><a href="../../../zverejnovanie/" class="idsk-breadcrumbs__link">Zverejňovanie</a></li>
+        <li class="idsk-breadcrumbs__item" aria-current="page">Verejné obstarávanie</li>
+        <li class="idsk-breadcrumbs__item" aria-current="page">Ostatné dokumenty - archiv</li>
+        </ol>
+      </nav>
+
+      <div class="idsk-subpage-layout">
+
+        <aside class="idsk-subpage-sidebar">
+          <h2 class="idsk-subpage-sidebar__header">Menu sekcie</h2>
+          <ul class="idsk-subpage-sidebar__nav">
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/" class="idsk-subpage-sidebar__link">Úradná tabuľa</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/stavebne-konanie/" class="idsk-subpage-sidebar__link">Stavebné konanie</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-strategickom-dokumente/" class="idsk-subpage-sidebar__link">Oznámenie o strategickom dokumente</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-spravnom-konani-vyrub-stromov/" class="idsk-subpage-sidebar__link">Oznámenie o správnom konaní - výrub stromov</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/ine-dokumenty/" class="idsk-subpage-sidebar__link">Iné dokumenty</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/oznamenia-podla-cl-7-uz-c-357-2004-zz/" class="idsk-subpage-sidebar__link">Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.</a></li>
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti/" class="idsk-subpage-sidebar__link">Oznámenie o doručení písomnosti</a></li>
+            <li><a href="../../../zverejnovanie/zmluvy-faktury-objednavky/" class="idsk-subpage-sidebar__link">Zmluvy, Faktúry, Objednávky</a></li>
+            <li><a href="../../../zverejnovanie/zmluvy-faktury-objednavky/archiv-zfo/zmluvy/" class="idsk-subpage-sidebar__link">Archiv ZFO</a></li>
+            <li><a href="../../../zverejnovanie/verejne-obstaravanie/profil/" class="idsk-subpage-sidebar__link">Verejné obstarávanie</a></li>
+            <li><a href="../../../zverejnovanie/hospodarenie/rozpocet/" class="idsk-subpage-sidebar__link">Hospodárenie</a></li>
+            <li><a href="../../../zverejnovanie/dobropisy/" class="idsk-subpage-sidebar__link">Dobropisy</a></li>
+            <li><a href="../../../zverejnovanie/ostatne-dokumenty/" class="idsk-subpage-sidebar__link">Ostatné dokumenty</a></li>
+            <li><a href="../../../zverejnovanie/projekty/" class="idsk-subpage-sidebar__link">Projekty</a></li>
+          </ul>
+        </aside>
+
+        <article class="idsk-subpage-content">
+          <div class="idsk-subpage-content__header">
+            <h1 class="idsk-subpage-content__title">Ostatné dokumenty - archiv</h1>
+          </div>
+
+          <div class="idsk-subpage-body editor_content">
+<div class="gcm-main-container gcm-container">
+        <div class="gcm-row">
+            <div class="gcm-content">
+                <div class="gcm-info">
+                    <nav aria-label="breadcrumb" class="gcm-navigation"><ol class="breadcrumb"><li class="breadcrumb-item">
+                    <a class="breadcrumb-link" href="../../../" title="Úvodná stránka"><i class="far fa-home"></i><span>Úvodná stránka</span></a>
+                    </li><li class="breadcrumb-item"><a class="breadcrumb-link" href="../../../zverejnovanie/">Zverejňovanie</a></li><li class="breadcrumb-item">Verejné obstarávanie</li><li class="breadcrumb-item active last" aria-current="page">Ostatné dokumenty - archiv</li></ol></nav>
+                </div>
+                <div class="gcm-main">
+                    <div class="editor_content readable">
+    
+</div>
+<div class="menu_tabs">
+<nav>
+            <ul class="nav nav-tabs" style="flex-wrap: wrap" role="tablist">
+                                <li class="nav-item" role="none">
+        <a class="nav-link  mr-1" href="../../../zverejnovanie/verejne-obstaravanie/profil/" target="_self" role="tab" aria-selected="false">
+            Profil
+        </a>
+    </li>
+
+                                <li class="nav-item" role="none">
+        <a class="nav-link  mr-1" href="../../../zverejnovanie/verejne-obstaravanie/zakazky/" target="_self" role="tab" aria-selected="false">
+            Zákazky
+        </a>
+    </li>
+
+                                <li class="nav-item" role="none">
+        <a class="nav-link active mr-1" href="../../../zverejnovanie/verejne-obstaravanie/ostatne-dokumenty-archiv/" target="_self" role="tab" aria-selected="true">
+            Ostatné dokumenty - archiv
+        </a>
+    </li>
+
+                    </ul>
+    </nav>
+<br class="cleaner"></div>
+                    
+                        
+
+
+
+
+<div class="module_content file-storage">
+                        <div class="file-storage-form gcm-form">
+        <form method="get" action="/zverejnovanie/verejne-obstaravanie/ostatne-dokumenty-archiv/" enctype="multipart/form-data">
+                            <div class="form-group">
+                    <div class="row">
+                        <label for="search_search" class="col-sm-2 col-form-label">Hľadať</label>
+                        <div class="input-group col">
+                            <input type="text" name="search" id="search_search" value="" class="form-control" placeholder="Hľadaný výraz">
+                            <div class="input-group-append">
+                                <button class="submit btn btn-primary" type="submit" name="jdi">
+                                    Hľadať
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        <div class="form-group">
+                    <div class="row">
+                        <label for="search_kateg" class="col-sm-2 col-md-3 col-lg-2 col-form-label">Kategória</label>
+                        <div class="col-sm-10 col-md-9 col-lg-10">
+                            <select name="kateg" id="search_kateg" onchange="this.form.submit();" class="form-control">
+                                <option value="0" selected>- Vyberte kategóriu -</option>
+<option value="9">Ostatné dokumenty</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    </form>
+    </div>
+
+                    <div class="files-list files-list-full readable">
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                                                        <h2 class="gcm-category-name-anchor">
+                            <a id="category-9" onclick="addAnchor(this.id, true)">
+                                Ostatné dokumenty
+                            </a>
+                        </h2>
+                                                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=54d38799%7C29&amp;inline=1" target="_blank">Obchodná verejná súťaž na nebytové priestry v stavbe č. 392 – vyhlásenie
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Obchodná-verejná-súťaž-na-nebytové-priestry-v-stavbe-č.-392-vyhlásenie.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 227,86 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=b270f2e9%7C28&amp;inline=1" target="_blank">Oznámenie o vyhlásení obchodnej verejnej súťaže na prenájom stavba č. 392
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Oznámenie-o-vyhlásení-obchodnej-verejnej-súťaže-na-prenájom-stavba-č.-392.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 65,05 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=71d39d63%7C27&amp;inline=1" target="_blank">Návrh nájomnej zmluvy OVS – objekt č. 288 – prístavba
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Návrh-nájomnej-zmluvy-VOS-objekt-č.-288-prístavba.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 265,45 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=4b8c88e8%7C26&amp;inline=1" target="_blank">Oznámenie o vyhlásení verejnej obchodnej súťaže na prenájom stavby č. 288 – prístavba
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Oznámenie-o-vyhlásení-verejnej-obchodnej-súťaže-na-prenájom-stavby-č.-288-prístavba1.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 64,17 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=1f75cd4d%7C25&amp;inline=1" target="_blank">Návrh nájomnej zmluvy OVS – objekt č. 288 – objekt bývalej školskej jedálne
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Návrh-nájomnej-zmluvy-VOS-objekt-č.-288-objekt-bývalej-školskej-jedálne.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 264,72 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=3f5f400f%7C24&amp;inline=1" target="_blank">Oznámenie o vyhlásení obchodnej verejnej súťaže na prenájom stavby č. 288 – objekt bývalej školskej jedálne
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Oznámenie-o-vyhlásení-obchodnej-verejnej-súťaže-na-prenájom-stavby-č.-288-objekt-bývalej-školskej-jedálne.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 67,96 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=91a92600%7C23&amp;inline=1" target="_blank">Návrh Kúpnej zmluvy – pozemok  KNC 165/12
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Kúpna-zmluva-pozemok-LUŽINA.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 265,32 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=bd760541%7C22&amp;inline=1" target="_blank">Obchodná verejná súťaž – súťažné podmienky – predaj pozemku KNC 165/12
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Obchodná-verejná-súťaž-súťažné-podmienky-predaj-pozemku-KNC-165-12.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 371,47 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=a6bd2c1d%7C21&amp;inline=1" target="_blank">Oznámenie o vyhlásení obchodnej verejnej súťaže na predaj nehnuteľného majetku – pozemok KNC 165/12
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Oznámenie-o-vyhlásení-obchodnej-verjnej-súťaže-na-predaj-nehnuteľného-majetku.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 554,39 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=877e9510%7C20&amp;inline=1" target="_blank">Výzva na predloženie cenovej ponuky – obstaranie autobusovej zastávky
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Výzva-na-predloženie-cenovej-ponuky-obstaranie-autobusovej-zastávky-1.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 499,15 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=f156591f%7C19&amp;inline=1" target="_blank">Výzva na predloženie cenovej ponuky – rekonštrukcia strechy a výmena krytiny – Objekt informačného centra č. 288
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Výzva-na-predloženie-cenovej-ponuky-rekonštrukcia-strechy-a-výmena-krytiny-Objekt-informačného-centra-č.-288-1.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 917,69 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=d55ea91e%7C18&amp;inline=1" target="_blank">Výzva na predloženie cenovej ponuky – materiálno-technické vybavenie DHZO
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Výzva-na-predloženie-cenovej-ponuky-materiálno-technické-vybavenie-DHZO.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 35,55 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+                                    <script src="../../../data/cache_images/evt_unknown.jpg"></script>
+                <link rel="stylesheet" href="../../../js/addAnchor/addAnchor.css">
+                                                                                                                            <div class="file-row mb-4 file-row-short">
+                
+                                    <h3>                    <a class="link-small" href="/modules/file_storage/download.php?file=c313ca17%7C17&amp;inline=1" target="_blank">Výzva na predloženie cenovej ponuky na Rekonštrukciu a zateplenie kultúrneho domu a hasičskej zbrojnice Horný Vadičov č. 174
+                    </a>
+                </h3>
+                
+                
+                                    <div class="d-flex">
+        <div class="icon align-self-center mr-3 pdf"></div>
+        <div class="file-details flex-fill">
+            <div class="not_readable file-name">Výzva-na-predloženie-cenovej-ponuky-na-Rekonštrukciu-a-zateplenie-kultúrneho-domu-a-hasičskej-zbrojnice-Horný-Vadičov-č.-174.pdf</div>
+            Typ súboru: PDF dokument, Veľkosť: 38,67 kB
+        </div>
+        <div class="file-details align-self-end">
+                        <div></div>
+        </div>
+    </div>
+
+
+            </div>
+            </div>
+
+        
+    </div>
+
+                                
+                </div>
+            </div>
+            <div class="gcm-vertical-column">
+                <h3 class="access gcm-submenu-heading"><span>Zverejňovanie</span></h3>
+                
+
+<nav id="submenu" class="container-fluid p-0 menu-parent-1">
+        <ul class="p-0">
+                                
+    
+    
+                
+    
+    
+                                                                                                                                
+        
+    <li class="item item-1 subitems" id="subItem57">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/" target="_self" title="Úradná tabuľa">Úradná tabuľa</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap57" aria-label="Úradná tabuľa" title="Úradná tabuľa - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap57">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem93">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/stavebne-konanie/" target="_self" title="Stavebné konanie">Stavebné konanie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem94">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-strategickom-dokumente/" target="_self" title="Oznámenie o strategickom dokumente">Oznámenie o strategickom dokumente</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem95">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-spravnom-konani-vyrub-stromov/" target="_self" title="Oznámenie o správnom konaní - výrub stromov">Oznámenie o správnom konaní - výrub stromov</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem100">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/ine-dokumenty/" target="_self" title="Iné dokumenty">Iné dokumenty</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem102">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/oznamenia-podla-cl-7-uz-c-357-2004-zz/" target="_self" title="Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.">Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem188">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti/" target="_self" title="Oznámenie o doručení písomnosti">Oznámenie o doručení písomnosti</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                            
+        
+    <li class="item item-2 subitems" id="subItem4">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/zmluvy-faktury-objednavky/" target="_self" title="Zmluvy, Faktúry, Objednávky">Zmluvy, Faktúry, Objednávky</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap4" aria-label="Zmluvy, Faktúry, Objednávky" title="Zmluvy, Faktúry, Objednávky - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap4">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem78">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/zmluvy-faktury-objednavky/archiv-zfo/zmluvy/" target="_self" title="Archiv ZFO">Archiv ZFO</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+    
+                
+    
+        
+        
+    <li class="item item-3 selected" id="subItem79">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/verejne-obstaravanie/profil/" target="_self" title="Verejné obstarávanie">Verejné obstarávanie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem42">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/hospodarenie/rozpocet/" target="_self" title="Hospodárenie">Hospodárenie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem61">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/dobropisy/" target="_self" title="Dobropisy">Dobropisy</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem63">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/ostatne-dokumenty/" target="_self" title="Ostatné dokumenty">Ostatné dokumenty</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-7 " id="subItem128">
+        <a class="px-3 py-2 d-block" href="../../../zverejnovanie/projekty/" target="_self" title="Projekty">Projekty</a>
+
+            </li>
+
+            </ul>
+
+</nav>
+
+                <div class="leftbox first">
+
+
+<h2 class="access"><span>Kalendár</span></h2>
+<div class="module_mini calendar">
+    <div id="tg6a9ad246f23ac288017060">
+        <div class="cal-heading">
+            <button class="gcm-calendar-button gcm-calendar__prev" onclick="calendarFunc.getOther(8, 2026,
+                    'tg6a9ad246f23ac288017060', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Predchádzajúci mesiac" title="Predchádzajúci mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--prev" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M201.7 297.4C190.1 310.3 188.9 329.8 201.7 342.6L329.7 470.6C338.8 479.8 352.6 482.5 364.6 477.5L368.9 475.3C378.4 469.6 384.4 459.2 384.4 447.9L384.4 191.9L384.1 187.1C382.7 177.7 377.1 169.4 369 164.5L364.7 162.3C352.7 157.4 339 160.1 329.8 169.2L201.8 297.2zM336.3 230.6L336.3 409.4L246.9 320L336.3 230.6z"></path></svg></button>
+            <span><span class="month">September</span><span class="year">2026</span></span>
+            <button class="gcm-calendar-button gcm-calendar__next" onclick="calendarFunc.getOther(10, 2026,
+                    'tg6a9ad246f23ac288017060', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Ďalší mesiac" title="Ďalší mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--next" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M438.9 297.4C450.5 310.3 451.7 329.8 438.9 342.6L310.9 470.6C301.8 479.8 288 482.5 276 477.5L271.7 475.3C262.2 469.6 256.2 459.2 256.2 447.9L256.2 191.9L256.5 187.1C257.9 177.7 263.5 169.4 271.6 164.5L275.9 162.3C287.9 157.4 301.6 160.1 310.8 169.2L438.8 297.2zM304.3 230.6L304.3 409.4L393.7 320L304.3 230.6z"></path></svg></button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="mon" data-translation-text="__day_monday__">Po</th>
+                    <th class="tue" data-translation-text="__day_tuesday__">Ut</th>
+                    <th class="wed" data-translation-text="__day_wednesday__">St</th>
+                    <th class="thu" data-translation-text="__day_thursday__">Št</th>
+                    <th class="fri" data-translation-text="__day_friday__">Pia</th>
+                    <th class="sat" data-translation-text="__day_saturday__">So</th>
+                    <th class="sun" data-translation-text="__day_sunday__">Ne</th>
+                </tr>
+            </thead>
+            <tbody>
+                                                <tr>
+                                <td class="mon">
+                                                                        31
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        1
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        2
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        3
+                                                            </td>
+                                                                            <td class="fri month today" aria-current="date">
+                                                                        <strong>4</strong>
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        5
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        6
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        7
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        8
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        9
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        10
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        11
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        12
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        13
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        14
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        15
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        16
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        17
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        18
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        19
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        20
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        21
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        22
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        23
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        24
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        25
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        26
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        27
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        28
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        29
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        30
+                                                            </td>
+                                                                            <td class="thu">
+                                                                        1
+                                                            </td>
+                                                                            <td class="fri">
+                                                                        2
+                                                            </td>
+                                                                            <td class="sat">
+                                                                        3
+                                                            </td>
+                                                                            <td class="sun">
+                                                                        4
+                                                            </td>
+                                                    </tr>
+                                        </tbody>
+        </table>
+    </div>
+</div>
+</div><div class="leftbox"><h2 class="access"><span>Počasie</span></h2>
+<div class="module_mini pocasi_mini">
+    <div class="date_today">
+        dnes, piatok 4. 9. 2026
+    </div>
+    <div class="weather_today">
+                    <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                <title>slabý dážď</title>
+                <use xlink:href="#oblacnosdestem"></use>
+            </svg>
+                <span class="temp_max" data-no-translate>24 °C</span>
+        <span class="temp_min" data-no-translate>12 °C</span>
+    </div>
+    <div class="cleaner"></div>
+            <div class="small">
+            <span class="day">sobota</span>
+            <span class="date" data-no-translate>5. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>19/9 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">nedeľa</span>
+            <span class="date" data-no-translate>6. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>16/7 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">pondelok</span>
+            <span class="date" data-no-translate>7. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>zamračené</title>
+                    <use xlink:href="#zatazeno"></use>
+                </svg>
+                        <span class="temp" data-no-translate>21/6 °C</span>
+        </div>
+        <div class="cleaner"></div>
+    </div>
+</div><div class="leftbox">    <h2 class="access"><span>Projekty</span></h2>
+<div class="editor_mini">
+    <p><a class="file" href="../../../data/editor/mini12sk_1.pdf" target="_blank" title="Súbor na stiahnutie: Logo.pdf, Typ: PDF dokument, Veľkosť: 127.6 kB">Fond na podporu športu</a><i> </i></p><p><i><img alt="" class="img_rounded" src="../../../data/editor/mini12sk_2.jpg" style="width:771px;height:544px;border:0px solid;margin: 5px 5px;" title=""></i></p><p><i><img alt="" class="img_rounded" src="../../../data/editor/mini12sk_1.png" style="width:500px;height:175px;border:0px solid;margin: 5px 5px;" title=""></i></p>
+</div>
+</div><div class="leftbox">    <h2 class="access"><span>Pôvodná stránka obce</span></h2>
+<div class="editor_mini">
+    <p style="text-align: center;"><a href="https://staryweb.hornyvadicov.sk/" target="_blank">staryweb.hornyvadicov.sk</a></p>
+</div>
+</div><div class="leftbox last"><h2 class="access"><span>Mobilná aplikácia</span></h2><div class="gcm-banners module_mini">
+    <div class="banners-mobile-app__column banners-mobile-app__light">
+        <div class="banners-mobile-app__column__logo">
+            <a href="../../../mobilna-aplikacia/" title="Aplikácia V obraze - logo">                <img src="../../../data/cache_images/evt_unknown.jpg" alt="Aplikácia V obraze - logo" class="mobile-app-logo__text">
+            </a>        </div>
+        <div class="banners-mobile-app_text">
+            Sledujte informácie z nášho webu
+                            v <a href="../../../mobilna-aplikacia/">mobilnej aplikácii - V OBRAZE.</a>
+                    </div>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+          </div>
+
+          <div style="margin-top: 32px; border-top: 1px solid #E2E8F0; padding-top: 20px;">
+            <a href="../../../" class="idsk-btn idsk-btn--secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(180deg);"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              <span>Návrat na úvodnú stránku</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- 5. IDSK Pätička -->
+  <footer class="idsk-footer" role="contentinfo">
+    <div class="idsk-footer__tricolor" aria-hidden="true">
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--white"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--blue"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--red"></span>
+    </div>
+
+    <div class="idsk-container">
+      <div class="idsk-footer__grid">
+        <div class="idsk-footer__col">
+          <div class="idsk-footer__brand">
+            <img src="../../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-footer__crest">
+            <div>
+              <h3 class="idsk-footer__title">Obec Horný Vadičov</h3>
+              <p class="idsk-footer__text">Samosprávny orgán obce v okrese Kysucké Nové Mesto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Kontakt a sídlo</h4>
+          <address class="idsk-footer__address">
+            <p>Obecný úrad Horný Vadičov</p>
+            <p>Horný Vadičov 160</p>
+            <p>023 45 Horný Vadičov</p>
+            <p>Tel: <a href="tel:+421414229221">041 / 422 92 21</a></p>
+            <p>E-mail: <a href="mailto:urad@hornyvadicov.sk">urad@hornyvadicov.sk</a></p>
+          </address>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Dôležité odkazy</h4>
+          <ul class="idsk-footer__links">
+            <li><a href="../../../zverejnovanie/uradna-tabula-1/">Elektronická úradná tabuľa</a></li>
+            <li><a href="../../../samosprava/gdpr-infozakon/">Ochrana osobných údajov (GDPR)</a></li>
+            <li><a href="../../../zverejnovanie/zmluvy-faktury-objednavky/">Zmluvy, faktúry a objednávky</a></li>
+            <li><a href="../../../zverejnovanie/verejne-obstaravanie/profil/">Verejné obstarávanie</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="idsk-footer__bottom">
+        <p class="idsk-footer__copyright">&copy; 2026 Obec Horný Vadičov. Všetky práva vyhradené. Vytvorené v štandarde IDSK 3.0.</p>
+        <p class="idsk-footer__provider">Technický prevádzkovateľ: <strong><a href="https://www.prosoft.sk" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">PROSOFT</a></strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../src/scripts/app.js"></script>
+</body>
+</html>

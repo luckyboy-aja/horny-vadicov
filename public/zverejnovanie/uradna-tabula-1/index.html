@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Úradná tabuľa | Obec Horný Vadičov (IDSK 3.0)</title>
+  <meta name="description" content="Úradná tabuľa - Oficiálne webové sídlo obce Horný Vadičov v štandarde IDSK 3.0">
+  <link rel="icon" type="image/png" href="../../images/crest.png">
+  <link rel="stylesheet" href="../../src/styles/idsk-tokens.css">
+  <link rel="stylesheet" href="../../src/styles/idsk-components.css">
+  <link rel="stylesheet" href="../../src/styles/main.css">
+</head>
+<body>
+  <!-- 1. Bezbariérový odkaz na hlavný obsah (WCAG 2.1 AA) -->
+  <a href="#main-content" class="idsk-skip-link">Preskočiť na hlavný obsah</a>
+
+  <!-- 2. Štátny a samosprávny identifikačný prúžok (IDSK 3.0) -->
+  <div class="idsk-gov-bar" role="region" aria-label="Identifikátor verejnej správy">
+    <div class="idsk-container">
+      <div class="idsk-gov-bar__inner">
+        <div class="idsk-gov-bar__brand">
+          <span class="idsk-gov-bar__flag" aria-hidden="true">
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--white"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--blue"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--red"></span>
+          </span>
+          <span class="idsk-gov-bar__text">Oficiálna stránka samosprávy Slovenskej republiky</span>
+          <button type="button" class="idsk-gov-bar__info-btn" id="govBarToggle" aria-expanded="false" aria-controls="govBarInfo">
+            Ako spoznáte oficiálnu stránku?
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 10l5 5 5-5z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="idsk-gov-bar__tools">
+          <div class="idsk-gov-bar__a11y-group" role="group" aria-label="Nástroje prístupnosti">
+            <button type="button" class="idsk-a11y-btn" id="btnContrast" title="Prepnúť režim vysokého kontrastu">Kontrast</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontIncrease" title="Zväčšiť písmo">A+</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontReset" title="Pôvodná veľkosť písma">A</button>
+          </div>
+          <div class="idsk-gov-bar__lang">
+            <span style="font-weight: 700; color: var(--idsk-color-primary);">SK</span>
+            <span style="color: #A0AEC0;"> | </span>
+            <a href="../../en/" style="color: var(--idsk-color-text-secondary); text-decoration: none;" title="English version">EN</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="idsk-gov-bar__collapsible-info" id="govBarInfo">
+        <p><strong>Oficiálna doména samosprávy SR:</strong> Táto stránka je oficiálnym webovým sídlom obce Horný Vadičov v zmysle Zákona č. 369/1990 Zb. o obecnom zriadení. Používa bezpečné šifrované spojenie (HTTPS) a spĺňa štandardy jednotného dizajn manuálu elektronických služieb (IDSK 3.0).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Hlavná hlavička obce -->
+  <header class="idsk-header" role="banner">
+    <div class="idsk-container">
+      <div class="idsk-header__inner">
+        <a href="../../" class="idsk-header__logo" aria-label="Návrat na úvodnú stránku obce Horný Vadičov">
+          <img src="../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
+          <div class="idsk-header__text">
+            <span class="idsk-header__title">Obec Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto | Žilinský kraj</span>
+          </div>
+        </a>
+
+        <div class="idsk-header__actions">
+          <div class="idsk-header__contacts">
+            <a href="tel:+421414229221" class="idsk-contact-chip" title="Zavolajte na obecný úrad">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>041 / 422 92 21</span>
+            </a>
+            <a href="mailto:urad@hornyvadicov.sk" class="idsk-contact-chip" title="Napíšte nám e-mail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>urad@hornyvadicov.sk</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Hlavná navigácia -->
+  <div class="idsk-nav-wrapper">
+    <div class="idsk-container">
+      <nav class="idsk-nav" aria-label="Hlavná navigácia">
+        <ul class="idsk-nav__list" id="navList">
+          <li class="idsk-nav__item"><a href="../../obec-2/o-obci/" class="idsk-nav__link"><span>Obec</span></a></li>
+          <li class="idsk-nav__item"><a href="../../samosprava/starostka-obce/" class="idsk-nav__link"><span>Samospráva</span></a></li>
+          <li class="idsk-nav__item"><a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-nav__link"><span>Zverejňovanie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../projekty/" class="idsk-nav__link"><span>Projekty</span></a></li>
+          <li class="idsk-nav__item"><a href="../../uzemny-plan/" class="idsk-nav__link"><span>Územný plán</span></a></li>
+          <li class="idsk-nav__item"><a href="../../volby-a-referendum/" class="idsk-nav__link"><span>Voľby</span></a></li>
+          <li class="idsk-nav__item"><a href="../../obec-2/organizacie-v-obci/" class="idsk-nav__link"><span>Organizácie</span></a></li>
+          <li class="idsk-nav__item"><a href="../../kontakt/uradne-hodiny/" class="idsk-nav__link"><span>Kontakt</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hlavný obsah podstránky -->
+  <main id="main-content">
+    <div class="idsk-container">
+      <nav class="idsk-breadcrumbs" aria-label="Navigačná lišta (breadcrumbs)">
+        <ol class="idsk-breadcrumbs__list">
+<li class="idsk-breadcrumbs__item"><a href="../../" class="idsk-breadcrumbs__link">Úvodná stránka</a></li>
+        <li class="idsk-breadcrumbs__item"><a href="../../zverejnovanie/" class="idsk-breadcrumbs__link">Zverejňovanie</a></li>
+        <li class="idsk-breadcrumbs__item" aria-current="page">Úradná tabuľa</li>
+        </ol>
+      </nav>
+
+      <div class="idsk-subpage-layout">
+
+        <aside class="idsk-subpage-sidebar">
+          <h2 class="idsk-subpage-sidebar__header">Menu sekcie</h2>
+          <ul class="idsk-subpage-sidebar__nav">
+            <li><a href="../../zverejnovanie/uradna-tabula-1/" class="idsk-subpage-sidebar__link is-active">Úradná tabuľa</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/stavebne-konanie/" class="idsk-subpage-sidebar__link">Stavebné konanie</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-strategickom-dokumente/" class="idsk-subpage-sidebar__link">Oznámenie o strategickom dokumente</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-spravnom-konani-vyrub-stromov/" class="idsk-subpage-sidebar__link">Oznámenie o správnom konaní - výrub stromov</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/ine-dokumenty/" class="idsk-subpage-sidebar__link">Iné dokumenty</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/oznamenia-podla-cl-7-uz-c-357-2004-zz/" class="idsk-subpage-sidebar__link">Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.</a></li>
+            <li><a href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti/" class="idsk-subpage-sidebar__link">Oznámenie o doručení písomnosti</a></li>
+            <li><a href="../../zverejnovanie/zmluvy-faktury-objednavky/" class="idsk-subpage-sidebar__link">Zmluvy, Faktúry, Objednávky</a></li>
+            <li><a href="../../zverejnovanie/zmluvy-faktury-objednavky/archiv-zfo/zmluvy/" class="idsk-subpage-sidebar__link">Archiv ZFO</a></li>
+            <li><a href="../../zverejnovanie/verejne-obstaravanie/profil/" class="idsk-subpage-sidebar__link">Verejné obstarávanie</a></li>
+            <li><a href="../../zverejnovanie/hospodarenie/rozpocet/" class="idsk-subpage-sidebar__link">Hospodárenie</a></li>
+            <li><a href="../../zverejnovanie/dobropisy/" class="idsk-subpage-sidebar__link">Dobropisy</a></li>
+            <li><a href="../../zverejnovanie/ostatne-dokumenty/" class="idsk-subpage-sidebar__link">Ostatné dokumenty</a></li>
+            <li><a href="../../zverejnovanie/projekty/" class="idsk-subpage-sidebar__link">Projekty</a></li>
+          </ul>
+        </aside>
+
+        <article class="idsk-subpage-content">
+          <div class="idsk-subpage-content__header">
+            <h1 class="idsk-subpage-content__title">Úradná tabuľa</h1>
+          </div>
+
+          <div class="idsk-subpage-body editor_content">
+<div class="gcm-main-container gcm-container">
+        <div class="gcm-row">
+            <div class="gcm-content">
+                <div class="gcm-info">
+                    <nav aria-label="breadcrumb" class="gcm-navigation"><ol class="breadcrumb"><li class="breadcrumb-item">
+                    <a class="breadcrumb-link" href="../../" title="Úvodná stránka"><i class="far fa-home"></i><span>Úvodná stránka</span></a>
+                    </li><li class="breadcrumb-item"><a class="breadcrumb-link" href="../../zverejnovanie/">Zverejňovanie</a></li><li class="breadcrumb-item active last" aria-current="page">Úradná tabuľa</li></ol></nav>
+                </div>
+                <div class="gcm-main">
+                    
+                    
+                        <div class="editor editor_content readable">
+    
+</div>
+
+<div class="module_content">
+    <div class="styleguide mb-3 mb-lg-6 p-3" style="background: var(--podklad-formulare)">
+        <form action="/zverejnovanie/uradna-tabula-1/" method="get">
+            <div class="input-group form-group mb-0">
+                <label for="search" class="sr-only">Hľadaný výraz:</label>
+                <input type="text" name="hledej" id="search" value="" class="form-control" placeholder="Hľadaný výraz">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="icon"></span><span class="button-text">Hľadať</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="ur_form">
+        <form action="/zverejnovanie/uradna-tabula-1/" method="get" id="ud_archiv_rok">
+
+            <input type="hidden" id="kshow" name="kshow" value="">
+
+            
+                            <div class="form-group form-row">
+                    <div class="col-sm-3">
+                        <label for="sort" class="col-form-label">Zoradiť:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select name="sort" id="sort" class="form-control">
+                                                            <option value="0">podľa názvu</option>
+                                                            <option value="1" selected>podľa dátumu zverejnenia</option>
+                                                    </select>
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-sm-3">
+                        <label for="ud_order" class="col-form-label">Spôsob zoradenia:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select name="order" id="ud_order" class="form-control">
+                                                            <option value="0" selected>zostupne</option>
+                                                            <option value="1">vzostupne</option>
+                                                    </select>
+                    </div>
+                </div>
+            
+                            <div class="form-row form-group">
+                    <div class="col-sm-3">
+                        <label for="show" class="col-form-label">Zobraziť:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select name="show" id="show" class="form-control">
+                                                            <option value="0" selected>aktuálne záznamy</option>
+                                                            <option value="1">archívne záznamy</option>
+                                                    </select>
+                    </div>
+                                    </div>
+                                    <div class="text-right">
+                <input class="btn btn-primary" type="submit" name="Zobraziť" value="Filtrovať">
+            </div>
+        </form>
+    </div>
+    <div class="official-desk-list">
+    <div class="accordion styleguide readable_list" id="categoriesList">
+                    <div class="category card oznamy-14">
+            <div class="card-header" id="cardHeader14">
+                                                            <div class="mb-0 category-name">
+                        <h2 class="readable_item gcm-category-name-anchor">
+                            <a id="oznamy-14" onclick="addAnchor(this.id)">
+                                            Oznamy
+                                                    </a>
+                            </h2>
+                        </div>
+                                                    </div>
+                            <div class="card-body">
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zverejnenie-zameru-prevodu-vlastnictva-majetku-obce-horny-vadicov-1430.html?kshow=14">Zverejnenie Zámeru prevodu vlastníctva majetku obce Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 8. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 15. 1. 2027</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-neplanovaneho-zasadnutia-obecneho-zastupitelstva-13082026-1429.html?kshow=14">Uznesenia z neplánovaného zasadnutia obecného zastupiteľstva 13.08.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 8. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 8. 9. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-neplanovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-13082026-1428.html?kshow=14">Zápisnica z neplánovaného rokovania obecného zastupiteľstva obce Horný Vadičov 13.08.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 8. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 8. 9. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-casu-zvyseneho-nebezpecenstva-vzniku-poziaru-od-31072026-od-0700-hod-1423.html?kshow=14">Vyhlásenie času zvýšeného nebezpečenstva vzniku požiaru od 31.07.2026 od 07.00 hod.</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 7. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 8. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zaverecny-ucet-obce-horny-vadicov-za-rok-2025-1418.html?kshow=14">Záverečný účet obce Horný Vadičov za rok 2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 29. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 24. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-planovaneho-zasadnutia-obecneho-zastupitelstva-19062026-1415.html?kshow=14">Uznesenia z plánovaného zasadnutia obecného zastupiteľstva 19.06.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 29. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-planovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-19062026-1414.html?kshow=14">Zápisnica z plánovaného rokovania obecného zastupiteľstva obce Horný Vadičov 19.06.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 29. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/volby-do-organov-samospravy-obci-a-o-volby-do-organov-samospravnych-krajov-dna-24102026-1413.html?kshow=14">Voľby do orgánov samosprávy obcí a o voľby  do orgánov samosprávnych krajov dňa 24.10.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 25. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 24. 10. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-vyhlaseni-obchodnej-verejnej-sutaze-s-podmienkami-a-navrhom-kupnej-zmluvy-1411.html?kshow=14">Oznámenie o vyhlásení obchodnej verejnej súťaže s podmienkami a návrhom kúpnej zmluvy</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 22. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 17. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zverejnenie-zameru-prevodu-vlastnictva-majetku-obce-horny-vadicov-1410.html?kshow=14">Zverejnenie Zámeru prevodu vlastníctva majetku obce Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 22. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 17. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zadanie-pre-uzemny-plan-obce-horny-vadicov-1409.html?kshow=14">Zadanie pre územný plán obce Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 19. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 19. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-prerokovani-zadania-pre-uzemny-plan-obce-horny-vadicov-obcanom-fyzickym-a-pravnickym-osobam-1408.html?kshow=14">Oznámenie o prerokovaní Zadania pre Územný plán obce Horný Vadičov občanom, fyzickým a právnickým osobám</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 19. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 19. 7. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-casu-zvyseneho-nebezpecenstva-vzniku-poziaru-od-28042026-od-0800-hod-1398.html?kshow=14">Vyhlásenie času zvýšeného nebezpečenstva vzniku požiaru od 28.04.2026 od 08.00 hod.</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 28. 4. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 31. 5. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-planovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-20032026-1396.html?kshow=14">Zápisnica z plánovaného rokovania obecného zastupiteľstva obce Horný Vadičov 20.03.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 3. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 4. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-planovaneho-zasadnutia-obecneho-zastupitelstva-20032026-1395.html?kshow=14">Uznesenia z plánovaného zasadnutia obecného zastupiteľstva 20.03.2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 3. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 4. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-zamere-prevodu-predaj-pozemku-obce-1394.html?kshow=14">Oznámenie o zámere prevodu - predaj pozemku obce</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 3. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 4. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznam-a-informacie-o-zapise-do-1-rocnika-zs-horny-vadicov-na-skolsky-rok-2026-2027-1391.html?kshow=14">Oznam a informácie o zápise do 1. ročníka ZŠ Horný Vadičov na školský rok 2026/2027</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 16. 3. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 4. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/evidencia-standardov-kvality-za-oblast-voda-pitna-za-rok-2025-1388.html?kshow=14">Evidencia štandardov kvality za oblasť VODA - pitná za rok 2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 26. 2. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/sprava-c-1-2026-hk-z-kontroly-prevodov-nehnutelneho-majetku-obce-horny-vadicov-ktoreho-vseobecna-hodnota-majetku-prekrocila-sumu-20000-eur-v-roku-2025-1387.html?kshow=14">Správa č. 1/2026 HK z kontroly prevodov nehnuteľného majetku obce Horný Vadičov, ktorého všeobecná hodnota majetku prekročila sumu 20.000 eur v roku 2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 23. 2. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 20. 3. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-planovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-12122025-1385.html?kshow=14">Zápisnica z plánovaného rokovania obecného zastupiteľstva obce Horný Vadičov 12.12.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 22. 12. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 6. 1. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-planovaneho-zasadnutia-obecneho-zastupitelstva-12122025-1384.html?kshow=14">Uznesenia z plánovaného zasadnutia obecného zastupiteľstva 12.12.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 22. 12. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 6. 1. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/plan-kontrolnej-cinnosti-hlavnej-kontrolorky-na-ipolrok-2026-1383.html?kshow=14">Plán kontrolnej činnosti hlavnej kontrolórky na I.polrok 2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 19. 12. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 3. 1. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-zamere-prevodu-pozemku-1382.html?kshow=14">Oznámenie o zámere prevodu pozemku</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 16. 12. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 20. 3. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/navrh-plan-kontrolnej-cinnosti-hlavnej-kontrolorky-na-ipolrok-2026-1380.html?kshow=14">Návrh - Plán kontrolnej činnosti hlavnej kontrolórky na I.polrok 2026</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 27. 11. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 12. 12. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-neplanovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-18112025-1379.html?kshow=14">Zápisnica z neplánovaného rokovania obecného zastupiteľstva obce Horný Vadičov 18.11.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 11. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 9. 12. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-neplanovaneho-zasadnutia-obecneho-zastupitelstva-18112025-1378.html?kshow=14">Uznesenia z neplánovaného zasadnutia obecného zastupiteľstva 18.11.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 11. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 9. 12. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-dna-19092025-1371.html?kshow=14">Uznesenia z rokovania obecného zastupiteľstva dňa 19.09.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 29. 9. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 10. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-dna-19092025-1370.html?kshow=14">Zápisnica z rokovania obecného zastupiteľstva dňa 19.09.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 29. 9. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 14. 10. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-casu-zvyseneho-nebezpecenstva-vzniku-poziaru-1365.html?kshow=14">Vyhlásenie času zvýšeného nebezpečenstva vzniku požiaru</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 15. 8. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 1. 9. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-zamere-prevodu-pozemku-1363.html?kshow=14">Oznámenie o zámere prevodu pozemku</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 12. 8. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 19. 9. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-dna-11072025-1361.html?kshow=14">Zápisnica z rokovania obecného zastupiteľstva dňa 11.07.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 21. 7. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 5. 8. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-dna-11072025-1360.html?kshow=14">Uznesenia z rokovania obecného zastupiteľstva dňa 11.07.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 21. 7. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 5. 8. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-dna-20062025-1358.html?kshow=14">Uznesenia z rokovania obecného zastupiteľstva dňa 20.06.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 2. 7. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 17. 7. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-dna-20062025-1357.html?kshow=14">Zápisnica z rokovania obecného zastupiteľstva dňa 20.06.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 2. 7. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 17. 7. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-casu-zvyseneho-nebezpecenstva-vzniku-poziaru-od-20062025-od-0600-hod-1355.html?kshow=14">Vyhlásenie času zvýšeného nebezpečenstva vzniku požiaru od 20.06.2025 od 06.00 hod.</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 23. 6. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 8. 7. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/navrh-zaverecny-ucet-obce-horny-vadicov-za-rok-2024-1351.html?kshow=14">Návrh - Záverečný účet obce Horný Vadičov za rok 2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 5. 6. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 19. 6. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-drazbe-02062025-1349.html?kshow=14">Oznámenie o dražbe - 02.06.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 4. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 2. 6. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-prijimani-deti-do-ms-horny-vadicov-1347.html?kshow=14">Oznámenie o prijímaní detí do MŠ Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 14. 4. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 12. 5. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-mimoriadnej-situacie-sposobenej-neziaducim-vyskytom-medveda-hnedeho-vo-vybranych-okresoch-sr-od-02-aprila-2025-od-1400-hod-1345.html?kshow=14">Vyhlásenie mimoriadnej situácie spôsobenej nežiaducim výskytom medveďa hnedého vo vybraných okresoch SR od 02. apríla 2025 od 14.00 hod.</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 2. 4. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 30. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-dna-21032025-1344.html?kshow=14">Uznesenia z rokovania obecného zastupiteľstva dňa 21.03.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 31. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 15. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-dna-21032025-1343.html?kshow=14">Zápisnica z rokovania obecného zastupiteľstva dňa 21.03.2025</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 31. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 15. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/mimoriadne-nudzove-opatrenia-v-suvislosti-s-vyskytom-slintacky-a-krivacky-na-uzemi-slovenskej-republiky-dodatok-c-2-1342.html?kshow=14">Mimoriadne núdzové opatrenia v súvislosti s výskytom slintačky a krívačky na území Slovenskej  republiky - dodatok č. 2</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 26. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 30. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenie-vlady-slovenskej-republiky-c-148-z-25-marca-2025-k-navrhu-na-vyhlasenie-mimoriadnej-situacie-v-suvislosti-s-vyskytom-vysoko-nakazliveho-virusu-slintacky-a-krivacky-na-uzemi-slovenskej-republiky-1341.html?kshow=14">UZNESENIE VLÁDY SLOVENSKEJ REPUBLIKY č. 148 z 25. marca 2025 k návrhu na vyhlásenie mimoriadnej situácie v súvislosti s výskytom vysoko  nákazlivého vírusu slintačky a krívačky na území Slovenskej republiky</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 25. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 30. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/mimoriadne-nudzove-opatrenia-v-suvislosti-s-vyskytom-slintacky-a-krivacky-na-uzemi-slovenskej-republiky-1340.html?kshow=14">Mimoriadne núdzové opatrenia v súvislosti s výskytom slintačky a krívačky na území Slovenskej  republiky</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 8. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznam-a-informacie-o-zapise-do-1-rocnika-zs-horny-vadicov-1339.html?kshow=14">Oznam a informácie o zápise do 1. ročníka ZŠ Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 17. 3. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 1. 4. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/evidencia-standardov-kvality-za-oblast-voda-pitna-za-rok-2024-1336.html?kshow=14">Evidencia štandardov kvality za oblasť VODA - pitná za rok 2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 28. 2. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 15. 3. 2025</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/pozvanka-na-neplanovane-zasadnutie-oz-horny-vadicov-dna-25102024-1313.html?kshow=14">Pozvánka na neplánované zasadnutie OZ Horný Vadičov dňa 25.10.2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 20. 10. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-vzdani-sa-mandatu-1311.html?kshow=14">Oznámenie o vzdaní sa mandátu</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 11. 10. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-20092024-1309.html?kshow=14">Uznesenia z rokovania Obecného zastupiteľstva 20.09.2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 9. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-20092024-1308.html?kshow=14">Zápisnica z rokovania Obecného zastupiteľstva 20.09.2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 9. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyberove-konanie-na-riaditela-ku-zs-horny-vadicov-1304.html?kshow=14">Výberové konanie na riaditeľa/ku ZŠ Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 17. 9. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyberove-konanie-na-pracovne-miesto-referent-samospravy-1303.html?kshow=14">Výberové konanie na pracovné miesto referent samosprávy</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 17. 9. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/projekt-znizenie-energetickej-narocnosti-materskej-skolky-1300.html?kshow=14">Projekt Zníženie energetickej náročnosti Materskej škôlky</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 5. 9. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-zameru-vypracovania-programov-starostlivosti-o-chko-kysuce-a-o-vyhlasene-uzemia-natura-2000-v-uzemnej-posobnosti-chko-kysuce-1293.html?kshow=14">Oznámenie zámeru vypracovania programov starostlivosti o CHKO Kysuce a o vyhlásené územia Natura 2000 v územnej pôsobnosti CHKO Kysuce</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 9. 7. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 24. 7. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zamer-predaja-pozemku-1290.html?kshow=14">Zámer predaja pozemku</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 1. 7. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zamer-prenajmu-pozemku-1289.html?kshow=14">Zámer prenájmu pozemku</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 1. 7. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/zapisnica-z-rokovania-obecneho-zastupitelstva-21062024-1288.html?kshow=14">Zápisnica z rokovania Obecného zastupiteľstva 21.06.2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 1. 7. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uznesenia-z-rokovania-obecneho-zastupitelstva-21062024-1287.html?kshow=14">Uznesenia z rokovania Obecného zastupiteľstva 21.06.2024</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 1. 7. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-mimoriadnej-situacie-sposobenej-vyskytom-synantropnych-jedincov-medveda-hnedeho-na-uzemi-zilinskeho-kraja-1280.html?kshow=14">Vyhlásenie mimoriadnej situácie spôsobenej výskytom synantropných jedincov medveďa hnedého na území Žilinského kraja</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 3. 5. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 30. 6. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyhlasenie-mimoriadnej-situacie-sposobenej-zvysenym-rizikom-mozneho-vyskytu-medveda-hnedeho-1277.html?kshow=14">Vyhlásenie mimoriadnej situácie spôsobenej zvýšeným rizikom možného výskytu medveďa hnedého</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 23. 4. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 22. 5. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-opakovanej-drazbe-1276.html?kshow=14">Oznámenie o opakovanej dražbe</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 22. 4. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 8. 5. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyzva-na-volby-clenov-rady-skoly-pri-zakladnej-skole-horny-vadicov-1275.html?kshow=14">VÝZVA na voľby členov Rady školy pri Základnej škole Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 3. 4. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznam-a-informacie-o-zapise-do-1-rocnika-zs-horny-vadicov-1268.html?kshow=14">Oznam a informácie o zápise do 1. ročníka ZŠ Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 11. 3. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 9. 4. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-drazbe-1263.html?kshow=14">Oznámenie o dražbe</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 26. 2. 2024</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 13. 3. 2024</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/plan-kontrolnej-cinnosti-hlavnej-kontrolorky-na-obdobie-september-december-2023-1235.html?kshow=14">PLÁN KONTROLNEJ ČINNOSTI HLAVNEJ KONTROLÓRKY  NA OBDOBIE SEPTEMBER - DECEMBER 2023</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 12. 9. 2023</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/vyzva-na-volby-clenov-rady-skoly-pri-materskej-skole-v-hornom-vadicove-1234.html?kshow=14">Výzva na voľby členov Rady školy pri Materskej škole v Hornom Vadičove</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 8. 9. 2023</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-zaverecnom-ucte-a-celorocnom-hospodareni-obce-za-rok-2022-1230.html?kshow=14">Oznámenie o Záverečnom účte a celoročnom hospodárení obce za rok 2022</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 30. 6. 2023</span>
+                                            </div>
+                </div>
+                        </div>
+                        </div>
+                            <div class="category card oznamenie_o_strategickom_dokumente-16">
+            <div class="card-header" id="cardHeader16">
+                                                            <div class="mb-0 category-name">
+                        <h2 class="readable_item gcm-category-name-anchor">
+                            <a id="oznamenie_o_strategickom_dokumente-16" onclick="addAnchor(this.id)">
+                                            Oznámenie o strategickom dokumente
+                                                    </a>
+                            </h2>
+                        </div>
+                                                    </div>
+                            <div class="card-body">
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/informacia-pre-verejnost-a-oznamenie-o-strategickom-dokumente-uzemny-plan-obce-horny-vadicov-1397.html?kshow=16">Informácia pre verejnosť a oznámenie o strategickom dokumente ,,Územný plán obce Horný Vadičov"</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 20. 4. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 5. 5. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/uzemny-plan-obce-nededza-zaverecne-stanovisko-okresneho-uradu-zilina-odbor-starostlivosti-o-zivotne-prostredie-oddelenie-ochrany-prirody-a-vybranych-zloziek-zivotneho-prostredia-zilina-1334.html?kshow=16">Územný plán obce Nededza - záverečné stanovisko Okresného úradu Žilina, odbor starostlivosti o životné prostredie, oddelenie ochrany prírody a  vybraných zložiek životného prostredia, Žilina</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 20. 1. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 4. 2. 2025</span>
+                                            </div>
+                </div>
+                        </div>
+                        </div>
+                            <div class="category card stavebne_konanie-17">
+            <div class="card-header" id="cardHeader17">
+                                                            <div class="mb-0 category-name">
+                        <h2 class="readable_item gcm-category-name-anchor">
+                            <a id="stavebne_konanie-17" onclick="addAnchor(this.id)">
+                                            Stavebné konanie
+                                                    </a>
+                            </h2>
+                        </div>
+                                                    </div>
+                            <div class="card-body">
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/verejna-vyhlaska-oznamenie-o-zacati-stavebneho-konania-na-liniovu-stavbu-14578-horny-vadicov-kopanice-odstranenie-podpatia-a-zly-fyzicky-stav-ts-ssd-as-zilina-1333.html?kshow=17">VEREJNÁ VYHLÁŠKA - Oznámenie o začatí stavebného konania na líniovú stavbu-14578-Horný Vadičov-Kopanice-Odstránenie podpätia a zlý fyzický stav TS - SSD, a.s. Žilina</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 13. 1. 2025</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 28. 1. 2025</span>
+                                            </div>
+                </div>
+                        </div>
+                        </div>
+                            <div class="category card oznamenie_o_doruceni_pisomnosti-18">
+            <div class="card-header" id="cardHeader18">
+                                                            <div class="mb-0 category-name">
+                        <h2 class="readable_item gcm-category-name-anchor">
+                            <a id="oznamenie_o_doruceni_pisomnosti-18" onclick="addAnchor(this.id)">
+                                            Oznámenie o doručení písomnosti
+                                                    </a>
+                            </h2>
+                        </div>
+                                                    </div>
+                            <div class="card-body">
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti-pre-stefana-kacerika-bytom-horny-vadicov-1431.html?kshow=18">Oznámenie o doručení písomnosti pre Štefana Káčerika, bytom Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 24. 8. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 9. 9. 2026</span>
+                                            </div>
+                </div>
+                            <div class="item">
+                    <div class="item-heading">
+                        <a class="item-href" href="/zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti-pre-stefana-kacerika-bytom-horny-vadicov-1419.html?kshow=18">Oznámenie o doručení písomnosti pre Štefana Káčerika, bytom Horný Vadičov</a>
+                                            </div>
+                    <div class="item-data">
+                                                <span class="item-date item-date-from">Vyvesené: 26. 6. 2026</span>
+                                                    <span class="item-date item-date-to">Dátum zvesenia: 13. 7. 2026</span>
+                                            </div>
+                </div>
+                        </div>
+                        </div>
+                    </div>
+    </div>
+</div>
+
+<div class="editor editor_content readable">
+    
+</div>
+
+                                
+                </div>
+            </div>
+            <div class="gcm-vertical-column">
+                <h3 class="access gcm-submenu-heading"><span>Zverejňovanie</span></h3>
+                
+
+<nav id="submenu" class="container-fluid p-0 menu-parent-1">
+        <ul class="p-0">
+                                
+                        
+    
+                
+    
+    
+                                                                                                                                
+        
+    <li class="item item-1 active subitems open" id="subItem57">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/" target="_self" title="Úradná tabuľa" aria-current="page">Úradná tabuľa</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="true" aria-controls="subMenuWrap57" aria-label="Úradná tabuľa" title="Úradná tabuľa - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper open" id="subMenuWrap57">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem93">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/stavebne-konanie/" target="_self" title="Stavebné konanie">Stavebné konanie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-2 " id="subItem94">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-strategickom-dokumente/" target="_self" title="Oznámenie o strategickom dokumente">Oznámenie o strategickom dokumente</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem95">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-spravnom-konani-vyrub-stromov/" target="_self" title="Oznámenie o správnom konaní - výrub stromov">Oznámenie o správnom konaní - výrub stromov</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem100">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/ine-dokumenty/" target="_self" title="Iné dokumenty">Iné dokumenty</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem102">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/oznamenia-podla-cl-7-uz-c-357-2004-zz/" target="_self" title="Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.">Oznámenia podľa čl. 7 UZ č. 357⁄2004 Z.z.</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem188">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti/" target="_self" title="Oznámenie o doručení písomnosti">Oznámenie o doručení písomnosti</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+                
+    
+    
+                            
+        
+    <li class="item item-2 subitems" id="subItem4">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/zmluvy-faktury-objednavky/" target="_self" title="Zmluvy, Faktúry, Objednávky">Zmluvy, Faktúry, Objednávky</a>
+
+                    <a class="nav-toggle" href="#" role="button" aria-expanded="false" aria-controls="subMenuWrap4" aria-label="Zmluvy, Faktúry, Objednávky" title="Zmluvy, Faktúry, Objednávky - rozbaliť podpoložky">
+                <svg class="gcm-submenu__item-ico--subitems" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M337.5 433C328.1 442.4 312.9 442.4 303.6 433L143.5 273C134.1 263.6 134.1 248.4 143.5 239.1C152.9 229.8 168.1 229.7 177.4 239.1L320.4 382.1L463.4 239.1C472.8 229.7 488 229.7 497.3 239.1C506.6 248.5 506.7 263.7 497.3 273L337.3 433z"></path></svg>
+            </a>
+
+            <div class="submenu-wrapper" id="subMenuWrap4">
+                    <ul class="p-0">
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-1 " id="subItem78">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/zmluvy-faktury-objednavky/archiv-zfo/zmluvy/" target="_self" title="Archiv ZFO">Archiv ZFO</a>
+
+            </li>
+
+            </ul>
+
+            </div>
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-3 " id="subItem79">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/verejne-obstaravanie/profil/" target="_self" title="Verejné obstarávanie">Verejné obstarávanie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-4 " id="subItem42">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/hospodarenie/rozpocet/" target="_self" title="Hospodárenie">Hospodárenie</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-5 " id="subItem61">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/dobropisy/" target="_self" title="Dobropisy">Dobropisy</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-6 " id="subItem63">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/ostatne-dokumenty/" target="_self" title="Ostatné dokumenty">Ostatné dokumenty</a>
+
+            </li>
+
+                                
+    
+    
+    
+    
+    
+        
+        
+    <li class="item item-7 " id="subItem128">
+        <a class="px-3 py-2 d-block" href="../../zverejnovanie/projekty/" target="_self" title="Projekty">Projekty</a>
+
+            </li>
+
+            </ul>
+
+</nav>
+
+                <div class="leftbox first">
+
+
+<h2 class="access"><span>Kalendár</span></h2>
+<div class="module_mini calendar">
+    <div id="tg6a9ad23fa0ddd801321563">
+        <div class="cal-heading">
+            <button class="gcm-calendar-button gcm-calendar__prev" onclick="calendarFunc.getOther(8, 2026,
+                    'tg6a9ad23fa0ddd801321563', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Predchádzajúci mesiac" title="Predchádzajúci mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--prev" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M201.7 297.4C190.1 310.3 188.9 329.8 201.7 342.6L329.7 470.6C338.8 479.8 352.6 482.5 364.6 477.5L368.9 475.3C378.4 469.6 384.4 459.2 384.4 447.9L384.4 191.9L384.1 187.1C382.7 177.7 377.1 169.4 369 164.5L364.7 162.3C352.7 157.4 339 160.1 329.8 169.2L201.8 297.2zM336.3 230.6L336.3 409.4L246.9 320L336.3 230.6z"></path></svg></button>
+            <span><span class="month">September</span><span class="year">2026</span></span>
+            <button class="gcm-calendar-button gcm-calendar__next" onclick="calendarFunc.getOther(10, 2026,
+                    'tg6a9ad23fa0ddd801321563', false, false, 1, 0, 'sk');" style="color: inherit" aria-label="Ďalší mesiac" title="Ďalší mesiac">
+                <svg class="gcm-calendar__icon gcm-calendar__icon--next" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 640"><!--! Font Awesome Pro 7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M438.9 297.4C450.5 310.3 451.7 329.8 438.9 342.6L310.9 470.6C301.8 479.8 288 482.5 276 477.5L271.7 475.3C262.2 469.6 256.2 459.2 256.2 447.9L256.2 191.9L256.5 187.1C257.9 177.7 263.5 169.4 271.6 164.5L275.9 162.3C287.9 157.4 301.6 160.1 310.8 169.2L438.8 297.2zM304.3 230.6L304.3 409.4L393.7 320L304.3 230.6z"></path></svg></button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="mon" data-translation-text="__day_monday__">Po</th>
+                    <th class="tue" data-translation-text="__day_tuesday__">Ut</th>
+                    <th class="wed" data-translation-text="__day_wednesday__">St</th>
+                    <th class="thu" data-translation-text="__day_thursday__">Št</th>
+                    <th class="fri" data-translation-text="__day_friday__">Pia</th>
+                    <th class="sat" data-translation-text="__day_saturday__">So</th>
+                    <th class="sun" data-translation-text="__day_sunday__">Ne</th>
+                </tr>
+            </thead>
+            <tbody>
+                                                <tr>
+                                <td class="mon">
+                                                                        31
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        1
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        2
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        3
+                                                            </td>
+                                                                            <td class="fri month today" aria-current="date">
+                                                                        <strong>4</strong>
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        5
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        6
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        7
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        8
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        9
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        10
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        11
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        12
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        13
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        14
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        15
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        16
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        17
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        18
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        19
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        20
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        21
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        22
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        23
+                                                            </td>
+                                                                            <td class="thu month">
+                                                                        24
+                                                            </td>
+                                                                            <td class="fri month">
+                                                                        25
+                                                            </td>
+                                                                            <td class="sat month">
+                                                                        26
+                                                            </td>
+                                                                            <td class="sun month">
+                                                                        27
+                                                            </td>
+                                    </tr><tr>
+                                                                            <td class="mon month">
+                                                                        28
+                                                            </td>
+                                                                            <td class="tue month">
+                                                                        29
+                                                            </td>
+                                                                            <td class="wed month">
+                                                                        30
+                                                            </td>
+                                                                            <td class="thu">
+                                                                        1
+                                                            </td>
+                                                                            <td class="fri">
+                                                                        2
+                                                            </td>
+                                                                            <td class="sat">
+                                                                        3
+                                                            </td>
+                                                                            <td class="sun">
+                                                                        4
+                                                            </td>
+                                                    </tr>
+                                        </tbody>
+        </table>
+    </div>
+</div>
+</div><div class="leftbox"><h2 class="access"><span>Počasie</span></h2>
+<div class="module_mini pocasi_mini">
+    <div class="date_today">
+        dnes, piatok 4. 9. 2026
+    </div>
+    <div class="weather_today">
+                    <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                <title>slabý dážď</title>
+                <use xlink:href="#oblacnosdestem"></use>
+            </svg>
+                <span class="temp_max" data-no-translate>24 °C</span>
+        <span class="temp_min" data-no-translate>12 °C</span>
+    </div>
+    <div class="cleaner"></div>
+            <div class="small">
+            <span class="day">sobota</span>
+            <span class="date" data-no-translate>5. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>19/9 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">nedeľa</span>
+            <span class="date" data-no-translate>6. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>slabý dážď</title>
+                    <use xlink:href="#oblacnosdestem"></use>
+                </svg>
+                        <span class="temp" data-no-translate>16/7 °C</span>
+        </div>
+            <div class="small">
+            <span class="day">pondelok</span>
+            <span class="date" data-no-translate>7. 9.</span>
+                            <svg viewbox="0 0 100 100" class="icon weather" xmlns="http://www.w3.org/2000/svg">
+                    <title>zamračené</title>
+                    <use xlink:href="#zatazeno"></use>
+                </svg>
+                        <span class="temp" data-no-translate>21/6 °C</span>
+        </div>
+        <div class="cleaner"></div>
+    </div>
+</div><div class="leftbox">    <h2 class="access"><span>Projekty</span></h2>
+<div class="editor_mini">
+    <p><a class="file" href="../../data/editor/mini12sk_1.pdf" target="_blank" title="Súbor na stiahnutie: Logo.pdf, Typ: PDF dokument, Veľkosť: 127.6 kB">Fond na podporu športu</a><i> </i></p><p><i><img alt="" class="img_rounded" src="../../data/editor/mini12sk_2.jpg" style="width:771px;height:544px;border:0px solid;margin: 5px 5px;" title=""></i></p><p><i><img alt="" class="img_rounded" src="../../data/editor/mini12sk_1.png" style="width:500px;height:175px;border:0px solid;margin: 5px 5px;" title=""></i></p>
+</div>
+</div><div class="leftbox">    <h2 class="access"><span>Pôvodná stránka obce</span></h2>
+<div class="editor_mini">
+    <p style="text-align: center;"><a href="https://staryweb.hornyvadicov.sk/" target="_blank">staryweb.hornyvadicov.sk</a></p>
+</div>
+</div><div class="leftbox last"><h2 class="access"><span>Mobilná aplikácia</span></h2><div class="gcm-banners module_mini">
+    <div class="banners-mobile-app__column banners-mobile-app__light">
+        <div class="banners-mobile-app__column__logo">
+            <a href="../../mobilna-aplikacia/" title="Aplikácia V obraze - logo">                <img src="../../data/cache_images/evt_unknown.jpg" alt="Aplikácia V obraze - logo" class="mobile-app-logo__text">
+            </a>        </div>
+        <div class="banners-mobile-app_text">
+            Sledujte informácie z nášho webu
+                            v <a href="../../mobilna-aplikacia/">mobilnej aplikácii - V OBRAZE.</a>
+                    </div>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+          </div>
+
+          <div style="margin-top: 32px; border-top: 1px solid #E2E8F0; padding-top: 20px;">
+            <a href="../../" class="idsk-btn idsk-btn--secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="transform: rotate(180deg);"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42L16.86 11H5v2z"/></svg>
+              <span>Návrat na úvodnú stránku</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- 5. IDSK Pätička -->
+  <footer class="idsk-footer" role="contentinfo">
+    <div class="idsk-footer__tricolor" aria-hidden="true">
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--white"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--blue"></span>
+      <span class="idsk-footer__tricolor-strip idsk-footer__tricolor-strip--red"></span>
+    </div>
+
+    <div class="idsk-container">
+      <div class="idsk-footer__grid">
+        <div class="idsk-footer__col">
+          <div class="idsk-footer__brand">
+            <img src="../../images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-footer__crest">
+            <div>
+              <h3 class="idsk-footer__title">Obec Horný Vadičov</h3>
+              <p class="idsk-footer__text">Samosprávny orgán obce v okrese Kysucké Nové Mesto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Kontakt a sídlo</h4>
+          <address class="idsk-footer__address">
+            <p>Obecný úrad Horný Vadičov</p>
+            <p>Horný Vadičov 160</p>
+            <p>023 45 Horný Vadičov</p>
+            <p>Tel: <a href="tel:+421414229221">041 / 422 92 21</a></p>
+            <p>E-mail: <a href="mailto:urad@hornyvadicov.sk">urad@hornyvadicov.sk</a></p>
+          </address>
+        </div>
+
+        <div class="idsk-footer__col">
+          <h4 class="idsk-footer__heading">Dôležité odkazy</h4>
+          <ul class="idsk-footer__links">
+            <li><a href="../../zverejnovanie/uradna-tabula-1/">Elektronická úradná tabuľa</a></li>
+            <li><a href="../../samosprava/gdpr-infozakon/">Ochrana osobných údajov (GDPR)</a></li>
+            <li><a href="../../zverejnovanie/zmluvy-faktury-objednavky/">Zmluvy, faktúry a objednávky</a></li>
+            <li><a href="../../zverejnovanie/verejne-obstaravanie/profil/">Verejné obstarávanie</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="idsk-footer__bottom">
+        <p class="idsk-footer__copyright">&copy; 2026 Obec Horný Vadičov. Všetky práva vyhradené. Vytvorené v štandarde IDSK 3.0.</p>
+        <p class="idsk-footer__provider">Technický prevádzkovateľ: <strong><a href="https://www.prosoft.sk" target="_blank" rel="noopener noreferrer" style="color: #FFFFFF; text-decoration: underline;">PROSOFT</a></strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../src/scripts/app.js"></script>
+</body>
+</html>

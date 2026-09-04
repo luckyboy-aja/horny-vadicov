@@ -1,0 +1,1526 @@
+/* IDSK 3.0 Komponenty pre štátnu správu a samosprávy SR */
+
+/* --- Základný reset a prístupnosť --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--idsk-font-family);
+  font-size: var(--idsk-font-size-base);
+  line-height: var(--idsk-line-height-normal);
+  color: var(--idsk-color-text);
+  background-color: var(--idsk-color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Klávesnicový fokus podľa IDSK štandardu */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--idsk-color-focus-border) !important;
+  background-color: var(--idsk-color-focus-bg) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 0 4px var(--idsk-color-focus-bg) !important;
+  border-radius: var(--idsk-radius-sm);
+  text-decoration: underline;
+}
+
+.idsk-container {
+  width: 100%;
+  max-width: var(--idsk-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--idsk-container-padding);
+  padding-right: var(--idsk-container-padding);
+}
+
+/* --- 1. Skip to main content (Preskočiť na hlavný obsah) --- */
+.idsk-skip-link {
+  position: absolute;
+  top: -999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--idsk-color-focus-bg);
+  color: #000000;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid #000000;
+  z-index: 10000;
+  text-decoration: none;
+  box-shadow: var(--idsk-shadow-md);
+}
+
+.idsk-skip-link:focus {
+  top: 12px;
+}
+
+/* --- 2. Štátny / Samosprávny identifikačný pruh --- */
+.idsk-gov-bar {
+  background-color: #F0F4F8;
+  border-bottom: 1px solid var(--idsk-color-border);
+  font-size: 0.8125rem;
+  color: var(--idsk-color-text-secondary);
+  padding: 6px 0;
+}
+
+.idsk-gov-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.idsk-gov-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.idsk-gov-bar__flag {
+  display: inline-flex;
+  width: 20px;
+  height: 14px;
+  border: 1px solid #C4C8CC;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.idsk-gov-bar__flag-strip {
+  flex: 1;
+}
+.idsk-gov-bar__flag-strip--white { background-color: #FFFFFF; }
+.idsk-gov-bar__flag-strip--blue  { background-color: #0B4EA2; }
+.idsk-gov-bar__flag-strip--red   { background-color: #EE1C25; }
+
+.idsk-gov-bar__text {
+  font-weight: 600;
+  color: var(--idsk-color-text);
+}
+
+.idsk-gov-bar__info-btn {
+  background: none;
+  border: none;
+  color: var(--idsk-color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+}
+
+.idsk-gov-bar__info-btn:hover {
+  color: var(--idsk-color-primary-hover);
+}
+
+.idsk-gov-bar__tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.idsk-gov-bar__a11y-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.idsk-a11y-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  padding: 3px 8px;
+  border-radius: var(--idsk-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--idsk-color-text);
+  transition: var(--idsk-transition);
+}
+
+.idsk-a11y-btn:hover {
+  background-color: var(--idsk-color-primary-light);
+  border-color: var(--idsk-color-primary);
+}
+
+.idsk-gov-bar__collapsible-info {
+  display: none;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-left: 4px solid var(--idsk-color-primary);
+  padding: 12px 16px;
+  margin-top: 8px;
+  border-radius: var(--idsk-radius-sm);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.idsk-gov-bar__collapsible-info.is-open {
+  display: block;
+}
+
+/* --- 3. Hlavná hlavička obce (Header) --- */
+.idsk-header {
+  background-color: #FFFFFF;
+  border-bottom: 2px solid var(--idsk-color-primary);
+  padding: 20px 0 16px;
+  position: relative;
+}
+
+.idsk-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.idsk-header__logo-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.idsk-header__crest {
+  width: 64px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+}
+
+.idsk-header__title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.idsk-header__pretitle {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--idsk-color-primary);
+}
+
+.idsk-header__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--idsk-color-text);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.idsk-header__subtitle {
+  font-size: 0.875rem;
+  color: var(--idsk-color-text-secondary);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.idsk-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Quick contact chips v hlavičke */
+.idsk-header__contacts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.idsk-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background-color: var(--idsk-color-bg-alt);
+  border: 1px solid var(--idsk-color-border-subtle);
+  border-radius: var(--idsk-radius-full);
+  font-size: 0.875rem;
+  color: var(--idsk-color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--idsk-transition);
+}
+
+.idsk-contact-chip:hover {
+  background-color: var(--idsk-color-primary-light);
+  border-color: var(--idsk-color-primary);
+  color: var(--idsk-color-primary);
+}
+
+.idsk-contact-chip svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--idsk-color-primary);
+}
+
+/* --- 4. Vyhľadávanie podľa IDSK --- */
+.idsk-search {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 320px;
+}
+
+.idsk-search__input {
+  width: 100%;
+  padding: 10px 44px 10px 14px;
+  font-size: 0.9375rem;
+  border: 2px solid var(--idsk-color-text);
+  border-radius: var(--idsk-radius-sm);
+  font-family: inherit;
+  background-color: #FFFFFF;
+  color: var(--idsk-color-text);
+}
+
+.idsk-search__input:focus {
+  border-color: var(--idsk-color-focus-border);
+}
+
+.idsk-search__button {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: 40px;
+  background-color: var(--idsk-color-primary);
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: var(--idsk-transition);
+}
+
+.idsk-search__button:hover {
+  background-color: var(--idsk-color-primary-hover);
+}
+
+.idsk-search__button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* --- 5. Hlavná navigácia (IDSK Primary Navigation) --- */
+.idsk-nav-wrapper {
+  background-color: var(--idsk-color-primary-dark);
+  box-shadow: var(--idsk-shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.idsk-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.idsk-nav__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.idsk-nav__item {
+  position: relative;
+}
+
+.idsk-nav__link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 18px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: var(--idsk-transition);
+  border-bottom: 4px solid transparent;
+}
+
+.idsk-nav__link:hover,
+.idsk-nav__item:hover > .idsk-nav__link {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: var(--idsk-color-focus-bg);
+}
+
+.idsk-nav__link.is-active {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-bottom-color: var(--idsk-color-focus-bg);
+}
+
+.idsk-nav__arrow {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  transition: transform 0.2s;
+}
+
+.idsk-nav__item:hover .idsk-nav__arrow {
+  transform: rotate(180deg);
+}
+
+/* Rozbaľovacie podmenu (Dropdown) */
+.idsk-nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-top: 3px solid var(--idsk-color-primary);
+  box-shadow: var(--idsk-shadow-lg);
+  border-radius: 0 0 var(--idsk-radius-md) var(--idsk-radius-md);
+  list-style: none;
+  padding: 8px 0;
+  display: none;
+  z-index: 1001;
+}
+
+.idsk-nav__item:hover .idsk-nav__dropdown,
+.idsk-nav__item:focus-within .idsk-nav__dropdown {
+  display: block;
+}
+
+.idsk-nav__dropdown-link {
+  display: block;
+  padding: 10px 20px;
+  color: var(--idsk-color-text);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--idsk-transition);
+}
+
+.idsk-nav__dropdown-link:hover {
+  background-color: var(--idsk-color-primary-light);
+  color: var(--idsk-color-primary);
+  padding-left: 24px;
+}
+
+/* Mobilné hamburger tlačidlo */
+.idsk-nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 12px 16px;
+  cursor: pointer;
+  align-items: center;
+  gap: 8px;
+}
+
+.idsk-nav__toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* --- 6. Hero & Bannery obce --- */
+.idsk-hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 48, 96, 0.75), rgba(0, 48, 96, 0.85)),
+              url('/images/vadicov-1.jpg') center/cover no-repeat;
+  color: #FFFFFF;
+  padding: 60px 0 70px;
+}
+
+.idsk-hero__content {
+  max-width: 760px;
+}
+
+.idsk-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--idsk-radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.idsk-hero__title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.idsk-hero__perex {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #E2E8F0;
+  margin-bottom: 28px;
+}
+
+.idsk-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.idsk-hero__stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.idsk-hero__stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFDF0F;
+}
+
+.idsk-hero__stat-label {
+  font-size: 0.8125rem;
+  color: #CBD5E1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- 7. Mimoriadne oznamy a výstrahy (IDSK Alert Banner) --- */
+.idsk-alert-banner {
+  background-color: #FEF3F2;
+  border-left: 6px solid var(--idsk-color-danger);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: var(--idsk-radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-alert-banner--warning {
+  background-color: #FFF9EB;
+  border-left-color: #F59E0B;
+}
+
+.idsk-alert-banner__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.idsk-alert-banner__content {
+  flex: 1;
+}
+
+.idsk-alert-banner__title {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #991B1B;
+  margin-bottom: 4px;
+}
+
+.idsk-alert-banner--warning .idsk-alert-banner__title {
+  color: #92400E;
+}
+
+.idsk-alert-banner__text {
+  font-size: 0.9375rem;
+  color: #4B5563;
+  line-height: 1.45;
+}
+
+/* --- 8. Rýchly prístup (Quick Access Tiles / Ako vybaviť) --- */
+.idsk-section {
+  padding: 48px 0;
+}
+
+.idsk-section--alt {
+  background-color: var(--idsk-color-bg-alt);
+  border-top: 1px solid var(--idsk-color-border);
+  border-bottom: 1px solid var(--idsk-color-border);
+}
+
+.idsk-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.idsk-section__title-group {
+  max-width: 600px;
+}
+
+.idsk-section__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--idsk-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.idsk-section__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--idsk-color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.idsk-section__description {
+  font-size: 1rem;
+  color: var(--idsk-color-text-secondary);
+  margin-top: 6px;
+}
+
+.idsk-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.idsk-quick-card {
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--idsk-transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-quick-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--idsk-color-primary);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.idsk-quick-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--idsk-shadow-md);
+  border-color: var(--idsk-color-primary);
+}
+
+.idsk-quick-card:hover::before {
+  opacity: 1;
+}
+
+.idsk-quick-card__icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--idsk-radius-md);
+  background-color: var(--idsk-color-primary-light);
+  color: var(--idsk-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: var(--idsk-transition);
+}
+
+.idsk-quick-card:hover .idsk-quick-card__icon-wrapper {
+  background-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+}
+
+.idsk-quick-card__icon-wrapper svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.idsk-quick-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--idsk-color-text);
+  margin-bottom: 8px;
+}
+
+.idsk-quick-card__text {
+  font-size: 0.9375rem;
+  color: var(--idsk-color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.idsk-quick-card__link-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--idsk-color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.idsk-quick-card__link-text svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  transition: transform 0.2s;
+}
+
+.idsk-quick-card:hover .idsk-quick-card__link-text svg {
+  transform: translateX(4px);
+}
+
+/* --- 9. Karty aktualít (IDSK News Cards) --- */
+.idsk-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.idsk-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--idsk-shadow-sm);
+  transition: var(--idsk-transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+.idsk-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--idsk-shadow-md);
+  border-color: var(--idsk-color-primary);
+}
+
+.idsk-card__image-wrap {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background-color: #E2E8F0;
+  position: relative;
+}
+
+.idsk-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.idsk-card:hover .idsk-card__image {
+  transform: scale(1.04);
+}
+
+.idsk-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(0, 101, 179, 0.95);
+  color: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: var(--idsk-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.idsk-card__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.idsk-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8125rem;
+  color: var(--idsk-color-text-muted);
+  margin-bottom: 8px;
+}
+
+.idsk-card__meta svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.idsk-card__title {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--idsk-color-text);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.idsk-card__perex {
+  font-size: 0.9375rem;
+  color: var(--idsk-color-text-secondary);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.idsk-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--idsk-color-border-subtle);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--idsk-color-primary);
+}
+
+/* --- 10. Filtre kategórií (IDSK Filter Chips) --- */
+.idsk-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.idsk-filter-btn {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  color: var(--idsk-color-text);
+  padding: 8px 18px;
+  border-radius: var(--idsk-radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--idsk-transition);
+  font-family: inherit;
+}
+
+.idsk-filter-btn:hover {
+  background-color: var(--idsk-color-primary-light);
+  border-color: var(--idsk-color-primary);
+  color: var(--idsk-color-primary);
+}
+
+.idsk-filter-btn.is-active {
+  background-color: var(--idsk-color-primary);
+  border-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+}
+
+/* --- 11. Elektronická Úradná Tabuľa (Table Component) --- */
+.idsk-table-container {
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  overflow: hidden;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-table-toolbar {
+  padding: 16px 20px;
+  background-color: #F8FAFC;
+  border-bottom: 1px solid var(--idsk-color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.idsk-table-search {
+  max-width: 320px;
+  width: 100%;
+}
+
+.idsk-table-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-sm);
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.idsk-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.idsk-table th {
+  background-color: #F1F5F9;
+  padding: 14px 20px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--idsk-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--idsk-color-border);
+}
+
+.idsk-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--idsk-color-border-subtle);
+  font-size: 0.9375rem;
+  vertical-align: middle;
+}
+
+.idsk-table tr:hover td {
+  background-color: var(--idsk-color-primary-light);
+}
+
+.idsk-table tr:last-child td {
+  border-bottom: none;
+}
+
+.idsk-doc-title {
+  font-weight: 600;
+  color: var(--idsk-color-text);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.idsk-doc-meta {
+  font-size: 0.8125rem;
+  color: var(--idsk-color-text-muted);
+}
+
+.idsk-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--idsk-radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.idsk-status-pill--active {
+  background-color: #DCFCE7;
+  color: #166534;
+}
+
+.idsk-status-pill--ending {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.idsk-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--idsk-color-primary);
+  text-decoration: none;
+  transition: var(--idsk-transition);
+}
+
+.idsk-download-btn:hover {
+  background-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+  border-color: var(--idsk-color-primary);
+}
+
+/* --- 12. Starostka & Samospráva Section --- */
+.idsk-mayor-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  overflow: hidden;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-mayor-card__img-wrap {
+  background: linear-gradient(135deg, #003366, #0065B3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.idsk-mayor-card__crest {
+  max-width: 160px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.idsk-mayor-card__content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.idsk-mayor-card__badge {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--idsk-color-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.idsk-mayor-card__name {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--idsk-color-text);
+  margin-bottom: 12px;
+}
+
+.idsk-mayor-card__quote {
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--idsk-color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--idsk-color-primary);
+  padding-left: 16px;
+}
+
+.idsk-mayor-card__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* --- 13. Kalendár zvozu odpadov --- */
+.idsk-waste-schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.idsk-waste-card {
+  background: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  padding: 20px;
+  border-top: 5px solid var(--waste-color, #0065B3);
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-waste-card__type {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--idsk-color-text);
+  margin-bottom: 6px;
+}
+
+.idsk-waste-card__date {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--waste-color, #0065B3);
+  margin-bottom: 8px;
+}
+
+.idsk-waste-card__note {
+  font-size: 0.8125rem;
+  color: var(--idsk-color-text-secondary);
+  line-height: 1.4;
+}
+
+/* --- 14. Obecný rozhlas & Aplikácia --- */
+.idsk-media-box {
+  background: linear-gradient(135deg, #0F172A, #1E293B);
+  color: #FFFFFF;
+  border-radius: var(--idsk-radius-lg);
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  box-shadow: var(--idsk-shadow-md);
+}
+
+.idsk-media-box__info {
+  max-width: 580px;
+}
+
+.idsk-media-box__title {
+  font-size: 1.625rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.idsk-media-box__text {
+  font-size: 1rem;
+  color: #94A3B8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.idsk-media-box__phone-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: var(--idsk-radius-md);
+  transition: var(--idsk-transition);
+}
+
+.idsk-media-box__phone-cta:hover {
+  background-color: var(--idsk-color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* --- 15. Päta podľa IDSK 3.0 (Official Footer) --- */
+.idsk-footer {
+  background-color: #0F172A;
+  color: #CBD5E1;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  padding: 56px 0 0;
+  border-top: 4px solid var(--idsk-color-primary);
+}
+
+.idsk-footer a {
+  color: #E2E8F0;
+  text-decoration: none;
+  transition: var(--idsk-transition);
+}
+
+.idsk-footer a:hover {
+  color: var(--idsk-color-focus-bg);
+  text-decoration: underline;
+}
+
+.idsk-footer__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.idsk-footer__heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 18px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.idsk-footer__heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background-color: var(--idsk-color-primary);
+}
+
+.idsk-footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.idsk-footer__hours-table {
+  width: 100%;
+  font-size: 0.8125rem;
+  border-collapse: collapse;
+}
+
+.idsk-footer__hours-table td {
+  padding: 4px 0;
+}
+
+.idsk-footer__hours-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.idsk-footer__bottom {
+  padding: 24px 0 32px;
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.idsk-footer__bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  list-style: none;
+}
+
+.idsk-footer__tricolor-bar {
+  height: 4px;
+  width: 100%;
+  display: flex;
+}
+.idsk-footer__tricolor-bar div:nth-child(1) { flex: 1; background-color: #FFFFFF; }
+.idsk-footer__tricolor-bar div:nth-child(2) { flex: 1; background-color: #0B4EA2; }
+.idsk-footer__tricolor-bar div:nth-child(3) { flex: 1; background-color: #EE1C25; }
+
+/* Modal pre zobrazenie detailu aktuality */
+.idsk-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.idsk-modal-backdrop.is-open {
+  display: flex;
+}
+
+.idsk-modal {
+  background: #FFFFFF;
+  border-radius: var(--idsk-radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--idsk-shadow-lg);
+  border: 1px solid var(--idsk-color-border);
+  position: relative;
+  animation: idskModalFade 0.2s ease-out;
+}
+
+@keyframes idskModalFade {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.idsk-modal__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--idsk-color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.idsk-modal__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--idsk-color-text);
+}
+
+.idsk-modal__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--idsk-color-text-muted);
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: var(--idsk-radius-sm);
+}
+
+.idsk-modal__close:hover {
+  color: var(--idsk-color-text);
+  background-color: var(--idsk-color-bg-alt);
+}
+
+.idsk-modal__body {
+  padding: 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--idsk-color-text);
+}
+
+.idsk-modal__image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--idsk-radius-md);
+  margin-bottom: 20px;
+}
+
+/* --- Responzivita (Media Queries) --- */
+@media (max-width: 992px) {
+  .idsk-nav__toggle {
+    display: flex;
+  }
+
+  .idsk-nav__list {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: #00274D;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .idsk-nav__list.is-open {
+    display: flex;
+  }
+
+  .idsk-nav__dropdown {
+    position: static;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    padding-left: 20px;
+  }
+
+  .idsk-nav__dropdown-link {
+    color: #E2E8F0;
+  }
+
+  .idsk-header__contacts {
+    display: none;
+  }
+
+  .idsk-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .idsk-mayor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .idsk-mayor-card__img-wrap {
+    padding: 32px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .idsk-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .idsk-search {
+    max-width: 100%;
+  }
+
+  .idsk-hero__title {
+    font-size: 2rem;
+  }
+
+  .idsk-footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- IDSK 3.0 Podstránky a Breadcrumbs --- */
+.idsk-breadcrumbs {
+  padding: 16px 0;
+  font-size: 0.875rem;
+  color: var(--idsk-color-text-secondary);
+}
+
+.idsk-breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.idsk-breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.idsk-breadcrumbs__item:not(:last-child)::after {
+  content: "›";
+  color: #A0AEC0;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.idsk-breadcrumbs__link {
+  color: var(--idsk-color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.idsk-breadcrumbs__link:hover {
+  color: var(--idsk-color-primary-dark);
+}
+
+.idsk-breadcrumbs__item[aria-current="page"] {
+  font-weight: 600;
+  color: var(--idsk-color-text);
+}
+
+/* Layout podstránky (Dvojstĺpcový podľa IDSK) */
+.idsk-subpage-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 992px) {
+  .idsk-subpage-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.idsk-subpage-sidebar {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  overflow: hidden;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-subpage-sidebar__header {
+  background-color: #003366;
+  color: #FFFFFF;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.idsk-subpage-sidebar__nav {
+  list-style: none;
+  padding: 8px 0;
+}
+
+.idsk-subpage-sidebar__link {
+  display: block;
+  padding: 10px 20px;
+  color: var(--idsk-color-text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  border-left: 4px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.idsk-subpage-sidebar__link:hover {
+  background-color: #F0F4F8;
+  color: var(--idsk-color-primary);
+}
+
+.idsk-subpage-sidebar__link.is-active {
+  background-color: #E6F0F8;
+  color: var(--idsk-color-primary-dark);
+  font-weight: 700;
+  border-left-color: var(--idsk-color-primary);
+}
+
+.idsk-subpage-content {
+  background-color: #FFFFFF;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius-md);
+  padding: 36px;
+  box-shadow: var(--idsk-shadow-sm);
+}
+
+.idsk-subpage-content__header {
+  border-bottom: 2px solid #E2E8F0;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.idsk-subpage-content__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #003366;
+  margin-bottom: 12px;
+}
+
+.idsk-subpage-content__subtitle {
+  color: var(--idsk-color-text-secondary);
+  font-size: 1rem;
+}
+
+/* Identifikačný box obstarávateľa */
+.idsk-procurement-card {
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E0;
+  border-left: 6px solid var(--idsk-color-primary);
+  border-radius: var(--idsk-radius-sm);
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.idsk-procurement-card__grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  row-gap: 12px;
+  column-gap: 20px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .idsk-procurement-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.idsk-procurement-card__label {
+  font-weight: 700;
+  color: #4A5568;
+}
+
+.idsk-procurement-card__value {
+  color: var(--idsk-color-text);
+}
