@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obec Horný Vadičov | Oficiálne webové sídlo v štandarde IDSK</title>
+  <meta name="description" content="Oficiálne webové sídlo obce Horný Vadičov. Aktuality, elektronická úradná tabuľa, obchodná verejná súťaž, samospráva, zvoz odpadu a služby pre občanov v súlade s IDSK 3.0.">
+  <link rel="icon" type="image/png" href="/images/crest.png">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- 1. Bezbariérový odkaz na hlavný obsah (WCAG 2.1 AA) -->
+  <a href="#main-content" class="idsk-skip-link">Preskočiť na hlavný obsah</a>
+
+  <!-- 2. Štátny a samosprávny identifikačný prúžok (IDSK 3.0) -->
+  <div class="idsk-gov-bar" role="region" aria-label="Identifikátor verejnej správy">
+    <div class="idsk-container">
+      <div class="idsk-gov-bar__inner">
+        <div class="idsk-gov-bar__brand">
+          <span class="idsk-gov-bar__flag" aria-hidden="true">
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--white"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--blue"></span>
+            <span class="idsk-gov-bar__flag-strip idsk-gov-bar__flag-strip--red"></span>
+          </span>
+          <span class="idsk-gov-bar__text">Oficiálna stránka samosprávy Slovenskej republiky</span>
+          <button type="button" class="idsk-gov-bar__info-btn" id="govBarToggle" aria-expanded="false" aria-controls="govBarInfo">
+            Ako spoznáte oficiálnu stránku?
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 10l5 5 5-5z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="idsk-gov-bar__tools">
+          <div class="idsk-gov-bar__a11y-group" role="group" aria-label="Nástroje prístupnosti">
+            <button type="button" class="idsk-a11y-btn" id="btnContrast" title="Prepnúť režim vysokého kontrastu">Kontrast</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontIncrease" title="Zväčšiť písmo">A+</button>
+            <button type="button" class="idsk-a11y-btn" id="btnFontReset" title="Pôvodná veľkosť písma">A</button>
+          </div>
+          <div class="idsk-gov-bar__lang">
+            <span style="font-weight: 700; color: var(--idsk-color-primary);">SK</span>
+            <span style="color: #A0AEC0;"> | </span>
+            <a href="#" style="color: var(--idsk-color-text-secondary); text-decoration: none;" title="English version">EN</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Výsuvný informačný panel o štátnych webových sídlach -->
+      <div class="idsk-gov-bar__collapsible-info" id="govBarInfo">
+        <p><strong>Oficiálna doména samosprávy SR:</strong> Táto stránka je oficiálnym webovým sídlom obce Horný Vadičov v zmysle Zákona č. 369/1990 Zb. o obecnom zriadení. Používa bezpečné šifrované spojenie (HTTPS) a spĺňa štandardy jednotného dizajn manuálu elektronických služieb (IDSK 3.0).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Hlavná hlavička obce (Header) -->
+  <header class="idsk-header" role="banner">
+    <div class="idsk-container">
+      <div class="idsk-header__inner">
+        <a href="/" class="idsk-header__logo-group" aria-label="Úvodná stránka obce Horný Vadičov">
+          <img src="/images/crest.png" alt="Erb obce Horný Vadičov" class="idsk-header__crest">
+          <div class="idsk-header__title-container">
+            <span class="idsk-header__pretitle">Obecný úrad</span>
+            <span class="idsk-header__title">Horný Vadičov</span>
+            <span class="idsk-header__subtitle">Okres Kysucké Nové Mesto · Žilinský kraj</span>
+          </div>
+        </a>
+
+        <div class="idsk-header__actions">
+          <div class="idsk-header__contacts">
+            <a href="tel:+421414229221" class="idsk-contact-chip" title="Zavolajte na obecný úrad">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>041 / 422 92 21</span>
+            </a>
+            <a href="mailto:urad@hornyvadicov.sk" class="idsk-contact-chip" title="Napíšte nám e-mail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>urad@hornyvadicov.sk</span>
+            </a>
+          </div>
+
+          <div class="idsk-search" role="search">
+            <input type="search" id="globalSearchInput" class="idsk-search__input" placeholder="Hľadať na stránke..." aria-label="Vyhľadávanie na webovom sídle">
+            <button type="button" class="idsk-search__button" aria-label="Spustiť vyhľadávanie">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Hlavná prístupná navigácia (1:1 zhodná so štruktúrou hornyvadicov.sk) -->
+  <div class="idsk-nav-wrapper">
+    <div class="idsk-container">
+      <nav class="idsk-nav" aria-label="Hlavná navigácia">
+        <button type="button" class="idsk-nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navList">
+          <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          <span>MENU</span>
+        </button>
+
+        <ul class="idsk-nav__list" id="navList">
+          <!-- 1. Obec -->
+          <li class="idsk-nav__item">
+            <a href="#o-obci" class="idsk-nav__link is-active">
+              <span>Obec</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#o-obci" class="idsk-nav__dropdown-link">O obci</a></li>
+              <li><a href="#o-obci" class="idsk-nav__dropdown-link">História a symboly obce</a></li>
+              <li><a href="#aktuality" class="idsk-nav__dropdown-link">Aktuality</a></li>
+              <li><a href="#tlaciva" class="idsk-nav__dropdown-link">Tlačivá a dotácie</a></li>
+              <li><a href="#podujatia" class="idsk-nav__dropdown-link">Kalendár podujatí</a></li>
+              <li><a href="#fotogaleria" class="idsk-nav__dropdown-link">Fotogaléria</a></li>
+              <li><a href="#bytove-domy" class="idsk-nav__dropdown-link">Bytové domy A651, B652</a></li>
+              <li><a href="#cintorin" class="idsk-nav__dropdown-link">Cintorín</a></li>
+              <li><a href="#civilna-ochrana" class="idsk-nav__dropdown-link">Civilná a požiarna ochrana</a></li>
+              <li><a href="#odpady" class="idsk-nav__dropdown-link">Odpadové hospodárstvo</a></li>
+              <li><a href="#sport" class="idsk-nav__dropdown-link">Šport (Futbal & Hokejbal)</a></li>
+              <li><a href="#kniznica" class="idsk-nav__dropdown-link">Obecná knižnica</a></li>
+            </ul>
+          </li>
+
+          <!-- 2. Samospráva -->
+          <li class="idsk-nav__item">
+            <a href="#samosprava" class="idsk-nav__link">
+              <span>Samospráva</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Starostka obce (Mgr. Viera Lea Slivková)</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Obecné zastupiteľstvo (Poslanci OZ)</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Pozvánky, zápisnice a uznesenia OZ</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Komisie obecného zastupiteľstva</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Hlavný kontrolór obce</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Všeobecne záväzné nariadenia (VZN)</a></li>
+              <li><a href="#samosprava" class="idsk-nav__dropdown-link">Smernice a dokumenty obce</a></li>
+              <li><a href="#gdpr" class="idsk-nav__dropdown-link" id="navGdprLink">GDPR – Infozákon</a></li>
+            </ul>
+          </li>
+
+          <!-- 3. Zverejňovanie -->
+          <li class="idsk-nav__item">
+            <a href="#uradna-tabula" class="idsk-nav__link">
+              <span>Zverejňovanie</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#uradna-tabula" class="idsk-nav__dropdown-link">Úradná tabuľa (Stavebné konania, výruby)</a></li>
+              <li><a href="#ovs" class="idsk-nav__dropdown-link">Obchodná verejná súťaž</a></li>
+              <li><a href="#zmluvy" class="idsk-nav__dropdown-link">Zmluvy, faktúry a objednávky (ZFO)</a></li>
+              <li><a href="#zmluvy" class="idsk-nav__dropdown-link">Verejné obstarávanie</a></li>
+              <li><a href="#zmluvy" class="idsk-nav__dropdown-link">Hospodárenie a rozpočet</a></li>
+            </ul>
+          </li>
+
+          <!-- 4. Projekty obce -->
+          <li class="idsk-nav__item">
+            <a href="#projekty" class="idsk-nav__link">
+              <span>Projekty</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Energetická náročnosť MŠ č. 515</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Stavebné úpravy MŠ Horný Vadičov</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Podpora opatrovateľskej služby</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Športové ihrisko pri ZŠ</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Olympiáda starších - Seniori</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Energetická náročnosť KIC a knižnice č. 798</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Energetická náročnosť OcÚ</a></li>
+              <li><a href="#projekty" class="idsk-nav__dropdown-link">Fond na podporu športu</a></li>
+            </ul>
+          </li>
+
+          <!-- 5. Územný plán -->
+          <li class="idsk-nav__item">
+            <a href="#uzemny-plan" class="idsk-nav__link">
+              <span>Územný plán</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#uzemny-plan" class="idsk-nav__dropdown-link">Územný plán obce Horný Vadičov</a></li>
+              <li><a href="#uzemny-plan" class="idsk-nav__dropdown-link">Prieskumy a rozbory</a></li>
+              <li><a href="#uzemny-plan" class="idsk-nav__dropdown-link">Zmeny a doplnky ÚPN-O</a></li>
+            </ul>
+          </li>
+
+          <!-- 6. Voľby a referendum -->
+          <li class="idsk-nav__item">
+            <a href="#volby" class="idsk-nav__link">
+              <span>Voľby</span>
+            </a>
+          </li>
+
+          <!-- 7. Organizácie v obci -->
+          <li class="idsk-nav__item">
+            <a href="#organizacie" class="idsk-nav__link">
+              <span>Organizácie</span>
+              <svg class="idsk-nav__arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </a>
+            <ul class="idsk-nav__dropdown">
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Materská škola</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Základná škola</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Dobrovoľný hasičský zbor (DHZ)</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Jednota dôchodcov Slovenska</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Folklórna skupina Vajčovci</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Lesné a pozemkové spoločenstvo</a></li>
+              <li><a href="#organizacie" class="idsk-nav__dropdown-link">Cirkev a farnosť sv. Mikuláša</a></li>
+            </ul>
+          </li>
+
+          <!-- 8. Kontakt -->
+          <li class="idsk-nav__item">
+            <a href="#kontakt" class="idsk-nav__link">
+              <span>Kontakt</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hlavný obsah stránky -->
+  <main id="main-content">
+    
+    <!-- 5. Hero sekcia s kľúčovými informáciami -->
+    <section class="idsk-hero" aria-label="Úvodná vizitka obce">
+      <div class="idsk-container">
+        <div class="idsk-hero__content">
+          <span class="idsk-hero__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Kysuce · Dolný Vadičov · Kysucké Nové Mesto
+          </span>
+          <h1 class="idsk-hero__title">Vitajte v obci Horný Vadičov</h1>
+          <p class="idsk-hero__perex">
+            Malebná kysucká obec v lone prírody Vadičovskej doliny. Služby pre občanov, transparentná samospráva a elektronické vybavovanie žiadostí na jednom mieste.
+          </p>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="#ako-vybavit" class="idsk-quick-card__link-text" style="background-color: var(--idsk-color-focus-bg); color: #000000; padding: 12px 24px; border-radius: var(--idsk-radius-md); font-size: 1rem; font-weight: 700; text-decoration: none;">
+              Čo potrebujete vybaviť?
+            </a>
+            <a href="#uradna-tabula" style="background-color: rgba(255, 255, 255, 0.15); color: #FFFFFF; border: 1px solid #FFFFFF; padding: 12px 24px; border-radius: var(--idsk-radius-md); font-size: 1rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              Elektronická úradná tabuľa
+            </a>
+          </div>
+
+          <div class="idsk-hero__stats">
+            <div class="idsk-hero__stat-item">
+              <span class="idsk-hero__stat-val">1 713</span>
+              <span class="idsk-hero__stat-label">Obyvateľov (k 31.12.2025)</span>
+            </div>
+            <div class="idsk-hero__stat-item">
+              <span class="idsk-hero__stat-val">2 081 ha</span>
+              <span class="idsk-hero__stat-label">Rozloha katastra</span>
+            </div>
+            <div class="idsk-hero__stat-item">
+              <span class="idsk-hero__stat-val">1385</span>
+              <span class="idsk-hero__stat-label">Prvá písomná zmienka (Silva Vaditzov)</span>
+            </div>
+            <div class="idsk-hero__stat-item">
+              <span class="idsk-hero__stat-val">487 m n.m.</span>
+              <span class="idsk-hero__stat-label">Nadmorská výška</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Dôležité oznamy a výstrahy (IDSK Alert Banners) -->
+    <div class="idsk-container">
+      <div class="idsk-alert-banner" role="alert">
+        <svg class="idsk-alert-banner__icon" viewBox="0 0 24 24" fill="#991B1B">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <div class="idsk-alert-banner__content">
+          <div class="idsk-alert-banner__title">Upozornenie: Očkovanie psov proti besnote</div>
+          <div class="idsk-alert-banner__text">
+            V sobotu <strong>12. septembra 2026</strong> sa v našej obci uskutoční povinné očkovanie psov proti besnote. Očkovať sa bude pri obecnom úrade a v určených častiach obce.
+          </div>
+        </div>
+      </div>
+
+      <div class="idsk-alert-banner idsk-alert-banner--warning" role="status">
+        <svg class="idsk-alert-banner__icon" viewBox="0 0 24 24" fill="#92400E">
+          <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+        </svg>
+        <div class="idsk-alert-banner__content">
+          <div class="idsk-alert-banner__title">Vyhlásenie času zvýšeného nebezpečenstva vzniku požiaru</div>
+          <div class="idsk-alert-banner__text">
+            OR HaZZ v Čadci vyhlasuje zákaz zakladania ohňov v lesných porastoch a spaľovania biologického odpadu na voľnom priestranstve.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Rýchly prístup k službám ("Ako vybaviť") -->
+    <section id="ako-vybavit" class="idsk-section idsk-section--alt">
+      <div class="idsk-container">
+        <div class="idsk-section__header">
+          <div class="idsk-section__title-group">
+            <span class="idsk-section__eyebrow">Služby pre občanov</span>
+            <h2 class="idsk-section__title">Čo potrebujete vybaviť?</h2>
+            <p class="idsk-section__description">Najčastejšie životné situácie, tlačivá a žiadosti na Obecnom úrade v Hornom Vadičove.</p>
+          </div>
+        </div>
+
+        <div class="idsk-quick-grid">
+          <!-- Karta 1 -->
+          <a href="#uradna-tabula" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Úradná tabuľa</h3>
+            <p class="idsk-quick-card__text">Zverejnené zámery obce, stavebné konania, uznesenia a zápisnice zo zasadnutí obecného zastupiteľstva.</p>
+            <span class="idsk-quick-card__link-text">
+              Zobraziť dokumenty
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+
+          <!-- Karta 2 -->
+          <a href="#tlaciva" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Tlačivá a žiadosti</h3>
+            <p class="idsk-quick-card__text">Žiadosti o dotácie z rozpočtu obce, stavebné povolenia, ohlásenia drobných stavieb, dane za psa a žiadosti o byty.</p>
+            <span class="idsk-quick-card__link-text">
+              Stiahnuť formuláre
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+
+          <!-- Karta 3 -->
+          <a href="#odpady" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Zvoz odpadu & Kalendár</h3>
+            <p class="idsk-quick-card__text">Termíny vývozu separovaného a komunálneho odpadu, zber plastov, papiera, elektroodpadu a pravidlá triedenia.</p>
+            <span class="idsk-quick-card__link-text">
+              Harmonogram vývozu
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+
+          <!-- Karta 4 -->
+          <a href="#rozhlas" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Obecný rozhlas</h3>
+            <p class="idsk-quick-card__text">Zmeškali ste hlásenie obecného rozhlasu? Vypočujte si ho znova telefonicky na linke 0911 545 336.</p>
+            <span class="idsk-quick-card__link-text">
+              Archív hlásení
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+
+          <!-- Karta 5 -->
+          <a href="#samosprava" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Starostka a zastupiteľstvo</h3>
+            <p class="idsk-quick-card__text">Vedenie obce Mgr. Viera Lea Slivková, poslanci obecného zastupiteľstva, komisie a termíny zasadnutí.</p>
+            <span class="idsk-quick-card__link-text">
+              Zoznam predstaviteľov
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+
+          <!-- Karta 6 -->
+          <a href="#kontakt" class="idsk-quick-card">
+            <div class="idsk-quick-card__icon-wrapper">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <h3 class="idsk-quick-card__title">Úradné hodiny a kontakt</h3>
+            <p class="idsk-quick-card__text">Pracovníci úradu, kontaktné telefóny, adresa Obecného úradu Horný Vadičov 160 a stránkové dni.</p>
+            <span class="idsk-quick-card__link-text">
+              Kontaktné informácie
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. HLAVNÝ OBSAHOVÝ BLOK 1:1 S PÔVODNÝM WEBOM (Tabs & Sidebar) -->
+    <section class="idsk-section" style="padding-top: 32px;">
+      <div class="idsk-container">
+        <div style="display: grid; grid-template-columns: 2.8fr 1.2fr; gap: 32px; align-items: start;">
+          
+          <!-- HLAVNÝ STĹPEC: 4 ZÁLOŽKY PRESNE PODĽA HORNYVADICOV.SK -->
+          <div>
+            <!-- Záložková lišta (Tabs) -->
+            <div style="border-bottom: 2px solid var(--idsk-color-primary); display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 24px;" role="tablist">
+              <button type="button" class="idsk-filter-btn is-active js-tab-btn" data-tab="tab-aktuality" role="tab" aria-selected="true" style="border-radius: var(--idsk-radius-sm) var(--idsk-radius-sm) 0 0; font-size: 1rem; padding: 10px 20px;">
+                Aktuality
+              </button>
+              <button type="button" class="idsk-filter-btn js-tab-btn" data-tab="tab-uradna-tabula" role="tab" aria-selected="false" style="border-radius: var(--idsk-radius-sm) var(--idsk-radius-sm) 0 0; font-size: 1rem; padding: 10px 20px;">
+                Úradná tabuľa
+              </button>
+              <button type="button" class="idsk-filter-btn js-tab-btn" data-tab="tab-ovs" role="tab" aria-selected="false" style="border-radius: var(--idsk-radius-sm) var(--idsk-radius-sm) 0 0; font-size: 1rem; padding: 10px 20px;">
+                Obchodná verejná súťaž
+              </button>
+              <button type="button" class="idsk-filter-btn js-tab-btn" data-tab="tab-rozhlas" role="tab" aria-selected="false" style="border-radius: var(--idsk-radius-sm) var(--idsk-radius-sm) 0 0; font-size: 1rem; padding: 10px 20px;">
+                Obecný rozhlas 0911 545 336
+              </button>
+            </div>
+
+            <!-- TAB 1: AKTUALITY -->
+            <div id="tab-aktuality" class="js-tab-pane" role="tabpanel">
+              <div class="idsk-news-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                <!-- Oznam 1: Očkovanie psov -->
+                <article class="idsk-card" data-category="oznam" data-fulltext="OZNAM: V sobotu 12. septembra 2026 sa uskutoční v našej obci povinné očkovanie psov proti besnote. Očkovať sa budú psy od 3 mesiacov veku. Majitelia sú povinní predložiť očkovací preukaz psa a zabezpečiť psa náhubkom a pevným vodítkom. Poplatok za očkovanie sa hradí priamo veterinárnemu lekárovi na mieste.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/oznam-ockovanie.jpg" alt="Očkovanie psov proti besnote" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge">Oznam OcÚ</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-09-01">1. 9. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Očkovanie psov proti besnote 12.09.2026</h3>
+                    <p class="idsk-card__perex">OZNAM: v sobotu 12. septembra 2026 sa uskutoční v našej obci očkovanie psov proti besnote.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Oznam 2: Zber plastov -->
+                <article class="idsk-card" data-category="odpad" data-fulltext="O z n a m: Obec Horný Vadičov oznamuje občanom, že dňa 1. septembra 2026 sa uskutoční v našej obci zber plastov. Pripravené a zviazané vrecia umiestnite k bráne Vášho rodinného domu.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/oznam-plasty.jpg" alt="Zber plastov v obci" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge" style="background-color: #D97706;">Odpady</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-08-28">28. 8. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Zber plastov 1.9.2026</h3>
+                    <p class="idsk-card__perex">Pripravené a zviazané vrecia umiestnite k bráne Vášho rodinného domu.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Oznam 3: Školský rok -->
+                <article class="idsk-card" data-category="skola" data-fulltext="Otvorenie školského roka v Materskej škole Horný Vadičov bude 1.9.2026. Deti sa schádzajú od 6:30 do 8:00 hod.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/oznam-skola.jpg" alt="Otvorenie školského roka" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge" style="background-color: #059669;">Školstvo</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-08-27">27. 8. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Otvorenie školského roka 2026/2027</h3>
+                    <p class="idsk-card__perex">Otvorenie školského roka v Materskej škole Horný Vadičov bude 1.9.2026. Deti sa schádzajú od 6:30 do 8:00 hod.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Oznam 4: Komíny -->
+                <article class="idsk-card" data-category="oznam" data-fulltext="Dňa 27. a 28. augusta 2026 sa v našej obci uskutoční čistenie a kontrola komínov.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/oznam-kominy.jpg" alt="Kontrola a čistenie komínov" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge">Oznam OcÚ</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-08-24">24. 8. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Kontrola a čistenie komínov 27.8. a 28.8.2026</h3>
+                    <p class="idsk-card__perex">Dňa 27. a 28. augusta 2026 sa v našej obci uskutoční čistenie a kontrola komínov.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Oznam 5: Elektroodpad -->
+                <article class="idsk-card" data-category="odpad" data-fulltext="V utorok 25.08.2026 sa uskutoční v našej obci zber nepoužiteľného elektroodpadu. Staré elektrické spotrebiče, batérie a iný elektroodpad pripravte k bráne svojho rodinného domu, kde ho prevezmú pracovníci obce.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/vadicov-2.png" alt="Zber elektroodpadu" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge" style="background-color: #D97706;">Odpady</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-08-17">17. 8. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Zber elektroodpadu 25.8.2026</h3>
+                    <p class="idsk-card__perex">V utorok 25.08.2026 sa uskutoční v našej obci zber nepoužiteľného elektroodpadu.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Oznam 6: Voľby -->
+                <article class="idsk-card" data-category="volby" data-fulltext="Kandidátne listiny pre voľby do orgánov územnej samosprávy sa môžu odovzdávať vymenovanej zapisovateľke miestnej volebnej komisie do 25.08.2026 do 24.00 hod. v sídle Obecného úradu Horný Vadičov, Horný Vadičov 160.">
+                  <div class="idsk-card__image-wrap">
+                    <img src="/images/vadicov-1.jpg" alt="Voľby samospráva" class="idsk-card__image" loading="lazy">
+                    <span class="idsk-card__badge" style="background-color: #7C3AED;">Voľby</span>
+                  </div>
+                  <div class="idsk-card__body">
+                    <div class="idsk-card__meta">
+                      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      <time datetime="2026-08-13">13. 8. 2026</time>
+                    </div>
+                    <h3 class="idsk-card__title">Informácia k podávaniu kandidátnych listín - Voľby</h3>
+                    <p class="idsk-card__perex">Kandidátne listiny pre voľby do orgánov územnej samosprávy sa môžu odovzdávať do 25.08.2026 do 24:00 hod.</p>
+                    <div class="idsk-card__footer">
+                      <button type="button" class="js-open-modal" style="background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+                        Detail oznamu
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- TAB 2: ÚRADNÁ TABUĽA -->
+            <div id="tab-uradna-tabula" class="js-tab-pane" style="display: none;" role="tabpanel">
+              <div class="idsk-table-container">
+                <table class="idsk-table">
+                  <thead>
+                    <tr>
+                      <th>Názov dokumentu</th>
+                      <th>Zverejnené do</th>
+                      <th style="text-align: right;">Stiahnuť</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Oznámenie o doručení písomnosti pre Štefana Káčerika</strong>
+                        <div class="idsk-doc-meta">24. 8. 2026 – 9. 9. 2026</div>
+                      </td>
+                      <td>9. 9. 2026</td>
+                      <td style="text-align: right;"><a href="https://www.hornyvadicov.sk/zverejnovanie/uradna-tabula-1/oznamenie-o-doruceni-pisomnosti-pre-stefana-kacerika-bytom-horny-vadicov-1431.html" target="_blank" class="idsk-download-btn">PDF</a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Zverejnenie Zámeru prevodu vlastníctva majetku obce Horný Vadičov</strong>
+                        <div class="idsk-doc-meta">24. 8. 2026 – 15. 1. 2027</div>
+                      </td>
+                      <td>15. 1. 2027</td>
+                      <td style="text-align: right;"><a href="https://www.hornyvadicov.sk/zverejnovanie/uradna-tabula-1/zverejnenie-zameru-prevodu-vlastnictva-majetku-obce-horny-vadicov-1430.html" target="_blank" class="idsk-download-btn">PDF</a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Uznesenia z neplánovaného zasadnutia OZ 13.08.2026</strong>
+                        <div class="idsk-doc-meta">24. 8. 2026 – 8. 9. 2026</div>
+                      </td>
+                      <td>8. 9. 2026</td>
+                      <td style="text-align: right;"><a href="https://www.hornyvadicov.sk/zverejnovanie/uradna-tabula-1/uznesenia-z-neplanovaneho-zasadnutia-obecneho-zastupitelstva-13082026-1429.html" target="_blank" class="idsk-download-btn">PDF</a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Zápisnica z neplánovaného rokovania OZ obce Horný Vadičov</strong>
+                        <div class="idsk-doc-meta">24. 8. 2026 – 8. 9. 2026</div>
+                      </td>
+                      <td>8. 9. 2026</td>
+                      <td style="text-align: right;"><a href="https://www.hornyvadicov.sk/zverejnovanie/uradna-tabula-1/zapisnica-z-neplanovaneho-rokovania-obecneho-zastupitelstva-obce-horny-vadicov-13082026-1428.html" target="_blank" class="idsk-download-btn">PDF</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB 3: OBCHODNÁ VEREJNÁ SÚŤAŽ -->
+            <div id="tab-ovs" class="js-tab-pane" style="display: none;" role="tabpanel">
+              <div class="info-box" style="margin-top: 0;">
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px;">
+                  Zámer predať nehnuteľný majetok obce Horný Vadičov - Budova č. 497
+                </h3>
+                <p style="font-size: 0.9375rem; color: var(--idsk-color-text-secondary); line-height: 1.6; margin-bottom: 18px;">
+                  Obec Horný Vadičov v zmysle zákona č. 138/1991 Zb. o majetku obcí zverejňuje <strong>Oznámenie o vyhlásení obchodnej verejnej súťaže s podmienkami (opakovaná)</strong> na prevod vlastníctva nehnuteľného majetku obce.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <a href="https://www.hornyvadicov.sk/e_download.php?file=/data/multipage/editor/editor-1-98-sk_1.pdf&original=z%C3%A1mer%20prevodu%20vlastn%C3%ADctva%20majetku%20obce.pdf" target="_blank" class="idsk-download-btn" style="width: fit-content;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Zámer prevodu vlastníctva majetku obce.pdf (110 kB)
+                  </a>
+                  <a href="https://www.hornyvadicov.sk/e_download.php?file=/data/multipage/editor/editor-1-98-sk_2.pdf&original=OZN%C3%81MENIE%20O%20VYHL%C3%81SEN%C3%8D%20OBCHODNEJ%20VEREJNEJ%20S%C3%9A%C5%A4A%C5%BDE.pdf" target="_blank" class="idsk-download-btn" style="width: fit-content;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Oznámenie o vyhlásení obchodnej verejnej súťaže.pdf (238 kB)
+                  </a>
+                  <a href="https://www.hornyvadicov.sk/e_download.php?file=/data/multipage/editor/editor-1-98-sk_1.docx&original=%C4%8Cestn%C3%A9%20vyhl%C3%A1senie.docx" target="_blank" class="idsk-download-btn" style="width: fit-content;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Podmienky: Čestné vyhlásenie.docx (18 kB)
+                  </a>
+                  <a href="https://www.hornyvadicov.sk/e_download.php?file=/data/multipage/editor/editor-1-98-sk_2.docx&original=K%C3%BApna%20zmluva%20%C4%8D.%20OcU-370_2026%20obch.%20verejnej%20s%C3%BA%C5%A5a%C5%BEe.docx" target="_blank" class="idsk-download-btn" style="width: fit-content;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    Kúpna zmluva č. OcU-370/2026 - Návrh.docx (24 kB)
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4: OBECNÝ ROZHLAS -->
+            <div id="tab-rozhlas" class="js-tab-pane" style="display: none;" role="tabpanel">
+              <div class="info-box" style="margin-top: 0; text-align: center; padding: 36px 20px;">
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 12px;">
+                  Vyhlásený oznam v obecnom rozhlase si môžete znova vypočuť po zatelefonovaní na tel. číslo:
+                </h3>
+                <a href="tel:0911545336" style="font-size: 2.25rem; font-weight: 800; color: var(--idsk-color-primary); text-decoration: none; display: inline-block; margin: 12px 0;">
+                  0911 545 336
+                </a>
+                <p style="font-size: 0.875rem; color: var(--idsk-color-text-muted);">
+                  Automatický hlasový systém uchováva najnovšie hlásenia obecného rozhlasu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRAVÝ BOČNÝ PANEL (SIDEBAR 1:1 S PÔVODNOU STRÁNKOU) -->
+          <aside style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Widget: Kalendár -->
+            <div class="idsk-card" style="padding: 20px;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <span>Kalendár</span>
+                <span style="font-size: 0.8125rem; font-weight: 600; color: var(--idsk-color-text-secondary);">September 2026</span>
+              </h3>
+              <div style="font-size: 0.8125rem;">
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: 700; color: var(--idsk-color-text-secondary); margin-bottom: 8px;">
+                  <div>Po</div><div>Ut</div><div>St</div><div>Št</div><div>Pia</div><div>So</div><div>Ne</div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 4px;">
+                  <span style="color:#A0AEC0;">31</span><span>1</span><span>2</span><span>3</span>
+                  <span style="background-color: var(--idsk-color-primary); color: #FFFFFF; font-weight: 800; border-radius: 4px;">4</span>
+                  <span>5</span><span>6</span>
+                  <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+                  <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+                  <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
+                  <span>28</span><span>29</span><span>30</span><span style="color:#A0AEC0;">1</span><span style="color:#A0AEC0;">2</span><span style="color:#A0AEC0;">3</span><span style="color:#A0AEC0;">4</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget: Počasie (presné hodnoty z hornyvadicov.sk) -->
+            <div class="idsk-card" style="padding: 20px;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px;">Počasie Horný Vadičov</h3>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <div>
+                  <div style="font-size: 0.8125rem; color: var(--idsk-color-text-secondary);">dnes, piatok 4. 9. 2026</div>
+                  <div style="font-size: 1.75rem; font-weight: 800; color: var(--idsk-color-text);">24 °C <span style="font-size: 1rem; font-weight: 500; color: var(--idsk-color-text-muted);">/ 12 °C</span></div>
+                  <div style="font-size: 0.8125rem; color: var(--idsk-color-primary); font-weight: 600;">slabý dážď</div>
+                </div>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="#0284C7"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>
+              </div>
+
+              <!-- Predpoveď na ďalšie dni -->
+              <div style="font-size: 0.8125rem; display: flex; flex-direction: column; gap: 6px; padding-top: 10px; border-top: 1px solid var(--idsk-color-border-subtle);">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Sobota (5. 9.):</span>
+                  <strong>19 / 9 °C · slabý dážď</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Nedeľa (6. 9.):</span>
+                  <strong>16 / 7 °C · slabý dážď</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Pondelok (7. 9.):</span>
+                  <strong>21 / 6 °C · zamračené</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget: Fond na podporu športu -->
+            <div class="idsk-card" style="padding: 20px;">
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 8px;">Projekty obce</h3>
+              <p style="font-size: 0.8125rem; color: var(--idsk-color-text-secondary); margin-bottom: 12px;">Projekt s podporou Fondu na podporu športu SR.</p>
+              <a href="https://www.hornyvadicov.sk/e_download.php?file=/data/editor/mini12sk_1.pdf&original=Logo.pdf" target="_blank" class="idsk-download-btn" style="font-size: 0.8125rem; width: 100%; justify-content: center;">
+                Fond na podporu športu (PDF)
+              </a>
+            </div>
+
+            <!-- Widget: Pôvodná stránka obce -->
+            <div class="idsk-card" style="padding: 20px; text-align: center;">
+              <h3 style="font-size: 1rem; font-weight: 800; color: var(--idsk-color-text); margin-bottom: 6px;">Pôvodná stránka obce</h3>
+              <p style="font-size: 0.8125rem; color: var(--idsk-color-text-secondary); margin-bottom: 10px;">Archív pôvodného webového sídla:</p>
+              <a href="https://staryweb.hornyvadicov.sk/" target="_blank" rel="noopener" style="font-size: 0.875rem; font-weight: 700; color: var(--idsk-color-primary); text-decoration: underline;">
+                staryweb.hornyvadicov.sk
+              </a>
+            </div>
+
+            <!-- Widget: Mobilná aplikácia V Obraze -->
+            <div class="idsk-card" style="padding: 20px; background-color: #F8FAFC;">
+              <h3 style="font-size: 1rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 6px;">Mobilná aplikácia</h3>
+              <p style="font-size: 0.8125rem; color: var(--idsk-color-text-secondary); margin-bottom: 12px;">
+                Sledujte informácie z nášho webu v mobilnej aplikácii <strong>V OBRAZE</strong>.
+              </p>
+              <div style="display: flex; gap: 8px;">
+                <a href="https://play.google.com/store/apps/details?id=cz.onlineteam.ocelot" target="_blank" class="idsk-download-btn" style="flex: 1; justify-content: center; font-size: 0.75rem;">Google Play</a>
+                <a href="https://apps.apple.com/sk/app/v-obraze-viem-%C4%8Do-sa-deje/id1128876118?l=sk" target="_blank" class="idsk-download-btn" style="flex: 1; justify-content: center; font-size: 0.75rem;">App Store</a>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SPODNÁ ŠTATISTICKÁ LIŠTA (Presne ako v päte pôvodného webu) -->
+    <div style="background-color: var(--idsk-color-primary-dark); color: #FFFFFF; padding: 18px 0;">
+      <div class="idsk-container">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; text-align: center; font-size: 0.9375rem;">
+          <div>
+            <span style="color: #94A3B8; font-size: 0.8125rem; text-transform: uppercase; display: block;">Starosta obce</span>
+            <strong>Mgr. Viera Lea Slivková</strong>
+          </div>
+          <div>
+            <span style="color: #94A3B8; font-size: 0.8125rem; text-transform: uppercase; display: block;">Rozloha obce</span>
+            <strong>2 081 hektárov</strong>
+          </div>
+          <div>
+            <span style="color: #94A3B8; font-size: 0.8125rem; text-transform: uppercase; display: block;">Prvá písomná zmienka</span>
+            <strong>1385 (Silva Vaditzov)</strong>
+          </div>
+          <div>
+            <span style="color: #94A3B8; font-size: 0.8125rem; text-transform: uppercase; display: block;">Počet obyvateľov</span>
+            <strong>1 713 (k 31. 12. 2025)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. SEKCE: BYTOVÉ DOMY A651, B652 -->
+    <section id="bytove-domy" class="idsk-section">
+      <div class="idsk-container">
+        <div class="idsk-section__header">
+          <div class="idsk-section__title-group">
+            <span class="idsk-section__eyebrow">Bývanie v obci</span>
+            <h2 class="idsk-section__title">Bytové domy A651, B652</h2>
+            <p class="idsk-section__description">Informácie pre nájomcov obecných bytov a poradovník žiadateľov.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+          <div class="idsk-card" style="padding: 24px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 10px;">Poradovník čakateľov na byt</h3>
+            <p style="font-size: 0.9375rem; color: var(--idsk-color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Aktuálny zoznam a poradovník evidovaných žiadostí o pridelenie obecného nájomného bytu v bytových domoch A651 a B652 podľa platného VZN obce.
+            </p>
+            <a href="https://www.hornyvadicov.sk/obec-2/bytove-domy-a651-b652/poradovnik-cakatelov-na-byt/" target="_blank" class="idsk-download-btn">
+              Otvoriť poradovník čakateľov
+            </a>
+          </div>
+
+          <div class="idsk-card" style="padding: 24px;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 10px;">Informácie pre nájomcov</h3>
+            <p style="font-size: 0.9375rem; color: var(--idsk-color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Práva a povinnosti nájomcov, platby nájomného a úhrad za plnenia spojené s užívaním bytu, domový poriadok a hlásenie porúch.
+            </p>
+            <a href="https://www.hornyvadicov.sk/obec-2/bytove-domy-a651-b652/informacie-pre-najomcov/" target="_blank" class="idsk-download-btn">
+              Pokyny a informácie pre nájomcov
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SEKCE: PROJEKTY OBCE (1:1 zhodné z hornyvadicov.sk) -->
+    <section id="projekty" class="idsk-section idsk-section--alt">
+      <div class="idsk-container">
+        <div class="idsk-section__header">
+          <div class="idsk-section__title-group">
+            <span class="idsk-section__eyebrow">Rozvoj a investície</span>
+            <h2 class="idsk-section__title">Realizované projekty obce</h2>
+            <p class="idsk-section__description">Prehľad investičných projektov spolufinancovaných z fondov EÚ a štátneho rozpočtu.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Zníženie energetickej náročnosti MŠ Horný Vadičov
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Zateplenie obvodového plášťa a modernizácia vykurovania objektu materskej školy.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/znizenie-energetickej-narocnosti-materskej-skolky-horny-vadicov/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Stavebné úpravy materskej školy č. 515
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Komplexná rekonštrukcia vnútorných priestorov pre zvýšenie kapacity tried.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/stavebne-upravy-materskej-skoly-v-hornom-vadicove-c-515/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Národný projekt Podpora opatrovateľskej služby
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Poskytovanie domácej opatrovateľskej starostlivosti pre seniorov a odkázaných občanov.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/narodny-projekt-podpora-opatrovatelskej-sluzby/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Rekonštrukcia športového ihriska pri ZŠ
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Vybudovanie moderného viacúčelového ihriska s umelým povrchom pre žiakov a mládež.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/rekonstrukcia-sportoveho-ihriska-pri-zs-v-obci-horny-vadicov/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Energetická náročnosť KIC s knižnicou č. 798
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Zníženie spotreby energií kultúrno-informačného centra a obecnej knižnice.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/znizenie-energetickej-narocnosti-kulturno-informacneho-centra-s-kniznicou-horny-vadicov-c-798/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+
+          <div class="idsk-card" style="padding: 20px;">
+            <h4 style="font-size: 1.0625rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 8px;">
+              Zníženie energetickej náročnosti Obecného úradu
+            </h4>
+            <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              Komplexná obnova budovy OcÚ, zateplenie a výmena okien.
+            </p>
+            <a href="https://www.hornyvadicov.sk/projekty/znizenie-energetickej-narocnosti-objektu-obecneho-uradu-horny-vadicov/" target="_blank" class="idsk-quick-card__link-text">Podrobnosti o projekte →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. ÚZEMNÝ PLÁN & ZMLUVY -->
+    <section id="uzemny-plan" class="idsk-section">
+      <div class="idsk-container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+          <!-- Územný plán -->
+          <div class="idsk-card" style="padding: 28px;">
+            <span class="idsk-section__eyebrow">Územné plánovanie</span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--idsk-color-text); margin-bottom: 12px;">Územný plán obce</h3>
+            <p style="font-size: 0.9375rem; color: var(--idsk-color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Základný koncepčný dokument rozvoja a priestorového usporiadania obce Horný Vadičov.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; font-size: 0.9375rem;">
+              <li><a href="https://www.hornyvadicov.sk/uzemny-plan/1-prieskumy-a-rozbory/" target="_blank" style="color: var(--idsk-color-primary); font-weight: 600;">1. Prieskumy a rozbory ÚPN-O</a></li>
+              <li><a href="https://www.hornyvadicov.sk/uzemny-plan/" target="_blank" style="color: var(--idsk-color-primary); font-weight: 600;">Zmeny a doplnky Územného plánu obce</a></li>
+            </ul>
+            <a href="https://www.hornyvadicov.sk/uzemny-plan/" target="_blank" class="idsk-download-btn">Vstúpiť do sekcie Územný plán</a>
+          </div>
+
+          <!-- Zmluvy, faktúry, objednávky -->
+          <div class="idsk-card" id="zmluvy" style="padding: 28px;">
+            <span class="idsk-section__eyebrow">Zákon č. 211/2000 Z. z.</span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--idsk-color-text); margin-bottom: 12px;">Zmluvy, faktúry a objednávky</h3>
+            <p style="font-size: 0.9375rem; color: var(--idsk-color-text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Transparentné zverejňovanie hospodárenia s verejnými financiami v zmysle zákona o slobodnom prístupe k informáciám.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; font-size: 0.9375rem;">
+              <li><a href="https://www.hornyvadicov.sk/zverejnovanie/zmluvy-faktury-objednavky/archiv-zfo/zmluvy/" target="_blank" style="color: var(--idsk-color-primary); font-weight: 600;">Archív zmlúv, faktúr a objednávok (ZFO)</a></li>
+              <li><a href="https://www.hornyvadicov.sk/zverejnovanie/hospodarenie/rozpocet/" target="_blank" style="color: var(--idsk-color-primary); font-weight: 600;">Rozpočet obce a záverečný účet</a></li>
+              <li><a href="https://www.hornyvadicov.sk/zverejnovanie/verejne-obstaravanie/profil/" target="_blank" style="color: var(--idsk-color-primary); font-weight: 600;">Profil verejného obstarávateľa</a></li>
+            </ul>
+            <a href="https://www.hornyvadicov.sk/zverejnovanie/zmluvy-faktury-objednavky/" target="_blank" class="idsk-download-btn">Zobraziť register zmlúv a faktúr</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. OCHRANA OSOBNÝCH ÚDAJOV (GDPR) -->
+    <section id="gdpr" class="idsk-section idsk-section--alt">
+      <div class="idsk-container">
+        <div class="idsk-section__header">
+          <div class="idsk-section__title-group">
+            <span class="idsk-section__eyebrow">Zákonná ochrana práv občanov</span>
+            <h2 class="idsk-section__title">Ochrana osobných údajov (GDPR)</h2>
+            <p class="idsk-section__description">
+              Informácie o spracúvaní osobných údajov v zmysle Nariadenia EP a Rady (EÚ) 2016/679 (GDPR) a Zákona č. 18/2018 Z. z. o ochrane osobných údajov.
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 28px;">
+          <!-- Prevádzkovateľ a Zodpovedná osoba -->
+          <div class="idsk-card" style="padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px;">Prevádzkovateľ</h3>
+            <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--idsk-color-text-secondary); margin-bottom: 16px;">
+              <strong>Obec Horný Vadičov</strong><br>
+              Sídlo: Horný Vadičov č. 160, 023 45 Horný Vadičov<br>
+              IČO: 00314056 · DIČ: 2020553075<br>
+              E-mail: <a href="mailto:urad@hornyvadicov.sk" style="color: var(--idsk-color-primary);">urad@hornyvadicov.sk</a><br>
+              Tel.: 041 / 422 92 21
+            </p>
+
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px; padding-top: 12px; border-top: 1px solid var(--idsk-color-border-subtle);">
+              Zodpovedná osoba (DPO)
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--idsk-color-text-secondary);">
+              <strong>BROS Computing, s.r.o.</strong><br>
+              Adresa: Zádubnie 169, 010 03 Žilina<br>
+              E-mail: <a href="mailto:brosland@brosland.eu" style="color: var(--idsk-color-primary);">brosland@brosland.eu</a>
+            </p>
+          </div>
+
+          <!-- Práva dotknutých osôb -->
+          <div class="idsk-card" style="padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px;">Práva dotknutej osoby</h3>
+            <ul style="font-size: 0.9375rem; line-height: 1.6; color: var(--idsk-color-text-secondary); padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li><strong>Právo na prístup:</strong> zistiť, aké osobné údaje o vás obec spracúva.</li>
+              <li><strong>Právo na opravu:</strong> požadovať opravu nepresných či neúplných údajov.</li>
+              <li><strong>Právo na výmaz (zabudnutie):</strong> odstránenie údajov po skončení účelu.</li>
+              <li><strong>Právo na obmedzenie spracúvania:</strong> dočasné pozastavenie spracúvania.</li>
+              <li><strong>Právo na prenosnosť údajov:</strong> získanie údajov v strojovo čitateľnom formáte.</li>
+              <li><strong>Právo namietať:</strong> námietka voči spracúvaniu na základe verejného záujmu.</li>
+            </ul>
+            <div style="font-size: 0.8125rem; color: var(--idsk-color-text-muted); margin-top: 14px; background: var(--idsk-color-bg-alt); padding: 8px 12px; border-radius: var(--idsk-radius-sm);">
+              Lehota na vybavenie žiadosti je <strong>30 dní</strong> od jej doručenia.
+            </div>
+          </div>
+
+          <!-- Dozorný orgán a sťažnosti -->
+          <div class="idsk-card" style="padding: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--idsk-color-primary); margin-bottom: 12px;">Dozorný orgán SR</h3>
+            <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--idsk-color-text-secondary); margin-bottom: 16px;">
+              Ak sa domnievate, že vaše osobné údaje sú spracúvané v rozpore so zákonom, máte právo podať návrh na začatie konania dozornému orgánu:
+            </p>
+            <p style="font-size: 0.9375rem; line-height: 1.6; color: var(--idsk-color-text-secondary);">
+              <strong>Úrad na ochranu osobných údajov SR</strong><br>
+              Hraničná 12, 820 07 Bratislava 27<br>
+              Tel. kontakt: +421 / 2 / 3231 3214<br>
+              E-mail: <a href="mailto:statny.dozor@pdp.gov.sk" style="color: var(--idsk-color-primary);">statny.dozor@pdp.gov.sk</a><br>
+              Web: <a href="https://dataprotection.gov.sk" target="_blank" rel="noopener" style="color: var(--idsk-color-primary);">dataprotection.gov.sk</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Zoznam zverejnených dokumentov GDPR na stiahnutie -->
+        <div class="idsk-table-container">
+          <div class="idsk-table-toolbar">
+            <strong style="font-size: 1rem; color: var(--idsk-color-text);">Dokumenty a záznamy o spracovateľských činnostiach na stiahnutie</strong>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="idsk-table" summary="Dokumentácia obce k ochrane osobných údajov">
+              <thead>
+                <tr>
+                  <th scope="col">Názov dokumentu</th>
+                  <th scope="col">Právny predpis</th>
+                  <th scope="col" style="text-align: right;">Formát</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="idsk-doc-title">Informačná povinnosť prevádzkovateľa – Obec Horný Vadičov</span>
+                    <span class="idsk-doc-meta">Zásady a pravidlá spracúvania osobných údajov obyvateľov a návštevníkov</span>
+                  </td>
+                  <td>Čl. 13 a 14 Nariadenia (EÚ) 2016/679 (GDPR)</td>
+                  <td style="text-align: right;">
+                    <a href="https://www.hornyvadicov.sk/modules/file_storage/download.php?file=ff024557%7C16&inline=1" target="_blank" class="idsk-download-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                      PDF (1,24 MB)
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="idsk-doc-title">Záznam o spracovateľských činnostiach prevádzkovateľa – Obec Horný Vadičov</span>
+                    <span class="idsk-doc-meta">Evidencia agend: matrika, dane a poplatky, evidencia obyvateľov, správa majetku</span>
+                  </td>
+                  <td>Čl. 30 Nariadenia (EÚ) 2016/679</td>
+                  <td style="text-align: right;">
+                    <a href="https://www.hornyvadicov.sk/modules/file_storage/download.php?file=f97677db%7C15&inline=1" target="_blank" class="idsk-download-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                      PDF (848 kB)
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="idsk-doc-title">GDPR – Splnenie informačnej povinnosti k voľbám</span>
+                    <span class="idsk-doc-meta">Informácie pre voličov, členov okrskových volebných komisií a kandidátov</span>
+                  </td>
+                  <td>Zákon č. 180/2014 Z. z. o podmienkach výkonu volebného práva</td>
+                  <td style="text-align: right;">
+                    <a href="https://www.hornyvadicov.sk/modules/file_storage/download.php?file=1fd3d627%7C14&inline=1" target="_blank" class="idsk-download-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                      PDF (327 kB)
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="idsk-doc-title">Poskytnutie informácií dotknutým osobám – zabezpečenie volieb</span>
+                    <span class="idsk-doc-meta">Spracovanie zoznamov voličov a hlasovacích lístkov</span>
+                  </td>
+                  <td>Zákon č. 18/2018 Z. z.</td>
+                  <td style="text-align: right;">
+                    <a href="https://www.hornyvadicov.sk/modules/file_storage/download.php?file=5cb97408%7C13&inline=1" target="_blank" class="idsk-download-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                      PDF (419 kB)
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. KONTAKTY A ÚRADNÉ HODINY (s mapou a kostolom) -->
+    <section id="kontakt" class="idsk-section">
+      <div class="idsk-container">
+        <div class="idsk-section__header">
+          <div class="idsk-section__title-group">
+            <span class="idsk-section__eyebrow">Kde nás nájdete</span>
+            <h2 class="idsk-section__title">Kontaktné údaje a úradné hodiny</h2>
+            <p class="idsk-section__description">Obecný úrad Horný Vadičov je tu pre Vás v pracovných dňoch.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;">
+          <!-- Karta 1: Kontakty -->
+          <div class="idsk-card" style="padding: 28px;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--idsk-color-text);">Sídlo obecného úradu</h3>
+            <p style="font-size: 0.9375rem; line-height: 1.6; margin-bottom: 16px; color: var(--idsk-color-text-secondary);">
+              <strong>Obec Horný Vadičov</strong><br>
+              Horný Vadičov č. 160<br>
+              023 45 Horný Vadičov<br>
+              Slovenská republika
+            </p>
+            <p style="font-size: 0.9375rem; line-height: 1.6; margin-bottom: 16px;">
+              <strong>Telefón ústredňa:</strong> <a href="tel:+421414229221" style="color: var(--idsk-color-primary);">041 / 422 92 21</a><br>
+              <strong>E-mail:</strong> <a href="mailto:urad@hornyvadicov.sk" style="color: var(--idsk-color-primary);">urad@hornyvadicov.sk</a><br>
+              <strong>Elektronická schránka:</strong> ÚPVS (slovensko.sk)
+            </p>
+            <p style="font-size: 0.8125rem; color: var(--idsk-color-text-muted);">
+              IČO: 00314056 · DIČ: 2020553075
+            </p>
+          </div>
+
+          <!-- Karta 2: Úradné hodiny -->
+          <div class="idsk-card" style="padding: 28px;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--idsk-color-text);">Stránkové dni pre verejnosť</h3>
+            <table class="idsk-footer__hours-table" style="font-size: 0.9375rem;">
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--idsk-color-border-subtle);">
+                  <td style="padding: 8px 0; font-weight: 600;">Pondelok:</td>
+                  <td style="padding: 8px 0; text-align: right; color: var(--idsk-color-text);">08:00 – 15:00</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--idsk-color-border-subtle);">
+                  <td style="padding: 8px 0; font-weight: 600;">Utorok:</td>
+                  <td style="padding: 8px 0; text-align: right; color: var(--idsk-color-text);">08:00 – 15:00</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--idsk-color-border-subtle);">
+                  <td style="padding: 8px 0; font-weight: 600; color: var(--idsk-color-primary);">Streda (Dlhý deň):</td>
+                  <td style="padding: 8px 0; text-align: right; font-weight: 700; color: var(--idsk-color-primary);">08:00 – 16:30</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--idsk-color-border-subtle);">
+                  <td style="padding: 8px 0; font-weight: 600; color: var(--idsk-color-danger);">Štvrtok:</td>
+                  <td style="padding: 8px 0; text-align: right; font-weight: 600; color: var(--idsk-color-danger);">Nestránkový deň</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: 600;">Piatok:</td>
+                  <td style="padding: 8px 0; text-align: right; color: var(--idsk-color-text);">08:00 – 13:00</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="font-size: 0.8125rem; color: var(--idsk-color-text-muted); margin-top: 14px; background: var(--idsk-color-bg-alt); padding: 8px 12px; border-radius: var(--idsk-radius-sm);">
+              Obedňajšia prestávka: <strong>12:00 – 12:30</strong> hod.
+            </div>
+          </div>
+
+          <!-- Karta 3: Kostol sv. Mikuláša -->
+          <div class="idsk-card" style="overflow: hidden;">
+            <img src="/images/kostol.png" alt="Kostol sv. Mikuláša v Hornom Vadičove" style="width: 100%; height: 180px; object-fit: cover;">
+            <div style="padding: 20px;">
+              <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--idsk-color-text); margin-bottom: 6px;">Kostol sv. Mikuláša</h4>
+              <p style="font-size: 0.875rem; color: var(--idsk-color-text-secondary); line-height: 1.5;">
+                Dominanta obce a sídlo Rímskokatolíckej farnosti sv. Mikuláša v Hornom Vadičove.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div style="margin-top: 28px; border-radius: var(--idsk-radius-md); overflow: hidden; border: 1px solid var(--idsk-color-border); box-shadow: var(--idsk-shadow-sm);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83292.40912470735!2d18.843631900000013!3d49.27852350000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47145ab760aed049%3A0x400f7d1c69706d0!2s023%2045%20Horn%C3%BD%20Vadi%C4%8Dov%2C%20Slovensko!5e0!3m2!1ssk!2ssk!4v1656447424003!5m2!1ssk!2ssk" 
+            width="100%" 
+            height="360" 
+            style="border:0; display: block;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            title="Mapa umiestnenia obce Horný Vadičov">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 15. OFICIÁLNA PÄTA IDSK 3.0 S DODÁVATEĽOM: PROSOFT -->
+  <footer class="idsk-footer" role="contentinfo">
+    <div class="idsk-container">
+      <div class="idsk-footer__grid">
+        <!-- Stĺpec 1: Identifikácia -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <img src="/images/crest.png" alt="" width="36" height="46" style="filter: brightness(0) invert(1);" aria-hidden="true">
+            <span style="font-size: 1.125rem; font-weight: 800; color: #FFFFFF;">Obec Horný Vadičov</span>
+          </div>
+          <p style="margin-bottom: 12px;">Horný Vadičov 160<br>023 45 Horný Vadičov</p>
+          <p style="margin-bottom: 6px;"><strong>Tel.:</strong> 041 / 422 92 21</p>
+          <p style="margin-bottom: 12px;"><strong>E-mail:</strong> <a href="mailto:urad@hornyvadicov.sk">urad@hornyvadicov.sk</a></p>
+          <p style="font-size: 0.8125rem; color: #94A3B8;">IČO: 00314056 · DIČ: 2020553075</p>
+        </div>
+
+        <!-- Stĺpec 2: Rýchle odkazy -->
+        <div>
+          <h3 class="idsk-footer__heading">Služby a samospráva</h3>
+          <ul class="idsk-footer__links">
+            <li><a href="#uradna-tabula">Úradná tabuľa</a></li>
+            <li><a href="#ako-vybavit">Tlačivá a žiadosti</a></li>
+            <li><a href="#samosprava">Všeobecne záväzné nariadenia</a></li>
+            <li><a href="#gdpr">GDPR – Ochrana údajov</a></li>
+            <li><a href="#samosprava">Poslanci a zápisnice OZ</a></li>
+            <li><a href="#odpady">Zvoz odpadu</a></li>
+            <li><a href="https://staryweb.hornyvadicov.sk/" target="_blank" rel="noopener">Pôvodná stránka obce</a></li>
+          </ul>
+        </div>
+
+        <!-- Stĺpec 3: Úradné hodiny -->
+        <div>
+          <h3 class="idsk-footer__heading">Úradné hodiny</h3>
+          <table class="idsk-footer__hours-table">
+            <tbody>
+              <tr><td>Pondelok:</td><td>08:00 – 15:00</td></tr>
+              <tr><td>Utorok:</td><td>08:00 – 15:00</td></tr>
+              <tr><td>Streda:</td><td>08:00 – 16:30</td></tr>
+              <tr><td>Štvrtok:</td><td>Nestránkový</td></tr>
+              <tr><td>Piatok:</td><td>08:00 – 13:00</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size: 0.75rem; color: #94A3B8; margin-top: 10px;">Obed: 12:00 – 12:30</p>
+        </div>
+
+        <!-- Stĺpec 4: Dodávateľ a technický prevádzkovateľ: PROSOFT -->
+        <div>
+          <h3 class="idsk-footer__heading">Technický prevádzkovateľ</h3>
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 0.875rem; color: #CBD5E1; margin-bottom: 4px;">Dodávateľ informačného systému:</p>
+            <p style="font-size: 1.125rem; font-weight: 800; color: #FFFFFF; letter-spacing: 0.04em;">PROSOFT</p>
+            <p style="font-size: 0.8125rem; color: #94A3B8; line-height: 1.4; margin-top: 4px;">
+              Informačné technológie a riešenia pre verejnú správu Slovenskej republiky.
+            </p>
+            <p style="margin-top: 8px;">
+              <a href="https://www.prosoft.sk" target="_blank" rel="noopener" style="color: var(--idsk-color-focus-bg); font-weight: 700;">www.prosoft.sk</a>
+            </p>
+          </div>
+          <div style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="font-size: 0.8125rem; color: #94A3B8;">Obecný rozhlas: <a href="tel:0911545336" style="color:#FFF;font-weight:700;">0911 545 336</a></p>
+            <p style="font-size: 0.8125rem; color: #94A3B8;">Tiesňová linka: <strong style="color:#FFF;">112</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spodná časť päty s právnymi náležitosťami -->
+      <div class="idsk-footer__bottom">
+        <div>
+          © 2026 Obec Horný Vadičov. Všetky práva vyhradené. Vytvorené v súlade s IDSK 3.0 a Výnosom o štandardoch pre ISVS. Dodávateľ: <strong>PROSOFT</strong>.
+        </div>
+        <ul class="idsk-footer__bottom-links">
+          <li><a href="#">Vyhlásenie o prístupnosti</a></li>
+          <li><a href="#gdpr">Ochrana osobných údajov (GDPR)</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Mapa stránok</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Slovenská trikolóra na spodnom okraji -->
+    <div class="idsk-footer__tricolor-bar">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </footer>
+
+  <!-- Modálne okno pre detail oznamu -->
+  <div class="idsk-modal-backdrop" id="newsModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="idsk-modal">
+      <div class="idsk-modal__header">
+        <h3 class="idsk-modal__title" id="modalTitle">Detail oznamu</h3>
+        <button type="button" class="idsk-modal__close" id="modalClose" aria-label="Zavrieť detail oznamu">×</button>
+      </div>
+      <div class="idsk-modal__body">
+        <img src="" alt="" id="modalImg" class="idsk-modal__image">
+        <div style="font-size: 0.8125rem; color: var(--idsk-color-text-muted); margin-bottom: 12px;" id="modalDate"></div>
+        <div id="modalText"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/scripts/app.js"></script>
+</body>
+</html>

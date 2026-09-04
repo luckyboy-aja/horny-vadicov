@@ -1,0 +1,146 @@
+/* IDSK 3.0 Design Tokens - Informačný dizajnérsky systém verejnej správy SR */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Farby - IDSK Základná paleta */
+  --idsk-color-primary: #0065B3;
+  --idsk-color-primary-hover: #004F8C;
+  --idsk-color-primary-dark: #003366;
+  --idsk-color-primary-light: #EBF4FA;
+  --idsk-color-primary-subtle: #F0F6FB;
+  
+  --idsk-color-slovak-blue: #0B4EA2;
+  --idsk-color-slovak-red: #EE1C25;
+  --idsk-color-slovak-white: #FFFFFF;
+  
+  --idsk-color-secondary: #00823B;
+  --idsk-color-secondary-hover: #00662E;
+  --idsk-color-secondary-light: #E8F5E9;
+
+  --idsk-color-danger: #D4351C;
+  --idsk-color-danger-light: #FDF2F0;
+  --idsk-color-warning: #FFBF47;
+  --idsk-color-warning-text: #594D00;
+  --idsk-color-warning-light: #FFF8E6;
+  --idsk-color-info: #1D70B8;
+  --idsk-color-info-light: #EEF4F9;
+
+  /* Neutrálne farby & Text */
+  --idsk-color-text: #1F242B;
+  --idsk-color-text-secondary: #535A61;
+  --idsk-color-text-muted: #6E7781;
+  --idsk-color-text-inverse: #FFFFFF;
+
+  --idsk-color-bg: #FFFFFF;
+  --idsk-color-bg-alt: #F4F6F8;
+  --idsk-color-bg-card: #FFFFFF;
+  --idsk-color-border: #D2D7DB;
+  --idsk-color-border-subtle: #E5E9EC;
+  --idsk-color-border-dark: #86919A;
+
+  /* Fokus a prístupnosť - WCAG 2.1 AA */
+  --idsk-color-focus-bg: #FFDF0F;
+  --idsk-color-focus-border: #0B0C0C;
+
+  /* Typografia */
+  --idsk-font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --idsk-font-size-base: 16px;
+  --idsk-font-size-xs: 0.75rem;     /* 12px */
+  --idsk-font-size-sm: 0.875rem;    /* 14px */
+  --idsk-font-size-md: 1rem;        /* 16px */
+  --idsk-font-size-lg: 1.125rem;    /* 18px */
+  --idsk-font-size-xl: 1.25rem;     /* 20px */
+  --idsk-font-size-2xl: 1.5rem;     /* 24px */
+  --idsk-font-size-3xl: 2rem;       /* 32px */
+  --idsk-font-size-4xl: 2.5rem;     /* 40px */
+
+  --idsk-line-height-tight: 1.2;
+  --idsk-line-height-normal: 1.5;
+  --idsk-line-height-relaxed: 1.625;
+
+  /* Rozostupy */
+  --idsk-spacing-xs: 4px;
+  --idsk-spacing-sm: 8px;
+  --idsk-spacing-md: 16px;
+  --idsk-spacing-lg: 24px;
+  --idsk-spacing-xl: 32px;
+  --idsk-spacing-2xl: 48px;
+  --idsk-spacing-3xl: 64px;
+
+  /* Kontajnery a mriežka */
+  --idsk-max-width: 1200px;
+  --idsk-container-padding: 24px;
+
+  /* Rádius a tiene */
+  --idsk-radius-sm: 4px;
+  --idsk-radius-md: 8px;
+  --idsk-radius-lg: 12px;
+  --idsk-radius-full: 9999px;
+
+  --idsk-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --idsk-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --idsk-shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
+  --idsk-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Režim vysokého kontrastu (Čierno-biely) */
+body.high-contrast-bw {
+  --idsk-color-primary: #000000 !important;
+  --idsk-color-primary-hover: #1f1f1f !important;
+  --idsk-color-primary-dark: #000000 !important;
+  --idsk-color-primary-light: #f0f0f0 !important;
+  --idsk-color-text: #000000 !important;
+  --idsk-color-text-secondary: #111111 !important;
+  --idsk-color-text-muted: #222222 !important;
+  --idsk-color-bg: #FFFFFF !important;
+  --idsk-color-bg-alt: #FFFFFF !important;
+  --idsk-color-bg-card: #FFFFFF !important;
+  --idsk-color-border: #000000 !important;
+  --idsk-color-border-subtle: #000000 !important;
+  --idsk-shadow-sm: none !important;
+  --idsk-shadow-md: none !important;
+  --idsk-shadow-lg: none !important;
+}
+
+body.high-contrast-bw *:not(img):not(svg):not(path) {
+  border-color: #000000 !important;
+}
+
+/* Režim vysokého kontrastu (Žlto-čierny) */
+body.high-contrast-yellow {
+  --idsk-color-primary: #FFFF00 !important;
+  --idsk-color-primary-hover: #E6E600 !important;
+  --idsk-color-primary-dark: #000000 !important;
+  --idsk-color-primary-light: #222222 !important;
+  --idsk-color-text: #FFFF00 !important;
+  --idsk-color-text-secondary: #FFFF00 !important;
+  --idsk-color-text-muted: #FFFF33 !important;
+  --idsk-color-bg: #000000 !important;
+  --idsk-color-bg-alt: #111111 !important;
+  --idsk-color-bg-card: #181818 !important;
+  --idsk-color-border: #FFFF00 !important;
+  --idsk-color-border-subtle: #FFFF00 !important;
+  --idsk-shadow-sm: none !important;
+  --idsk-shadow-md: none !important;
+  --idsk-shadow-lg: none !important;
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+}
+
+body.high-contrast-yellow *:not(img):not(svg):not(path) {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border-color: #FFFF00 !important;
+}
+
+body.high-contrast-yellow svg path {
+  fill: #FFFF00 !important;
+}
+
+/* Škálovanie veľkosti písma */
+body.font-scale-lg {
+  font-size: 18px;
+}
+body.font-scale-xl {
+  font-size: 20px;
+}
