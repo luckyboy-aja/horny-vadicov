@@ -1524,3 +1524,145 @@ textarea:focus-visible,
 .idsk-procurement-card__value {
   color: var(--idsk-color-text);
 }
+
+/* Styling pre autentický obsah v subpages podľa IDSK 3.0 */
+.idsk-subpage-body .breadcrumb,
+.idsk-subpage-body .gcm-navigation,
+.idsk-subpage-body .gcm-info,
+.idsk-subpage-body .cleaner {
+  display: none !important;
+}
+
+.idsk-subpage-body h2,
+.idsk-subpage-body h3 {
+  color: #003366;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  font-size: 1.35rem;
+}
+
+.idsk-subpage-body p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.idsk-subpage-body a {
+  color: var(--idsk-color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.idsk-subpage-body a:hover {
+  color: var(--idsk-color-primary-dark);
+}
+
+.idsk-subpage-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.idsk-subpage-body th,
+.idsk-subpage-body td {
+  padding: 10px 14px;
+  border: 1px solid var(--idsk-color-border);
+  text-align: left;
+}
+
+.idsk-subpage-body th {
+  background-color: #003366;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.idsk-subpage-body tr:nth-child(even) td {
+  background-color: #F8FAFC;
+}
+
+.idsk-subpage-body input[type="text"],
+.idsk-subpage-body input[type="search"] {
+  padding: 8px 12px;
+  border: 2px solid #000000;
+  border-radius: var(--idsk-radius-sm);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  margin-right: 8px;
+}
+
+.idsk-subpage-body input[type="submit"],
+.idsk-subpage-body button {
+  padding: 8px 18px;
+  background-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--idsk-radius-sm);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.idsk-subpage-body input[type="submit"]:hover,
+.idsk-subpage-body button:hover {
+  background-color: var(--idsk-color-primary-dark);
+}
+
+.idsk-subpage-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--idsk-radius-sm);
+  margin: 12px 0;
+}
+
+/* Modul súborov a úradnej tabule (file-storage) */
+.idsk-subpage-body .file-storage-form {
+  background-color: #F0F4F8;
+  padding: 16px 20px;
+  border-radius: var(--idsk-radius-sm);
+  margin-bottom: 24px;
+}
+
+.idsk-subpage-body .file-storage-form .form-group .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.idsk-subpage-body .file-storage-form label {
+  font-weight: 700;
+  color: #003366;
+}
+
+.idsk-subpage-body .file-storage-form input[type="text"] {
+  padding: 8px 12px;
+  border: 2px solid #000000;
+  border-radius: var(--idsk-radius-sm);
+  font-size: 0.9375rem;
+}
+
+.idsk-subpage-body .file-storage-form .btn-primary,
+.idsk-subpage-body .file-storage-form button {
+  padding: 8px 20px;
+  background-color: var(--idsk-color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--idsk-radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.idsk-subpage-body .file-storage-form .btn-primary:hover {
+  background-color: var(--idsk-color-primary-dark);
+}
+
+.idsk-subpage-body .file-storage .item,
+.idsk-subpage-body .file-storage .file-item,
+.idsk-subpage-body .file-storage > div > h3,
+.idsk-subpage-body .file-storage > div > h4 {
+  border-bottom: 1px solid #E2E8F0;
+  padding: 14px 0;
+}

@@ -42,6 +42,11 @@ def clean_html_content(content, root_rel):
     content = re.sub(r'href=["\']/([a-zA-Z0-9_\-\./]+)["\']', r'href="' + root_rel + r'\1"', content)
     content = re.sub(r'src=["\']/([a-zA-Z0-9_\-\./\?=&]+)["\']', r'src="' + root_rel + r'\1"', content)
     
+    # 4. Odstránenie duplicitných starých CMS drobkov vnútri tela článku
+    content = re.sub(r'<nav[^>]*class=["\'][^"\']*gcm-navigation[^"\']*["\'][^>]*>.*?</nav>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<ol[^>]*class=["\'][^"\']*breadcrumb[^"\']*["\'][^>]*>.*?</ol>', '', content, flags=re.DOTALL)
+    content = re.sub(r'<div[^>]*class=["\'][^"\']*gcm-info[^"\']*["\'][^>]*>.*?</div>', '', content, flags=re.DOTALL)
+    
     return content
 
 def get_root_rel(path):
