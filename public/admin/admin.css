@@ -648,3 +648,193 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Používateľský profil v hlavičke */
+.cms-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--idsk-radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cms-user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+}
+
+.cms-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.cms-user-email {
+  font-size: 0.72rem;
+  color: #93c5fd;
+}
+
+.cms-btn-logout {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.25rem;
+  transition: background 0.2s ease;
+}
+
+.cms-btn-logout:hover {
+  background: #dc2626;
+}
+
+/* Prihlasovacia obrazovka Google */
+.cms-login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, #1e3a8a 0%, #001f3f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1.5rem;
+}
+
+.cms-login-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  animation: cmsLoginFadeIn 0.3s ease-out;
+}
+
+@keyframes cmsLoginFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cms-login-crest-wrap {
+  margin-bottom: 1.25rem;
+}
+
+.cms-login-crest {
+  height: 68px;
+  width: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.cms-login-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--idsk-color-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.cms-login-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cms-login-desc {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.cms-google-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Oficiálny štýl Google tlačidla */
+.cms-google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: #ffffff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.12);
+  transition: all 0.2s ease;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cms-google-btn:hover {
+  background: #f8fafd;
+  border-color: #c2c7ce;
+  box-shadow: 0 2px 6px rgba(60,64,67,0.2);
+}
+
+.cms-google-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.cms-login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0 0.5rem;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.cms-login-divider::before,
+.cms-login-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cms-login-divider span {
+  padding: 0 0.75rem;
+}
+
+.cms-login-footer-info {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}

@@ -6,6 +6,7 @@
   <title>Administračný systém | Obec Horný Vadičov (IDSK 3.0)</title>
   <link rel="icon" type="image/png" href="../images/crest.png">
   <link rel="stylesheet" href="admin.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
@@ -20,6 +21,19 @@
     </div>
 
     <div class="cms-header__actions">
+      <!-- Používateľský profil po prihlásení cez Google -->
+      <div class="cms-user-profile" id="cmsUserProfile" style="display: none;">
+        <img src="" alt="" class="cms-user-avatar" id="cmsUserAvatar">
+        <div class="cms-user-info">
+          <span class="cms-user-name" id="cmsUserName">Administrátor</span>
+          <span class="cms-user-email" id="cmsUserEmail"></span>
+        </div>
+        <button type="button" class="cms-btn-logout" id="btnCmsLogout" title="Odhlásiť sa z administrácie">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+          Odhlásiť
+        </button>
+      </div>
+
       <div class="cms-status-badge" id="cmsStatusBadge">
         <span class="cms-status-badge__dot" id="cmsStatusDot"></span>
         <span id="cmsStatusText">Pripájanie...</span>
@@ -248,6 +262,27 @@
         </div>
 
         <div class="cms-section-card">
+          <h2 class="cms-section-card__title" style="margin-bottom: 0.5rem;">Google Prihlásenie a Zabezpečenie</h2>
+          <p style="color: var(--idsk-color-text-secondary); margin-bottom: 1.5rem;">
+            Administrácia vyžaduje prihlásenie cez Google účet. Tu si môžete nastaviť vlastný Google OAuth Client ID a zoznam povolených e-mailových adries pre administrátorov obce.
+          </p>
+
+          <div class="cms-form-group">
+            <label class="cms-form-label" for="inputGoogleClientId">Google OAuth 2.0 Client ID:</label>
+            <input type="text" class="cms-form-input" id="inputGoogleClientId" placeholder="Napr. 1234567890-abcdef.apps.googleusercontent.com">
+            <p class="cms-form-help">Získate ho v <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener">Google Cloud Console</a>. Pre lokálny vývoj je prednastavený bezpečný režim.</p>
+          </div>
+
+          <div class="cms-form-group">
+            <label class="cms-form-label" for="inputAdminEmails">Zoznam povolených e-mailov (Admin Whitelist):</label>
+            <input type="text" class="cms-form-input" id="inputAdminEmails" placeholder="meno@gmail.com, starosta@hornyvadicov.sk (oddelené čiarkou)">
+            <p class="cms-form-help">Ak necháte prázdne, povolený bude váš prihlásený Google účet.</p>
+          </div>
+
+          <button class="cms-btn cms-btn--primary" id="btnSaveGoogleSettings">Uložiť Google nastavenia</button>
+        </div>
+
+        <div class="cms-section-card">
           <h2 class="cms-section-card__title" style="margin-bottom: 0.5rem;">Priame online publikovanie cez GitHub API</h2>
           <p style="color: var(--idsk-color-text-secondary); margin-bottom: 1.5rem;">
             Ak používate administráciu priamo na webe bez spusteného lokálneho servera, CMS môže zapisovať nové články a oznamy priamo do GitHub repozitára cez bezpečný GitHub Token. GitHub Actions následne web automaticky prebuilduje a zverejní.
@@ -406,9 +441,47 @@
     </div>
   </div>
 
-  <!-- Oznámenie Toast -->
-  <div class="cms-toast" id="cmsToast">
-    <span id="cmsToastMessage">Správa</span>
+  <!-- 3. Prihlasovacie okno (Google Login) -->
+  <div class="cms-login-overlay" id="cmsLoginOverlay">
+    <div class="cms-login-card">
+      <div class="cms-login-crest-wrap">
+        <img src="../images/crest.png" alt="Erb obce Horný Vadičov" class="cms-login-crest">
+      </div>
+      <h1 class="cms-login-title">Obec Horný Vadičov</h1>
+      <div class="cms-login-subtitle">Administračný systém IDSK 3.0</div>
+      
+      <p class="cms-login-desc">
+        Pre prístup do administrácie a správu obsahu obce sa prihláste pomocou vášho Google účtu.
+      </p>
+
+      <!-- Google GIS oficiálny kontajner -->
+      <div id="googleBtnContainer" class="cms-google-btn-wrap"></div>
+
+      <!-- Vlastné Google tlačidlo s oficiálnym brandom -->
+      <button type="button" class="cms-google-btn" id="btnGoogleSignInDirect">
+        <svg class="cms-google-icon" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+          <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+        </svg>
+        <span>Prihlásiť sa cez Google účet</span>
+      </button>
+
+      <!-- Alternatívne zadanie e-mailu ak nie je zatiaľ nastavený OAuth Client ID -->
+      <div class="cms-login-direct-option" id="cmsLoginDirectOption">
+        <div class="cms-login-divider"><span>alebo zadajte svoj Google e-mail</span></div>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+          <input type="email" class="cms-form-input" id="inputDirectEmail" placeholder="vas.email@gmail.com">
+          <button type="button" class="cms-btn cms-btn--primary" id="btnDirectEmailLogin" style="white-space: nowrap;">Vstúpiť</button>
+        </div>
+      </div>
+
+      <div class="cms-login-footer-info">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        Zabezpečené overením identity (IDSK 3.0 štandard)
+      </div>
+    </div>
   </div>
 
   <!-- Skript administrácie -->

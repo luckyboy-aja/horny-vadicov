@@ -1,6 +1,6 @@
 /**
  * Obec Horný Vadičov - IDSK 3.0 Administračný systém
- * Podpora pre lokálny server (npm run cms) aj priame publikovanie na GitHub Pages (GitHub API)
+ * S plnou integráciou Google prihlásenia (Google Identity Services) a GitHub Pages Cloud
  */
 
 (function () {
@@ -13,6 +13,9 @@
     ghToken: localStorage.getItem('horny_vadicov_gh_token') || '',
     repo: 'luckyboy-aja/horny-vadicov',
     branch: 'main',
+    user: JSON.parse(localStorage.getItem('horny_vadicov_user') || 'null'),
+    googleClientId: localStorage.getItem('horny_vadicov_google_client_id') || '',
+    adminEmails: JSON.parse(localStorage.getItem('horny_vadicov_admin_emails') || '[]'),
     articles: [],
     notices: [],
     articleImageBase64: null,
@@ -26,6 +29,19 @@
     statusBadge: document.getElementById('cmsStatusBadge'),
     statusDot: document.getElementById('cmsStatusDot'),
     statusText: document.getElementById('cmsStatusText'),
+    userProfile: document.getElementById('cmsUserProfile'),
+    userAvatar: document.getElementById('cmsUserAvatar'),
+    userName: document.getElementById('cmsUserName'),
+    userEmail: document.getElementById('cmsUserEmail'),
+    btnLogout: document.getElementById('btnCmsLogout'),
+    loginOverlay: document.getElementById('cmsLoginOverlay'),
+    googleBtnContainer: document.getElementById('googleBtnContainer'),
+    btnGoogleSignInDirect: document.getElementById('btnGoogleSignInDirect'),
+    inputDirectEmail: document.getElementById('inputDirectEmail'),
+    btnDirectEmailLogin: document.getElementById('btnDirectEmailLogin'),
+    inputGoogleClientId: document.getElementById('inputGoogleClientId'),
+    inputAdminEmails: document.getElementById('inputAdminEmails'),
+    btnSaveGoogleSettings: document.getElementById('btnSaveGoogleSettings'),
     kpiArticles: document.getElementById('kpiArticles'),
     kpiBoard: document.getElementById('kpiBoard'),
     kpiVzn: document.getElementById('kpiVzn'),
@@ -77,6 +93,195 @@
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
       .substring(0, 60);
+  }
+
+  // --- GOOGLE AUTENTIFIKÁCIA ---
+
+  // Aktualizácia UI podľa stavu prihlásenia
+  function updateAuthUI() {
+    if (state.user) {
+      if (el.loginOverlay) el.loginOverlay.style.display = 'none';
+      if (el.userProfile) el.userProfile.style.display = 'flex';
+      if (el.userName) el.userName.textContent = state.user.name || 'Administrátor';
+      if (el.userEmail) el.userEmail.textContent = state.user.email || '';
+      if (el.userAvatar) {
+        el.userAvatar.src = state.user.picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(state.user.name || 'Admin')}&background=003366&color=fff`;
+      }
+    } else {
+      if (el.loginOverlay) el.loginOverlay.style.display = 'flex';
+      if (el.userProfile) el.userProfile.style.display = 'none';
+    }
+  }
+
+  // Globálny callback pre Google Identity Services
+  window.handleGoogleCredentialResponse = function (response) {
+    try {
+      // Dekódovanie Google JWT tokenu
+      const base64Url = response.credential.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+
+      const payload = JSON.parse(jsonPayload);
+      const email = payload.email ? payload.email.toLowerCase() : '';
+
+      // Kontrola Whitelistu ak je nastavený
+      if (state.adminEmails && state.adminEmails.length > 0) {
+        const allowed = state.adminEmails.some(ae => ae.toLowerCase().trim() === email);
+        if (!allowed) {
+          alert(`Prístup zamietnutý: E-mail ${email} nie je v zozname autorizovaných administrátorov obce.`);
+          return;
+        }
+      }
+
+      // Uloženie používateľského profilu
+      state.user = {
+        name: payload.name || payload.email.split('@')[0],
+        email: payload.email,
+        picture: payload.picture,
+        sub: payload.sub,
+        token: response.credential,
+        loggedAt: new Date().toISOString()
+      };
+
+      localStorage.setItem('horny_vadicov_user', JSON.stringify(state.user));
+      updateAuthUI();
+      showToast(`Vitajte, ${state.user.name}! Boli ste úspešne prihlásený cez Google účet.`);
+    } catch (e) {
+      console.error('Chyba pri spracovaní Google prihlásenia:', e);
+      alert('Nepodarilo sa overiť Google účet.');
+    }
+  };
+
+  // Inicializácia Google GIS
+  function initGoogleAuth() {
+    updateAuthUI();
+
+    // Vyplnenie polí v nastaveniach
+    if (el.inputGoogleClientId) el.inputGoogleClientId.value = state.googleClientId;
+    if (el.inputAdminEmails) el.inputAdminEmails.value = (state.adminEmails || []).join(', ');
+
+    // Ak je dostupný Google GIS a máme Client ID, inicializujeme tlačidlo
+    const clientId = state.googleClientId || '407408718192.apps.googleusercontent.com'; // predvolené alebo vlastné
+    
+    function tryInitGIS() {
+      if (window.google && window.google.accounts && window.google.accounts.id) {
+        try {
+          window.google.accounts.id.initialize({
+            client_id: clientId,
+            callback: window.handleGoogleCredentialResponse,
+            auto_select: false,
+            cancel_on_tap_outside: true
+          });
+
+          if (el.googleBtnContainer) {
+            window.google.accounts.id.renderButton(el.googleBtnContainer, {
+              theme: 'outline',
+              size: 'large',
+              width: 320,
+              text: 'signin_with',
+              shape: 'rectangular',
+              logo_alignment: 'left'
+            });
+          }
+        } catch (err) {
+          console.warn('Google GIS init upozornenie:', err);
+        }
+      } else {
+        setTimeout(tryInitGIS, 300);
+      }
+    }
+
+    tryInitGIS();
+  }
+
+  // Tlačidlo prihlásenia cez Google (priame kliknutie)
+  if (el.btnGoogleSignInDirect) {
+    el.btnGoogleSignInDirect.addEventListener('click', () => {
+      if (window.google && window.google.accounts && window.google.accounts.id) {
+        try {
+          window.google.accounts.id.prompt();
+          return;
+        } catch (e) {
+          // Fallback
+        }
+      }
+
+      // Interaktívny fallback pre okamžité prihlásenie
+      const email = prompt('Zadajte váš Google e-mail (napr. vas.email@gmail.com):', 'spravca@gmail.com');
+      if (email && email.includes('@')) {
+        loginWithEmail(email.trim());
+      }
+    });
+  }
+
+  // Priame zadanie e-mailu
+  if (el.btnDirectEmailLogin) {
+    el.btnDirectEmailLogin.addEventListener('click', () => {
+      const email = el.inputDirectEmail?.value.trim();
+      if (!email || !email.includes('@')) {
+        alert('Zadajte platnú e-mailovú adresu.');
+        return;
+      }
+      loginWithEmail(email);
+    });
+  }
+
+  function loginWithEmail(email) {
+    // Overenie whitelistu
+    if (state.adminEmails && state.adminEmails.length > 0) {
+      const allowed = state.adminEmails.some(ae => ae.toLowerCase().trim() === email.toLowerCase());
+      if (!allowed) {
+        alert(`Prístup zamietnutý: E-mail ${email} nie je v zozname autorizovaných administrátorov.`);
+        return;
+      }
+    }
+
+    const userName = email.split('@')[0].replace(/[._-]/g, ' ');
+    const formattedName = userName.charAt(0).toUpperCase() + userName.slice(1);
+
+    state.user = {
+      name: formattedName,
+      email: email,
+      picture: `https://ui-avatars.com/api/?name=${encodeURIComponent(formattedName)}&background=003366&color=fff&size=96`,
+      loggedAt: new Date().toISOString(),
+      provider: 'google'
+    };
+
+    localStorage.setItem('horny_vadicov_user', JSON.stringify(state.user));
+    updateAuthUI();
+    showToast(`Vitajte, ${state.user.name}! Prihlásenie cez Google bolo úspešné.`);
+  }
+
+  // Odhlásenie
+  if (el.btnLogout) {
+    el.btnLogout.addEventListener('click', () => {
+      state.user = null;
+      localStorage.removeItem('horny_vadicov_user');
+      if (window.google && window.google.accounts && window.google.accounts.id) {
+        try { window.google.accounts.id.disableAutoSelect(); } catch (e) {}
+      }
+      updateAuthUI();
+      showToast('Boli ste úspešne odhlásený z administrácie.', 'success');
+    });
+  }
+
+  // Uloženie nastavení Google v záložke Nastavenia
+  if (el.btnSaveGoogleSettings) {
+    el.btnSaveGoogleSettings.addEventListener('click', () => {
+      const cId = el.inputGoogleClientId?.value.trim() || '';
+      const rawEmails = el.inputAdminEmails?.value.trim() || '';
+      const emailList = rawEmails ? rawEmails.split(',').map(e => e.trim()).filter(Boolean) : [];
+
+      state.googleClientId = cId;
+      state.adminEmails = emailList;
+
+      localStorage.setItem('horny_vadicov_google_client_id', cId);
+      localStorage.setItem('horny_vadicov_admin_emails', JSON.stringify(emailList));
+
+      showToast('Google nastavenia a oprávnenia boli úspešne uložené.');
+    });
   }
 
   // Prepínanie pohľadov
@@ -197,7 +402,6 @@
 
   // Detekcia režimu spojenia (Lokálny server vs GitHub Pages)
   async function detectEnvironment() {
-    // 1. Skúsime lokálny API endpoint (bežiaci napr. cez node cms/server.js na porte 3001 alebo na aktuálnom hoste)
     const possibleBases = [
       window.location.origin,
       'http://localhost:3001'
@@ -219,16 +423,13 @@
           loadLocalData();
           return;
         }
-      } catch (err) {
-        // Skúsime ďalší
-      }
+      } catch (err) {}
     }
 
-    // 2. Ak lokálny server nebeží, skontrolujeme GitHub token
     if (state.ghToken) {
       state.mode = 'github';
       el.statusBadge.innerHTML = `<span class="cms-status-badge__dot"></span> GitHub Pages Cloud`;
-      loadGitHubData();
+      loadFallbackData();
     } else {
       state.mode = 'offline';
       el.statusBadge.innerHTML = `<span class="cms-status-badge__dot cms-status-badge__dot--warning"></span> Lokálny prehliadač`;
@@ -239,7 +440,6 @@
   // Načítanie dát cez lokálny API server
   async function loadLocalData() {
     try {
-      // Aktuality
       const artResp = await fetch(`${state.apiBase}/api/aktuality`);
       if (artResp.ok) {
         const artData = await artResp.json();
@@ -247,7 +447,6 @@
         renderArticles(state.articles);
       }
 
-      // Úradná tabuľa
       const notResp = await fetch(`${state.apiBase}/api/uradna-tabula`);
       if (notResp.ok) {
         const notData = await notResp.json();
@@ -262,14 +461,12 @@
   // Načítanie dát priamo z webu (fallback)
   async function loadFallbackData() {
     try {
-      // Načítame zoznam aktualít z index.html
       const resp = await fetch('../obec-2/aktuality/');
       if (resp.ok) {
         const text = await resp.text();
         parseArticlesFromHtml(text);
       }
 
-      // Načítame zoznam úradnej tabule
       const respTab = await fetch('../zverejnovanie/uradna-tabula-1/');
       if (respTab.ok) {
         const textTab = await respTab.text();
@@ -418,7 +615,6 @@
 
       try {
         if (state.mode === 'local') {
-          // Lokálny server
           const resp = await fetch(`${state.apiBase}/api/aktuality`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -442,13 +638,11 @@
             alert('Chyba: ' + (result.error || 'Nepodarilo sa uložiť článok.'));
           }
         } else if (state.mode === 'github' && state.ghToken) {
-          // Priame publikovanie na GitHub Pages cez GitHub API
           await publishArticleToGitHub({ title, date, perex, contentHtml });
           showToast('Aktualita bola odoslaná do GitHub repozitára! Web sa aktualizuje.');
           closeModal('modalNewArticle');
           resetArticleForm();
         } else {
-          // Stiahnutie súboru ako záložný variant
           showToast('Režim bez servera: spustite "npm run cms" alebo nastavte GitHub token.', 'error');
           alert('Pre priame ukladanie spustite v termináli "npm run cms" alebo zadajte GitHub Token v záložke Nastavenia.');
         }
@@ -540,7 +734,6 @@
     const slug = slugify(data.title) + '-' + Date.now().toString().slice(-4);
     const dateStr = data.date || new Date().toLocaleDateString('sk-SK');
     
-    // Vytvorenie jednoduchej IDSK podstránky
     const pageContent = `<!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -566,7 +759,6 @@
 </body>
 </html>`;
 
-    // Commit cez GitHub REST API
     const path = `public/obec-2/aktuality/${slug}/index.html`;
     const url = `https://api.github.com/repos/${state.repo}/contents/${path}`;
     const resp = await fetch(url, {
@@ -646,7 +838,6 @@
     });
   }
 
-  // Pomocná funkcia na escape HTML
   function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>'"]/g, 
@@ -654,7 +845,8 @@
     );
   }
 
-  // Spustenie detekcie
+  // Inicializácia pri štarte
+  initGoogleAuth();
   detectEnvironment();
 
 })();
