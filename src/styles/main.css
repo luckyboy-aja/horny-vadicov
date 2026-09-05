@@ -109,12 +109,27 @@ html {
    ========================================================= */
 .gcm-vertical-column,
 nav#submenu,
-.gcm-submenu-heading {
+.gcm-submenu-heading,
+.gcm-vertical-column .leftbox,
+.leftbox.first,
+.leftbox.last,
+div[class*="gcm-vertical-column"] {
   display: none !important;
 }
 
-/* Fallback: SVG ikony z old CMS — ak by sa aj tak zobrazili */
-.gcm-submenu__item-ico--subitems {
+/* Zabezpečenie rozmerov pre všetky obrázky a tabuľky v obsahu podstránok */
+.editor_content img,
+.idsk-subpage-body img,
+.idsk-subpage-content img,
+.file-row img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Fallback: SVG ikony a chevrons */
+.gcm-submenu__item-ico--subitems,
+svg.chevron,
+.chevron svg {
   width: 16px !important;
   height: 16px !important;
   max-width: 16px !important;

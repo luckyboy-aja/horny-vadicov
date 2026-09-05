@@ -9,6 +9,15 @@ export default defineConfig({
   },
   plugins: [
     {
+      name: 'sync-src-assets',
+      buildStart() {
+        fs.cpSync(path.resolve(__dirname, 'src'), path.resolve(__dirname, 'public/src'), { recursive: true });
+      },
+      closeBundle() {
+        fs.cpSync(path.resolve(__dirname, 'src'), path.resolve(__dirname, 'dist/src'), { recursive: true });
+      }
+    },
+    {
       name: 'serve-public-html-directories',
       configureServer(server) {
         server.middlewares.use((req, res, next) => {

@@ -1186,7 +1186,7 @@ textarea:focus-visible,
 
 .idsk-footer__grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -1209,6 +1209,49 @@ textarea:focus-visible,
   width: 28px;
   height: 2px;
   background-color: var(--idsk-color-primary);
+}
+
+.idsk-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.idsk-footer__crest {
+  width: 44px;
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.idsk-footer__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.idsk-footer__text {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+.idsk-footer__address {
+  font-style: normal;
+}
+
+.idsk-footer__address p {
+  margin-bottom: 6px;
+}
+
+.idsk-footer__col {
+  display: flex;
+  flex-direction: column;
 }
 
 .idsk-footer__links {
@@ -1252,14 +1295,39 @@ textarea:focus-visible,
   list-style: none;
 }
 
+.idsk-footer__copyright,
+.idsk-footer__provider {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+}
+
+.idsk-footer__tricolor,
 .idsk-footer__tricolor-bar {
   height: 4px;
   width: 100%;
   display: flex;
 }
-.idsk-footer__tricolor-bar div:nth-child(1) { flex: 1; background-color: #FFFFFF; }
-.idsk-footer__tricolor-bar div:nth-child(2) { flex: 1; background-color: #0B4EA2; }
-.idsk-footer__tricolor-bar div:nth-child(3) { flex: 1; background-color: #EE1C25; }
+
+.idsk-footer__tricolor-strip,
+.idsk-footer__tricolor-bar div {
+  flex: 1;
+  height: 100%;
+}
+
+.idsk-footer__tricolor-strip--white,
+.idsk-footer__tricolor-bar div:nth-child(1) {
+  background-color: #FFFFFF;
+}
+
+.idsk-footer__tricolor-strip--blue,
+.idsk-footer__tricolor-bar div:nth-child(2) {
+  background-color: #0B4EA2;
+}
+
+.idsk-footer__tricolor-strip--red,
+.idsk-footer__tricolor-bar div:nth-child(3) {
+  background-color: #EE1C25;
+}
 
 /* Modal pre zobrazenie detailu aktuality */
 .idsk-modal-backdrop {
