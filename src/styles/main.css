@@ -100,3 +100,27 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* =========================================================
+   Fix: Starý CMS mobilný navigátor scraped zo starej stránky
+   Tieto elementy sa nesmú zobrazovať na novom webe.
+   gcm-vertical-column obsahuje nav#submenu s SVG chevron ikonami
+   bez width/height — renderujú sa na plnú šírku kontajnera.
+   ========================================================= */
+.gcm-vertical-column,
+nav#submenu,
+.gcm-submenu-heading {
+  display: none !important;
+}
+
+/* Fallback: SVG ikony z old CMS — ak by sa aj tak zobrazili */
+.gcm-submenu__item-ico--subitems {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+}
+
+.nav-toggle svg:not([width]) {
+  width: 16px;
+  height: 16px;
+}
