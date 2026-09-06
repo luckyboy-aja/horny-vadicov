@@ -442,21 +442,27 @@
 
   // --- 4. DETEKCIA A NAČÍTANIE DÁT (API & CLOUD) ---
 
-  async function detectEnvironment() {
-    const possibleBases = [
-      window.location.origin,
-      'http://localhost:3001'
-    ];
+  // Pomocná funkcia - zobraz prázdny stav namiesto "Načítavam..."
+  function showEmptyState(tbodyEl, colspan, msg) {
+    if (!tbodyEl) return;
+    tbodyEl.innerHTML = `<tr><td colspan="${colspan}" style="text-align: center; padding: 2rem; color: #64748b;">${msg}</td></tr>`;
+  }
 
-    for (const base of possibleBases) {
+  async function detectEnvironment() {
+    // Skus lokálny server
+    const localBases = ['http://localhost:3001'];
+    // Ak sme na GitHub Pages, skus aj origin (nepodarí sa, ale neblokujeme)
+    for (const base of localBases) {
       try {
-        const resp = await fetch(`${base}/api/status`, { method: 'GET', mode: 'cors' });
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), 1500);
+        const resp = await fetch(`${base}/api/status`, { method: 'GET', mode: 'cors', signal: ctrl.signal });
+        clearTimeout(tid);
         if (resp.ok) {
           const data = await resp.json();
           state.mode = 'local';
           state.apiBase = base;
-          el.statusBadge.innerHTML = `<span class="cms-status-badge__dot"></span> Lokálny CMS server (aktívny)`;
-          
+          if (el.statusBadge) el.statusBadge.innerHTML = `<span class="cms-status-badge__dot"></span> Lokálny CMS server (aktívny)`;
           if (data.stats) {
             if (el.kpiPages) el.kpiPages.textContent = data.stats.pagesCount || 448;
             if (el.kpiArticles) el.kpiArticles.textContent = data.stats.articlesCount || 30;
@@ -469,31 +475,24 @@
       } catch (err) {}
     }
 
+    // Offline / GitHub Pages statický režim
     if (state.ghToken) {
       state.mode = 'github';
-      el.statusBadge.innerHTML = `<span class="cms-status-badge__dot"></span> GitHub Pages Cloud`;
-      loadFallbackData();
+      if (el.statusBadge) el.statusBadge.innerHTML = `<span class="cms-status-badge__dot"></span> GitHub Pages Cloud`;
     } else {
       state.mode = 'offline';
-      el.statusBadge.innerHTML = `<span class="cms-status-badge__dot cms-status-badge__dot--warning"></span> Prehliadač (statický režim)`;
-      loadFallbackData();
+      if (el.statusBadge) el.statusBadge.innerHTML = `<span class="cms-status-badge__dot cms-status-badge__dot--warning"></span> Prehliadač (statický režim)`;
     }
+    loadFallbackData();
   }
 
   async function loadAllDataLocal() {
-    // 1. Stránky
     loadPages();
-    // 2. Aktuality
     loadArticles();
-    // 3. Úradná tabuľa
     loadNotices();
-    // 4. VZN
     loadVzn();
-    // 5. Zasadnutia OZ
     loadMeetings();
-    // 6. Médiá
     loadMedia();
-    // 7. Fotogaléria
     loadAlbums();
   }
 
@@ -508,14 +507,60 @@
           const data = await resp.json();
           state.pages = data.pages || [];
           filterAndRenderPages();
+          return;
         }
-      } else {
-        // Fallback zoznam hlavných sekcií
-        filterAndRenderPages();
       }
+      // GitHub / offline: načítaj zoznam stránok zo statického JSON indexu alebo GitHub API
+      await loadPagesFromGitHub();
     } catch (e) {
       console.warn('Chyba načítania stránok:', e);
+      showEmptyState(el.pagesTableBody, 4, 'Nepodarilo sa načítať zoznam stránok. Skúste znova alebo spustite lokálny CMS server.');
     }
+  }
+
+  async function loadPagesFromGitHub() {
+    // Načítaj zoznam priečinkov z GitHub API
+    const ghApiBase = `https://api.github.com/repos/${state.repo}/contents/public`;
+    const headers = state.ghToken ? { 'Authorization': `token ${state.ghToken}` } : {};
+    const KNOWN_PAGES = [
+      { title: 'Obec Horný Vadičov – Domov', url: '', path: 'public/index.html', section: 'Obec' },
+      { title: 'Aktuality', url: 'obec-2/aktuality/', path: 'public/obec-2/aktuality/index.html', section: 'Obec' },
+      { title: 'Kontakty', url: 'obec-2/kontakty/', path: 'public/obec-2/kontakty/index.html', section: 'Obec' },
+      { title: 'História obce', url: 'obec-2/historia-obce/', path: 'public/obec-2/historia-obce/index.html', section: 'Obec' },
+      { title: 'Starosta', url: 'obec-2/starosta/', path: 'public/obec-2/starosta/index.html', section: 'Obec' },
+      { title: 'Zastupiteľstvo OZ', url: 'samosprava/obecne-zastupitelstvo/', path: 'public/samosprava/obecne-zastupitelstvo/index.html', section: 'Samospráva' },
+      { title: 'VZN – Nariadenia', url: 'samosprava/vzn/', path: 'public/samosprava/vzn/index.html', section: 'Samospráva' },
+      { title: 'Komisia výstavby', url: 'samosprava/komisia-vystavby/', path: 'public/samosprava/komisia-vystavby/index.html', section: 'Samospráva' },
+      { title: 'Úradná tabuľa', url: 'zverejnovanie/uradna-tabula-1/', path: 'public/zverejnovanie/uradna-tabula-1/index.html', section: 'Zverejňovanie' },
+      { title: 'Zmluvy', url: 'zverejnovanie/zmluvy/', path: 'public/zverejnovanie/zmluvy/index.html', section: 'Zverejňovanie' },
+      { title: 'Faktúry', url: 'zverejnovanie/faktury/', path: 'public/zverejnovanie/faktury/index.html', section: 'Zverejňovanie' },
+      { title: 'Fotogaléria', url: 'obec-2/fotogaleria/', path: 'public/obec-2/fotogaleria/index.html', section: 'Obec' },
+      { title: 'Projekty EÚ', url: 'projekty/', path: 'public/projekty/index.html', section: 'Projekty' },
+      { title: 'Voľby', url: 'volby-a-referendum/', path: 'public/volby-a-referendum/index.html', section: 'Voľby a referendum' },
+      { title: 'Šport a kultúra', url: 'obec-2/sport-a-kultura/', path: 'public/obec-2/sport-a-kultura/index.html', section: 'Obec' },
+      { title: 'Materská škola', url: 'obec-2/materska-skola/', path: 'public/obec-2/materska-skola/index.html', section: 'Obec' },
+      { title: 'Základná škola', url: 'obec-2/zakladna-skola/', path: 'public/obec-2/zakladna-skola/index.html', section: 'Obec' },
+      { title: 'Plán zasadnutí OZ', url: 'samosprava/obecne-zastupitelstvo/plan-zasadnuti/', path: 'public/samosprava/obecne-zastupitelstvo/plan-zasadnuti/index.html', section: 'Samospráva' },
+      { title: 'Pozvánky na zasadnutia OZ', url: 'samosprava/obecne-zastupitelstvo/pozvanky-na-zasadnutie-oz-1/', path: 'public/samosprava/obecne-zastupitelstvo/pozvanky-na-zasadnutie-oz-1/index.html', section: 'Samospráva' },
+      { title: 'Zápisnice OZ', url: 'samosprava/obecne-zastupitelstvo/zapisnice-oz/', path: 'public/samosprava/obecne-zastupitelstvo/zapisnice-oz/index.html', section: 'Samospráva' },
+    ];
+    try {
+      const resp = await fetch(ghApiBase, { headers });
+      if (resp.ok) {
+        const dirs = await resp.json();
+        const pages = [];
+        dirs.filter(d => d.type === 'dir').forEach(dir => {
+          pages.push({ title: dir.name.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), url: dir.name + '/', path: `public/${dir.name}/index.html`, section: 'Obec' });
+        });
+        state.pages = pages.length > 0 ? pages : KNOWN_PAGES;
+      } else {
+        state.pages = KNOWN_PAGES;
+      }
+    } catch (e) {
+      state.pages = KNOWN_PAGES;
+    }
+    if (el.kpiPages) el.kpiPages.textContent = state.pages.length;
+    filterAndRenderPages();
   }
 
   function filterAndRenderPages() {
@@ -785,10 +830,47 @@
           const data = await resp.json();
           state.articles = data.articles || [];
           renderArticles(state.articles);
+          return;
         }
       }
+      // Offline/GitHub: načítaj aktuality scraping-om živej stránky
+      await loadArticlesFromWeb();
     } catch (e) {
       console.warn('Chyba načítania aktualít:', e);
+      showEmptyState(el.articlesTableBody, 4, 'Nepodarilo sa načítať aktuality.');
+    }
+  }
+
+  async function loadArticlesFromWeb() {
+    try {
+      const baseUrl = `https://luckyboy-aja.github.io/horny-vadicov`;
+      const resp = await fetch(`${baseUrl}/obec-2/aktuality/`);
+      if (resp.ok) {
+        const text = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const articles = [];
+        doc.querySelectorAll('.event-link, .idsk-card, article a, .news-item a').forEach(l => {
+          const name = l.querySelector('.event-name, h3, .card-title, .idsk-card-title')?.textContent || l.querySelector('strong')?.textContent || '';
+          const date = l.querySelector('.event-date .event-info-value, .date, time')?.textContent || '';
+          const perex = l.querySelector('.event-perex, .card-perex, p')?.textContent || '';
+          const img = l.querySelector('img')?.getAttribute('src') || '';
+          if (name.trim()) {
+            articles.push({ title: name.trim(), date: date.trim(), perex: perex.trim().substring(0, 120), image: img, url: l.getAttribute('href') || '' });
+          }
+        });
+        state.articles = articles;
+        if (articles.length) {
+          renderArticles(articles);
+          if (el.kpiArticles) el.kpiArticles.textContent = articles.length;
+        } else {
+          showEmptyState(el.articlesTableBody, 4, 'Zatiaľ nie sú evidované žiadne aktuality. Pre správu spustite lokálny CMS server.');
+        }
+      } else {
+        showEmptyState(el.articlesTableBody, 4, 'Aktuality sú dostupné iba cez lokálny CMS server.');
+      }
+    } catch (e) {
+      showEmptyState(el.articlesTableBody, 4, 'Aktuality sú dostupné iba cez lokálny CMS server.');
     }
   }
 
@@ -930,10 +1012,44 @@
           const data = await resp.json();
           state.notices = data.notices || [];
           renderNotices(state.notices);
+          return;
         }
       }
+      // Offline: načítaj z živej stránky
+      await loadNoticesFromWeb();
     } catch (e) {
       console.warn('Chyba načítania úradnej tabule:', e);
+      showEmptyState(el.noticesTableBody, 3, 'Nepodarilo sa načítať úradnú tabuľu.');
+    }
+  }
+
+  async function loadNoticesFromWeb() {
+    try {
+      const resp = await fetch(`https://luckyboy-aja.github.io/horny-vadicov/zverejnovanie/uradna-tabula-1/`);
+      if (resp.ok) {
+        const text = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const notices = [];
+        doc.querySelectorAll('.document-link, .idsk-card, article a, li a, .notice-item').forEach(el => {
+          const title = el.querySelector('h3, h4, strong, .title, .document-name')?.textContent || el.textContent || '';
+          const dates = el.querySelector('.date, time, .dates')?.textContent || '';
+          if (title.trim().length > 5) {
+            notices.push({ title: title.trim().substring(0, 120), dates: dates.trim(), url: el.getAttribute('href') || '', slug: '' });
+          }
+        });
+        state.notices = notices;
+        if (notices.length) {
+          renderNotices(notices);
+          if (el.kpiBoard) el.kpiBoard.textContent = notices.length;
+        } else {
+          showEmptyState(el.noticesTableBody, 3, 'Pre správu úradnej tabule spustite lokálny CMS server pomocou "npm run cms".');
+        }
+      } else {
+        showEmptyState(el.noticesTableBody, 3, 'Úradná tabuľa je dostupná iba cez lokálny CMS server.');
+      }
+    } catch (e) {
+      showEmptyState(el.noticesTableBody, 3, 'Úradná tabuľa je dostupná iba cez lokálny CMS server.');
     }
   }
 
@@ -1052,10 +1168,45 @@
           const data = await resp.json();
           state.vznList = data.vzn || [];
           renderVzn(state.vznList);
+          return;
         }
       }
+      // Offline: načítaj VZN z živej stránky
+      await loadVznFromWeb();
     } catch (e) {
       console.warn('Chyba načítania VZN:', e);
+      showEmptyState(el.vznTableBody, 4, 'Nepodarilo sa načítať VZN.');
+    }
+  }
+
+  async function loadVznFromWeb() {
+    try {
+      const resp = await fetch(`https://luckyboy-aja.github.io/horny-vadicov/samosprava/vzn/`);
+      if (resp.ok) {
+        const text = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const vzns = [];
+        doc.querySelectorAll('.document-link, .idsk-card, article a, li a, .vzn-item, a[href*="vzn"]').forEach(el => {
+          const title = el.querySelector('h3, h4, strong, .title')?.textContent || el.textContent || '';
+          const date = el.querySelector('.date, time')?.textContent || '';
+          const href = el.getAttribute('href') || '';
+          if (title.trim().length > 5 && href.includes('vzn')) {
+            vzns.push({ title: title.trim().substring(0, 150), dateFrom: date.trim(), dateTo: 'Platné', slug: href.replace(/\/$/, '').split('/').pop() });
+          }
+        });
+        state.vznList = vzns;
+        if (vzns.length) {
+          renderVzn(vzns);
+          if (el.kpiVzn) el.kpiVzn.textContent = vzns.length;
+        } else {
+          showEmptyState(el.vznTableBody, 4, 'Pre správu VZN spustite lokálny CMS server pomocou "npm run cms".');
+        }
+      } else {
+        showEmptyState(el.vznTableBody, 4, 'VZN sú dostupné iba cez lokálny CMS server.');
+      }
+    } catch (e) {
+      showEmptyState(el.vznTableBody, 4, 'VZN sú dostupné iba cez lokálny CMS server.');
     }
   }
 
@@ -1152,12 +1303,47 @@
           const data = await resp.json();
           state.meetings = data.meetings || [];
           renderMeetings(state.meetings);
+          return;
         }
       }
+      // Offline: načítaj zasadnutia z živej stránky
+      await loadMeetingsFromWeb();
     } catch (e) {
       console.warn('Chyba načítania zasadnutí OZ:', e);
+      showEmptyState(el.meetingsTableBody, 3, 'Nepodarilo sa načítať zasadnutia OZ.');
     }
   }
+
+  async function loadMeetingsFromWeb() {
+    try {
+      const resp = await fetch(`https://luckyboy-aja.github.io/horny-vadicov/samosprava/obecne-zastupitelstvo/pozvanky-na-zasadnutie-oz-1/`);
+      if (resp.ok) {
+        const text = await resp.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const meetings = [];
+        doc.querySelectorAll('.document-link, .idsk-card, article a, li a').forEach(el => {
+          const title = el.querySelector('h3, h4, strong, .title')?.textContent || el.textContent || '';
+          const dates = el.querySelector('.date, time')?.textContent || '';
+          const href = el.getAttribute('href') || '';
+          if (title.trim().length > 5) {
+            meetings.push({ title: title.trim().substring(0, 150), dates: dates.trim(), slug: href.replace(/\/$/, '').split('/').pop() });
+          }
+        });
+        state.meetings = meetings;
+        if (meetings.length) {
+          renderMeetings(meetings);
+        } else {
+          showEmptyState(el.meetingsTableBody, 3, 'Pre správu zasadnutí OZ spustite lokálny CMS server pomocou "npm run cms".');
+        }
+      } else {
+        showEmptyState(el.meetingsTableBody, 3, 'Zasadnutia OZ sú dostupné iba cez lokálny CMS server.');
+      }
+    } catch (e) {
+      showEmptyState(el.meetingsTableBody, 3, 'Zasadnutia OZ sú dostupné iba cez lokálny CMS server.');
+    }
+  }
+
 
   function renderMeetings(list) {
     if (!el.meetingsTableBody) return;
@@ -1394,33 +1580,14 @@
   // --- 12. GITHUB PAGES CLOUD & ZÁLOHOVANIE ---
 
   async function loadFallbackData() {
-    // V offline/cloud režime načítame základné indexy z webu
-    try {
-      const respArt = await fetch('../obec-2/aktuality/');
-      if (respArt.ok) {
-        const text = await respArt.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const articles = [];
-        doc.querySelectorAll('.event-link').forEach(l => {
-          const name = l.querySelector('.event-name')?.textContent || '';
-          const date = l.querySelector('.event-date .event-info-value')?.textContent || '';
-          const perex = l.querySelector('.event-perex')?.textContent || '';
-          const img = l.querySelector('img')?.getAttribute('src') || '';
-          if (name) {
-            articles.push({
-              title: name.trim(),
-              date: date.trim(),
-              perex: perex.trim(),
-              image: img,
-              url: l.getAttribute('href') || ''
-            });
-          }
-        });
-        state.articles = articles;
-        renderArticles(articles);
-      }
-    } catch (e) {}
+    // V offline/cloud režime načítame všetky sekcie z živých GitHub Pages URL
+    await Promise.allSettled([
+      loadPagesFromGitHub(),
+      loadArticlesFromWeb(),
+      loadNoticesFromWeb(),
+      loadVznFromWeb(),
+      loadMeetingsFromWeb(),
+    ]);
   }
 
   if (el.btnSaveGhToken) {
