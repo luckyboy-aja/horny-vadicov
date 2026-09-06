@@ -1450,7 +1450,17 @@
           const data = await resp.json();
           state.mediaList = data.media || [];
           filterAndRenderMedia();
+          return;
         }
+      }
+      // Offline: zobraz informativnú správu
+      if (el.mediaGrid) {
+        el.mediaGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="#cbd5e1" style="display:block;margin:0 auto 1rem;"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"/></svg>
+          <strong>Knižnica médií</strong><br>
+          Pre správu médií spustite lokálny CMS server:<br>
+          <code style="background:#f1f5f9;padding:0.3rem 0.7rem;border-radius:4px;display:inline-block;margin-top:0.5rem;">npm run cms</code>
+        </div>`;
       }
     } catch (e) {
       console.warn('Chyba načítania médií:', e);
@@ -1565,7 +1575,17 @@
           const data = await resp.json();
           state.albums = data.albums || [];
           renderAlbums(state.albums);
+          return;
         }
+      }
+      // Offline: zobraz informativnú správu
+      if (el.albumsGrid) {
+        el.albumsGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #64748b;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="#cbd5e1" style="display:block;margin:0 auto 1rem;"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          <strong>Fotogaléria</strong><br>
+          Pre správu fotoalbumy spustite lokálny CMS server:<br>
+          <code style="background:#f1f5f9;padding:0.3rem 0.7rem;border-radius:4px;display:inline-block;margin-top:0.5rem;">npm run cms</code>
+        </div>`;
       }
     } catch (e) {
       console.warn('Chyba načítania albumov:', e);
@@ -1574,8 +1594,8 @@
 
   function renderAlbums(list) {
     if (!el.albumsGrid) return;
-    if (!list.length) {
-      el.albumsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem;">Načítavam fotoalbumy...</div>';
+    if (!list || !list.length) {
+      el.albumsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #64748b;">Zatiaľ nie sú nahráté žiadne fotoalbumy.</div>';
       return;
     }
 
