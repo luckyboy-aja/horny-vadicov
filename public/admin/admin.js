@@ -1031,11 +1031,17 @@
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
         const notices = [];
-        doc.querySelectorAll('.document-link, .idsk-card, article a, li a, .notice-item').forEach(el => {
-          const title = el.querySelector('h3, h4, strong, .title, .document-name')?.textContent || el.textContent || '';
-          const dates = el.querySelector('.date, time, .dates')?.textContent || '';
-          if (title.trim().length > 5) {
-            notices.push({ title: title.trim().substring(0, 120), dates: dates.trim(), url: el.getAttribute('href') || '', slug: '' });
+        // Skutočná HTML štruktúra: .item > .item-heading > a.item-href
+        doc.querySelectorAll('.item').forEach(item => {
+          const link = item.querySelector('.item-href, a');
+          if (!link) return;
+          const title = link.textContent.trim();
+          const dateFrom = item.querySelector('.item-date-from')?.textContent.replace('Vyvesené:', '').trim() || '';
+          const dateTo = item.querySelector('.item-date-to')?.textContent.replace('Dátum zvesenia:', '').trim() || '';
+          const dates = [dateFrom, dateTo].filter(Boolean).join(' – ');
+          const href = link.getAttribute('href') || '';
+          if (title.length > 3) {
+            notices.push({ title: title.substring(0, 150), dates, url: href, slug: href.replace(/\/$/, '').split('/').pop() });
           }
         });
         state.notices = notices;
@@ -1187,12 +1193,16 @@
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
         const vzns = [];
-        doc.querySelectorAll('.document-link, .idsk-card, article a, li a, .vzn-item, a[href*="vzn"]').forEach(el => {
-          const title = el.querySelector('h3, h4, strong, .title')?.textContent || el.textContent || '';
-          const date = el.querySelector('.date, time')?.textContent || '';
-          const href = el.getAttribute('href') || '';
-          if (title.trim().length > 5 && href.includes('vzn')) {
-            vzns.push({ title: title.trim().substring(0, 150), dateFrom: date.trim(), dateTo: 'Platné', slug: href.replace(/\/$/, '').split('/').pop() });
+        // Skutočná HTML štruktúra: .item > .item-heading > a.item-href
+        doc.querySelectorAll('.item').forEach(item => {
+          const link = item.querySelector('.item-href, a');
+          if (!link) return;
+          const title = link.textContent.trim();
+          const dateFrom = item.querySelector('.item-date-from')?.textContent.replace('Vyvesené:', '').trim() || '';
+          const dateTo = item.querySelector('.item-date-to')?.textContent.replace('Dátum zvesenia:', '').trim() || 'Platné';
+          const href = link.getAttribute('href') || '';
+          if (title.length > 3) {
+            vzns.push({ title: title.substring(0, 200), dateFrom, dateTo, slug: href.replace(/\/$/, '').split('/').pop() });
           }
         });
         state.vznList = vzns;
@@ -1322,12 +1332,17 @@
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
         const meetings = [];
-        doc.querySelectorAll('.document-link, .idsk-card, article a, li a').forEach(el => {
-          const title = el.querySelector('h3, h4, strong, .title')?.textContent || el.textContent || '';
-          const dates = el.querySelector('.date, time')?.textContent || '';
-          const href = el.getAttribute('href') || '';
-          if (title.trim().length > 5) {
-            meetings.push({ title: title.trim().substring(0, 150), dates: dates.trim(), slug: href.replace(/\/$/, '').split('/').pop() });
+        // Skutočná HTML štruktúra: .item > .item-heading > a.item-href
+        doc.querySelectorAll('.item').forEach(item => {
+          const link = item.querySelector('.item-href, a');
+          if (!link) return;
+          const title = link.textContent.trim();
+          const dateFrom = item.querySelector('.item-date-from')?.textContent.replace('Vyvesené:', '').trim() || '';
+          const dateTo = item.querySelector('.item-date-to')?.textContent.replace('Dátum zvesenia:', '').trim() || '';
+          const dates = [dateFrom, dateTo].filter(Boolean).join(' – ');
+          const href = link.getAttribute('href') || '';
+          if (title.length > 3) {
+            meetings.push({ title: title.substring(0, 200), dates, slug: href.replace(/\/$/, '').split('/').pop() });
           }
         });
         state.meetings = meetings;
