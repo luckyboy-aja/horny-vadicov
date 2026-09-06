@@ -838,3 +838,330 @@ body {
   justify-content: center;
   gap: 0.35rem;
 }
+
+/* ==========================================================================
+   WordPress-like CMS Rozšírenie (Stránky, Editor, Médiá, Fotogaléria)
+   ========================================================================== */
+
+/* Filter bar pre tabuľky a médiá */
+.cms-filter-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .cms-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.cms-table-footer {
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--idsk-color-text-secondary);
+  border-top: 1px solid var(--idsk-color-border);
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Kategórie / Sekcie (Tagy) */
+.cms-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.cms-tag--obec { background: #e0f2fe; color: #0369a1; }
+.cms-tag--samosprava { background: #ede9fe; color: #6d28d9; }
+.cms-tag--zverejnovanie { background: #fef3c7; color: #b45309; }
+.cms-tag--projekty { background: #dcfce7; color: #15803d; }
+.cms-tag--volby { background: #fce7f3; color: #be185d; }
+.cms-tag--tabula { background: #fee2e2; color: #b91c1c; }
+
+/* Tlačidlá akcií */
+.cms-btn--danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.cms-btn--danger:hover {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.cms-btn--sm {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.cms-actions-cell {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Celoobrazovkový editor stránok (WordPress Page Editor) */
+.cms-modal-overlay--fullscreen {
+  padding: 1.5rem;
+}
+
+.cms-modal--fullscreen {
+  max-width: 1400px;
+  width: 95vw;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-modal__body--editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.5rem;
+  background: #ffffff;
+}
+
+.cms-form-input--title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius);
+  color: var(--idsk-color-primary);
+}
+
+.cms-toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background: #e2e8f0;
+  margin: 0 0.35rem;
+}
+
+.cms-editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius);
+  overflow: hidden;
+  position: relative;
+  background: #fafafa;
+}
+
+.cms-editor-content--page {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 3rem;
+  background: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--idsk-color-text);
+  min-height: 350px;
+}
+
+.cms-editor-content--page:focus {
+  outline: none;
+}
+
+.cms-editor-content--page h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--idsk-color-primary);
+}
+
+.cms-editor-content--page h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.cms-editor-content--page p {
+  margin-bottom: 1rem;
+}
+
+.cms-editor-content--page ul,
+.cms-editor-content--page ol {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cms-editor-content--page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.cms-editor-content--page th,
+.cms-editor-content--page td {
+  border: 1px solid #d1d5db;
+  padding: 0.6rem 0.9rem;
+}
+
+.cms-code-editor {
+  flex: 1;
+  width: 100%;
+  padding: 1.5rem;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background: #0f172a;
+  color: #e2e8f0;
+  border: none;
+  resize: none;
+  overflow-y: auto;
+}
+
+.cms-code-editor:focus {
+  outline: none;
+}
+
+/* Knižnica médií (Media Library Grid) */
+.cms-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.cms-media-card {
+  background: #ffffff;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-media-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--idsk-shadow-lg);
+  border-color: var(--idsk-color-primary);
+}
+
+.cms-media-thumb {
+  height: 140px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cms-media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cms-media-thumb svg {
+  width: 48px;
+  height: 48px;
+}
+
+.cms-media-info {
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-media-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--idsk-color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.25rem;
+}
+
+.cms-media-meta {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.cms-media-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cms-media-actions button {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Fotogaléria Grid */
+.cms-album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.cms-album-card {
+  background: #ffffff;
+  border: 1px solid var(--idsk-color-border);
+  border-radius: var(--idsk-radius);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.cms-album-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--idsk-shadow-lg);
+  border-color: var(--idsk-color-primary);
+}
+
+.cms-album-cover {
+  height: 160px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cms-album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cms-album-body {
+  padding: 1rem;
+}
+
+.cms-album-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  text-transform: capitalize;
+}
+
+.cms-album-count {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
