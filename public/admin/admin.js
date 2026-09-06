@@ -59,6 +59,10 @@
     btnGoogleSignInDirect: document.getElementById('btnGoogleSignInDirect'),
     inputDirectEmail: document.getElementById('inputDirectEmail'),
     btnDirectEmailLogin: document.getElementById('btnDirectEmailLogin'),
+    btnToggleClientIdSetup: document.getElementById('btnToggleClientIdSetup'),
+    boxClientIdSetup: document.getElementById('boxClientIdSetup'),
+    inputLoginGoogleClientId: document.getElementById('inputLoginGoogleClientId'),
+    btnSaveLoginClientId: document.getElementById('btnSaveLoginClientId'),
     inputGoogleClientId: document.getElementById('inputGoogleClientId'),
     inputAdminEmails: document.getElementById('inputAdminEmails'),
     btnSaveGoogleSettings: document.getElementById('btnSaveGoogleSettings'),
@@ -262,10 +266,32 @@
     updateAuthUI();
 
     if (el.inputGoogleClientId) el.inputGoogleClientId.value = state.googleClientId;
+    if (el.inputLoginGoogleClientId) el.inputLoginGoogleClientId.value = state.googleClientId;
     if (el.inputAdminEmails) el.inputAdminEmails.value = (state.adminEmails || []).join(', ');
 
-    const clientId = state.googleClientId || '407408718192.apps.googleusercontent.com';
+    const clientId = state.googleClientId;
     
+    // Ak zatiaľ nie je zadaný žiadny Client ID, neinicializujeme GIS s neplatným ID,
+    // aby Google nezobrazoval chybové hlásenie 401 invalid_client
+    if (!clientId) {
+      if (el.googleBtnContainer) {
+        el.googleBtnContainer.style.display = 'none';
+        el.googleBtnContainer.innerHTML = '';
+      }
+      if (el.btnGoogleSignInDirect) {
+        el.btnGoogleSignInDirect.style.display = 'flex';
+      }
+      return;
+    }
+
+    // Máme platný Client ID -> skryjeme manuálne tlačidlo a zobrazíme oficiálny kontajner
+    if (el.btnGoogleSignInDirect) {
+      el.btnGoogleSignInDirect.style.display = 'none';
+    }
+    if (el.googleBtnContainer) {
+      el.googleBtnContainer.style.display = 'flex';
+    }
+
     function tryInitGIS() {
       if (window.google && window.google.accounts && window.google.accounts.id) {
         try {
@@ -277,6 +303,7 @@
           });
 
           if (el.googleBtnContainer) {
+            el.googleBtnContainer.innerHTML = '';
             window.google.accounts.id.renderButton(el.googleBtnContainer, {
               theme: 'outline',
               size: 'large',
@@ -297,16 +324,50 @@
     tryInitGIS();
   }
 
+  if (el.btnToggleClientIdSetup) {
+    el.btnToggleClientIdSetup.addEventListener('click', () => {
+      if (el.boxClientIdSetup) {
+        const isHidden = el.boxClientIdSetup.style.display === 'none';
+        el.boxClientIdSetup.style.display = isHidden ? 'block' : 'none';
+        if (isHidden && el.inputLoginGoogleClientId) {
+          el.inputLoginGoogleClientId.focus();
+        }
+      }
+    });
+  }
+
+  if (el.btnSaveLoginClientId) {
+    el.btnSaveLoginClientId.addEventListener('click', () => {
+      const cId = el.inputLoginGoogleClientId?.value.trim() || '';
+      if (!cId) {
+        alert('Prosím, vložte platné Google OAuth 2.0 Client ID z Google Cloud Console.');
+        return;
+      }
+      state.googleClientId = cId;
+      localStorage.setItem('horny_vadicov_google_client_id', cId);
+      if (el.inputGoogleClientId) el.inputGoogleClientId.value = cId;
+      if (el.boxClientIdSetup) el.boxClientIdSetup.style.display = 'none';
+      initGoogleAuth();
+      showToast('Google Client ID bol úspešne uložený. Pripravujem oficiálne Google prihlásenie...', 'success');
+    });
+  }
+
   if (el.btnGoogleSignInDirect) {
     el.btnGoogleSignInDirect.addEventListener('click', () => {
-      if (window.google && window.google.accounts && window.google.accounts.id) {
+      if (state.googleClientId && window.google && window.google.accounts && window.google.accounts.id) {
         try {
           window.google.accounts.id.prompt();
           return;
         } catch (e) {}
       }
 
-      const email = prompt('Zadajte váš Google e-mail (napr. vas.email@gmail.com):', 'spravca@gmail.com');
+      // Ak ešte nie je nastavený Google Client ID, otvoríme políčko a ponúkneme rýchly vstup
+      if (el.boxClientIdSetup) {
+        el.boxClientIdSetup.style.display = 'block';
+        el.inputLoginGoogleClientId?.focus();
+      }
+
+      const email = prompt('Oficiálne Google vyskakovacie okno vyžaduje vlastné Client ID v Google Cloud Console.\n\nChcete sa zatiaľ prihlásiť priamo vaším Google e-mailom? Zadajte e-mail:', '');
       if (email && email.includes('@')) {
         loginWithEmail(email.trim());
       }
@@ -372,7 +433,9 @@
 
       localStorage.setItem('horny_vadicov_google_client_id', cId);
       localStorage.setItem('horny_vadicov_admin_emails', JSON.stringify(emailList));
+      if (el.inputLoginGoogleClientId) el.inputLoginGoogleClientId.value = cId;
 
+      initGoogleAuth();
       showToast('Google nastavenia a oprávnenia boli úspešne uložené.');
     });
   }

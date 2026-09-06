@@ -931,6 +931,23 @@
         <span>Prihlásiť sa cez Google účet</span>
       </button>
 
+      <!-- Možnosť zadať / nastaviť Google OAuth Client ID priamo z prihlasovacieho okna -->
+      <div style="margin-top: 0.75rem;">
+        <button type="button" id="btnToggleClientIdSetup" style="background: none; border: none; color: #003366; font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0.25rem 0.5rem;">
+          ⚙️ Nastaviť Google OAuth 2.0 Client ID
+        </button>
+        <div id="boxClientIdSetup" style="display: none; margin-top: 0.75rem; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 1rem; text-align: left;">
+          <label class="cms-form-label" for="inputLoginGoogleClientId" style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.25rem;">Google OAuth 2.0 Client ID:</label>
+          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <input type="text" class="cms-form-input" id="inputLoginGoogleClientId" placeholder="123456...apps.googleusercontent.com" style="font-size: 0.8rem;">
+            <button type="button" class="cms-btn cms-btn--primary" id="btnSaveLoginClientId" style="white-space: nowrap; font-size: 0.8rem; padding: 0.4rem 0.8rem;">Uložiť</button>
+          </div>
+          <p class="cms-form-help" style="font-size: 0.75rem; margin: 0; color: #64748b; line-height: 1.4;">
+            Získate v <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener" style="color: #003366; font-weight: 600;">Google Cloud Console</a>. Pôvod JavaScriptu (origin) musí byť: <strong style="color: #0f172a;">https://luckyboy-aja.github.io</strong>
+          </p>
+        </div>
+      </div>
+
       <!-- Alternatívne zadanie e-mailu ak nie je zatiaľ nastavený OAuth Client ID -->
       <div class="cms-login-direct-option" id="cmsLoginDirectOption">
         <div class="cms-login-divider"><span>alebo zadajte svoj Google e-mail</span></div>
