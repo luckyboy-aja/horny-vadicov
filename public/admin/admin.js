@@ -6,6 +6,8 @@
 (function () {
   'use strict';
 
+  const DEFAULT_GOOGLE_CLIENT_ID = '938832434468-no2mdh91ds84bb877a0oq73308nq7svq.apps.googleusercontent.com';
+
   // Globálny stav administrácie
   const state = {
     mode: 'detecting', // 'local' | 'github' | 'offline'
@@ -14,7 +16,7 @@
     repo: 'luckyboy-aja/horny-vadicov',
     branch: 'main',
     user: JSON.parse(localStorage.getItem('horny_vadicov_user') || 'null'),
-    googleClientId: localStorage.getItem('horny_vadicov_google_client_id') || '',
+    googleClientId: localStorage.getItem('horny_vadicov_google_client_id') || DEFAULT_GOOGLE_CLIENT_ID,
     adminEmails: JSON.parse(localStorage.getItem('horny_vadicov_admin_emails') || '[]'),
     
     // Dátové kolekcie
